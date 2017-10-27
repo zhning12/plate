@@ -1,0 +1,18 @@
+{% extends './layout/layout.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/styles/index.css"/>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h1>大家好，如果你看到了这段文字，说明你已经成功了</h1>
+  <div class="google"></div>
+</div>
+
+<!--build:js(.tmp) /static/scripts/index.js-->
+<script src="/static/plugin/jquery/jquery.js"></script>
+<script src="/static/scripts/index.js"></script>
+<!--endbuild-->
+{% endblock %}
+
