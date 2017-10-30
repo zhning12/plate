@@ -16,7 +16,7 @@
 ├── README.md                   // help
 ├── run.py                      // web入口
 ├── requirements.txt            // python相关依赖
-├── app                         // 页面模板
+├── app                         
 │   ├── __init__.py             // 构建数据库、运行web服务、构建蓝图
 │   ├── common.py               // 频繁使用的函数
 │   ├── config.py               // 相关配置

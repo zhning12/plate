@@ -20,12 +20,12 @@ clone 代码
 
 如果没有安装grunt，请先全局安装grunt
 ```bash
-$ npm i grunt-cli -g
+$ npm install grunt-cli -g
 ```
 安装npm包(可能需要一段时间，请耐心等待)
 
 ```bash
-$ npm i
+$ npm install
 ```
 
 开发模式(可以打开浏览器localhost:3001开始开发，端口配置文件里可以更改)
