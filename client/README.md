@@ -1,18 +1,32 @@
-# front-end-separate(前后端分离脚手架)
+# 简介
 
-- 使用grunt打包工具
-- 所有静态资源md5压缩打包,css,js,img,html
-- 可用于生产环境
 - 基于express和grunt的前后端分离框架
+- 所有静态资源基于grunt md5压缩打包,css,js,img,html
 - 模板引擎使用的是nunjucks，好处是可以实现模版继承，又不像jade一样把html标签都简化了
-- express提供路由服务
-- 项目中app为原代码文件（开发用），dist为打包后的文件（用于线上）
-- 开发使用app，线上使用dist，支持一键cdn部署，加速你的项目
-- 项目启动时，修改任何express代码，可以实现自动重启--基于nodemon
-- 基于grunt md5 打包合并
-- 线上输出的html已经压缩成一行（让你的代码更有Geeker范）
+- 项目中app为原代码文件（开发用），dist为打包后的文件（用于线上），支持一键cdn部署，加速你的项目
+- express提供路由服务，项目启动时，修改任何express代码，可以实现自动重启--基于nodemon
 
-## 怎么使用:
+## 环境
+
+- Node.js 8.9.0
+
+## 目录结构
+
+```
+├── README.md                   // help
+├── app.js                      // web入口
+├── Gruntfile.js                // Grunt配置文件
+├── routes    
+│   └── web                    
+│       └── site.js             // 路由配置
+├── app                         // 提供接口api
+│   ├── static                  // 静态文件
+│   ├── views                   // html视图文件
+│   └── favicon.ico             // 浏览器图标                
+└── config                      // Grunt和web服务配置文件
+```
+
+## 部署:
 
 clone 代码
 
@@ -22,6 +36,12 @@ clone 代码
 ```bash
 $ npm install grunt-cli -g
 ```
+
+全局安装better-npm-run
+```bash
+$ npm install better-npm-run -g
+```
+
 安装npm包(可能需要一段时间，请耐心等待)
 
 ```bash
@@ -55,3 +75,8 @@ $ grunt serve
 浏览器输入localhost:3001,你就可以看到漂亮的页面了
 
 打包命令 grunt build  会生成dist文件夹，里面可以看到js、css都加了md5缀
+
+## 参考资料
+
+- [Numjuck](https://mozilla.github.io/nunjucks/cn/templating.html)
+- [Material Design Lite](https://getmdl.io/)

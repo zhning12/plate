@@ -7,8 +7,10 @@ infoBlue = Blueprint('infoBlue', __name__)
 def add():
     # 获取name值，如果没有默认赋值'aa'
     name = request.form.get('name', 'aa')
+    age = request.form.get('age', 'bb')
     json = {
-        "name" : name
+        "name" : name,
+        "age" : age
     }
     return jsonify(json)
 
