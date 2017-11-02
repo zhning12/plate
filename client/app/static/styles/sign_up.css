@@ -1,0 +1,16 @@
+body{
+  background-color: #f4f7ed;
+}
+
+h1.hidden {display:none;}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    margin: 100 auto 4%;
+}

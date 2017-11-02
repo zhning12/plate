@@ -1,0 +1,46 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+  h1.hidden {display:none;}
+
+
+.logo{
+    display: flex;
+    margin: 100 auto 4%;
+}
+
+.solgan{
+    display: flex;
+    font-size: 28px;
+    color: #999;
+    margin:10px 0 70px;
+}
+
+.btn{
+    width: 190px;
+    line-height: 40px;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #68A593;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.btn:hover{
+    background-color: rgb(67, 135, 115);
+}
+.p-center{
+    line-height:24px;
+    font-size: 16px;
+   
+}
+.link-signin{
+    color:rgb(105, 148, 137);
+    
+    text-decoration: none;
+}
+
