@@ -40,6 +40,7 @@ $ npm install grunt-cli -g
 全局安装better-npm-run
 ```bash
 $ npm install better-npm-run -g
+$ npm install -g browser-sync
 ```
 
 安装npm包(可能需要一段时间，请耐心等待)

@@ -5,7 +5,7 @@ module.exports = function () {
             options: {
                 script: 'app.js',
                 ignore: ['README.md', 'node_modules/**'],
-                watch: ['routes/**', 'app.js'],
+                watch: ['routes/**', 'app.js','app/views/*.html'],
                 delay: 300,
                 env: {
                     PORT: port

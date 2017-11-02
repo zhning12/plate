@@ -1,0 +1,24 @@
+
+.box {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.solgan {
+  font-size:16px;
+  color:grey;
+}
+
+.baidu {
+  background-image: url(/static/images/index/sprite.png);
+  background-position: 0px 0px;
+  width: 540px;
+  height: 258px; }
+
+.btn {
+  line-height: 500px;
+  width:1000px;
+  background-color: blue;
+}

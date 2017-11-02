@@ -8,6 +8,7 @@ var ms=require("ms");
 var nunjucks=require("nunjucks");
 var compression = require('compression')
 var config=require("./config/config");
+var browserSync = require('browser-sync');
 
 
 var app = express();
@@ -33,5 +34,9 @@ routes(app);
 app.set('port', config.port.www);
 
 var server = app.listen(app.get('port'), function() {
+    browserSync({
+        proxy: 'localhost:3001',
+        files: ['app/**']
+      });
     console.log('Express server listening on port ' + server.address().port);
 });
