@@ -24,12 +24,19 @@
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
                     <input class="mdl-textfield__input" type="password" id="sample3">
-                    <label class="mdl-textfield__label" for="sample3">登录邮箱</label>
+                    <label class="mdl-textfield__label" for="sample3">密码</label>
                 </div>
             </form>
         </div>
         <div>
-            <p>没有账号？立即注册 → </p>
+            <a href="">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn" data-disable-with="正在登陆..." data-goto=`/users/${user_name}`>
+                    登录
+                </button>
+            </a>
+        </div>
+        <div class="other-choice">
+                <p>没有账号？<a href="/sign_up" class="link-sign">立即注册 → </a></p>
         </div>
     </div>
     </div>

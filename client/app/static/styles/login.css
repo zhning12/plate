@@ -28,7 +28,7 @@ h1.hidden {display:none;}
     display: flex;
     font-size: 28px;
     color: #999;
-    margin:10px 0 70px;
+    margin:30px 0 50px;
 }
 
 .btn{
@@ -53,7 +53,11 @@ h1.hidden {display:none;}
 }
 .link-signin{
     color:rgb(105, 148, 137);
-    
     text-decoration: none;
+   
 }
 
+.link-signin:hover {
+    color: #4ea5ad;
+    text-decoration: underline;
+} 

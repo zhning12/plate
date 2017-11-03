@@ -1,17 +1,50 @@
 <html>
-    <head>
-           
-            <link rel="stylesheet" href="/static/styles/mdl/material.min.css">
-            <script src="/static/styles/mdl/material.min.js"></script>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-            <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-light_blue.min.css" />
-            <link rel="stylesheet" href="/static/styles/sign.css" />
-    </head>
-    <body>
-        <div class="box">
-            
-        <h1 class="hidden">Plate Sign Up</h1>
-        <img src="/static/images/index/logo.jpg" class="logo" alt="Plate logo">
+
+<head>
+
+    <link rel="stylesheet" href="/static/styles/mdl/material.min.css">
+    <script src="/static/styles/mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-light_blue.min.css" />
+    <link rel="stylesheet" href="/static/styles/sign.css" />
+</head>
+
+<body>
+    <div class="box">
+        <div class="sign-page">
+            <h1 class="hidden">Plate Sign Up</h1>
+            <img src="/static/images/index/logo.jpg" class="logo" alt="Plate logo">
         </div>
-    </body>
+        <div>
+            <!-- Textfield with Floating Label -->
+
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">你的名字</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">邮箱，例如：1001@qq.com</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
+                    <input class="mdl-textfield__input" type="password" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">密码</label>
+                </div>
+            </form>
+        </div>
+        <div>
+            <a href="">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn">
+                    注册
+                </button>
+            </a>
+        </div>
+        <div class="other-choice">
+            <p>已有 Plate 账户？<a href="/sign_in" class="link-sign">直接登录 → </a></p>
+        </div>
+    </div>
+    </div>
+</body>
+
 </html>
