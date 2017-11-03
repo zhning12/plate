@@ -32,15 +32,11 @@ clone 代码
 
 启动命令行:
 
-如果没有安装grunt，请先全局安装grunt
+请先全局安装grunt,better-npm-run和browser-sync
 ```bash
 $ npm install grunt-cli -g
-```
-
-全局安装better-npm-run
-```bash
 $ npm install better-npm-run -g
-$ npm install -g browser-sync
+$ npm install browser-sync -g
 ```
 
 安装npm包(可能需要一段时间，请耐心等待)

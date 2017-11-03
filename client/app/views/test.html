@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends './layout/layout.html' %}
 
-<head>
-	<title>test</title>
-	<link rel="stylesheet" href="/static/styles/test.css" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</head>
+{% block head %}
+<title>test</title>
+{% endblock %}
 
-<body>
-	<div class="box">
-		<h1 class="solgan">test3</h1>
-		<div class="baidu"></div>
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn ">
-			Button 
-		</button>
-		<h1>sdsdffc12</h1>
-		<a>sdfsaf</a>
-	</div>
-</body>
+{% block styles %}
+<link rel="stylesheet" href="/static/styles/test.css" />
+{% endblock %}
 
-</html>
+{% block scripts %}
+<script defer src="/static/plugin/jquery/jquery.js"></script>
+<!--<script src="/static/scripts/index.js"></script>-->
+{% endblock %}
+
+{% block body %}
+<div class="box">
+	<h1 class="solgan">test3</h1>
+	<div class="baidu"></div>
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+		Button
+	</button>
+	<h1>sdsdffc12</h1>
+	<h1>关鹏</h1>
+	<a>sdfs</a>
+	<i class="material-icons">face</i>
+</div>
+{% endblock %}
