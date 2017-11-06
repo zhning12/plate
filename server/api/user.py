@@ -3,28 +3,46 @@ from app import getConn
 
 userBlue = Blueprint('userBlue', __name__)
 
-@userBlue.route('/user', methods=['POST'])
-def add():
+@userBlue.route('/sign-up', methods=['POST'])
+def signUp():
+    json = {
+        "status" : 0
+    }
     # 获取name值，如果没有默认赋值'aa'
     print (request.form)
-    name = request.form.get('name', 'aa')
+    username = request.form.get('username', '')
+    email = request.form.get('email', '')
+    password = request.form.get('password', '')
+    team = request.form.get('team', '')
     with getConn() as cursor:
-        cursor.execute('INSERT INTO USER (NAME , AGE) VALUES ("%s" , "%d")' % (name,18,))
-    json = {
-        "name" : name
-    }
+        cursor.execute('SELECT * FROM USER WHERE EMAIL = "%s"' % (email,))
+        if cursor.fetchone():
+            json = {
+                "status" : 1,
+                "content" : "email-existed"
+            }
+            return jsonify(json)
+        cursor.execute('INSERT IGNORE INTO TEAM (NAME) VALUES ("%s")' % (team,))
+        cursor.execute('SELECT ID FROM TEAM WHERE NAME = "%s"' % (team,))
+        team_id = cursor.fetchone()[0]
+        cursor.execute('INSERT INTO USER (USERNAME , EMAIL , PASSWORD , TEAM_ID) VALUES ("%s" ,"%s" ,"%s" , "%d")' % (username,email,password,team_id,))
     return jsonify(json)
 
 
-@userBlue.route('/user', methods=['GET'])
-def findAll():
-    with getConn() as cursor:
-        cursor.execute('SELECT * FROM USER')
-        for i in range(cursor.rowcount):
-            print (cursor.fetchone())
+@userBlue.route('/sign-in', methods=['POST'])
+def signIn():
     json = {
-        "str" : 'findAll'
+        "status" : 0
     }
+    email = request.form.get('email', '')
+    password = request.form.get('password', '')
+    with getConn() as cursor:
+        cursor.execute('SELECT * FROM USER WHERE EMAIL = "%s" AND PASSWORD = "%s"' % (email,password,))
+        if not cursor.fetchone():
+            json = {
+                "status" : 1,
+                "content" : "email-pwd-error"
+            }
     return jsonify(json)
 
 
