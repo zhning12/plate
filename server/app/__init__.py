@@ -5,16 +5,14 @@ from .model import Model
 from .common import getConn
 import MySQLdb
 import api
-import sys
 
 def create():
 
-    conn = MySQLdb.connect(host=DB['host'], port=DB['port'],
-                           user=DB['user'], passwd=DB['passwd'], db=DB['db'], charset=DB['charset'])
+    conn = getConn()
     with conn as cursor:
         for item in Model:
             cursor.execute(item)
-        print("create table finished!",file=sys.stdout)
+        print("create table finished!")
 
     app = Flask(__name__)
     CORS(app)
