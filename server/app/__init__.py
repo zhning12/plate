@@ -3,7 +3,6 @@ from flask_cors import CORS
 from .config import SERVER, DB
 from .model import Model
 from .common import getConn
-import MySQLdb
 import api
 
 def create():

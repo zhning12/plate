@@ -62,7 +62,7 @@ collation-server=utf8_general_ci
 ## 参考资料
 
 - [Flask](http://docs.jinkan.org/docs/flask/)
-- [MySQLdb](http://www.lijiejie.com/python-mysqldb-api-doc/)
+- [PyMySQL](http://www.runoob.com/python3/python3-mysql.html)
 - [Blueprint](http://python.usyiyi.cn/documents/flask_011_ch/blueprints.html)
 - [__ init __ jb51](http://www.jb51.net/article/87080.htm)，[__ init __ 知乎](https://www.zhihu.com/question/28688151)
 - [Flask-CORS](https://codinglonglong.github.io/posts/flask-corsjie-jue-ajaxkua-yu-qing-qiu-wen-ti/)

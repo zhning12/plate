@@ -1,3 +1,4 @@
-Flask==0.12.2
 Flask_Cors==3.0.2
-pipreqs==0.4.9
+Flask==0.12.2
+PyMySQL==0.7.11
+
