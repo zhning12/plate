@@ -42,6 +42,23 @@ python run.py
 pipreqs --encoding=utf8 --force .
 ```
 
+## MySQL 配置
+
+```
+// Ubuntu 16.04
+修改配置文件：sudo vim /etc/mysql/my.cnf
+注：其他 Linux 系统可能为 sudo vim /etc/my.cnf
+
+[client]
+default-character-set=utf8
+
+[mysqld]
+// 开启外键、事务等功能
+default-storage-engine=INNODB
+character-set-server=utf8
+collation-server=utf8_general_ci
+```
+
 ## 参考资料
 
 - [Flask](http://docs.jinkan.org/docs/flask/)
