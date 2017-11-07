@@ -5,6 +5,7 @@ node_modules
 .sass-cache
 npm-debug.log
 dist
+.vscode
 
 # Server
 # Byte-compiled / optimized / DLL files

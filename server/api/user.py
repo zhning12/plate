@@ -3,10 +3,11 @@ from app import getConn
 
 userBlue = Blueprint('userBlue', __name__)
 
-@userBlue.route('/sign-up', methods=['POST'])
+@userBlue.route('/signUp', methods=['POST'])
 def signUp():
     json = {
-        "status" : 0
+        "status" : 1,
+        "message" : "success"
     }
     # 获取name值，如果没有默认赋值'aa'
     print (request.form)
@@ -15,44 +16,33 @@ def signUp():
     password = request.form.get('password', '')
     team = request.form.get('team', '')
     with getConn() as cursor:
-        cursor.execute('SELECT * FROM USER WHERE EMAIL = "%s"' % (email,))
+        cursor.execute('select * from USER where EMAIL = "%s"' % (email,))
         if cursor.fetchone():
             json = {
-                "status" : 1,
-                "content" : "email-existed"
+                "status" : 0,
+                "message" : "email-existed-error"
             }
             return jsonify(json)
-        cursor.execute('INSERT IGNORE INTO TEAM (NAME) VALUES ("%s")' % (team,))
-        cursor.execute('SELECT ID FROM TEAM WHERE NAME = "%s"' % (team,))
-        team_id = cursor.fetchone()[0]
-        cursor.execute('INSERT INTO USER (USERNAME , EMAIL , PASSWORD , TEAM_ID) VALUES ("%s" ,"%s" ,"%s" , "%d")' % (username,email,password,team_id,))
+        cursor.execute('insert ignore into TEAM (NAME) values ("%s")' % (team,))
+        cursor.execute('select ID from TEAM where NAME = "%s"' % (team,))
+        teamId = cursor.fetchone()[0]
+        cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , TEAM_ID) values ("%s" ,"%s" ,"%s" , "%d")' % (username,email,password,teamId,))
     return jsonify(json)
 
 
-@userBlue.route('/sign-in', methods=['POST'])
+@userBlue.route('/signIn', methods=['POST'])
 def signIn():
     json = {
-        "status" : 0
+        "status" : 1,
+        "message" : "success"
     }
     email = request.form.get('email', '')
     password = request.form.get('password', '')
     with getConn() as cursor:
-        cursor.execute('SELECT * FROM USER WHERE EMAIL = "%s" AND PASSWORD = "%s"' % (email,password,))
+        cursor.execute('select * from USER where EMAIL = "%s" and PASSWORD = "%s"' % (email,password,))
         if not cursor.fetchone():
             json = {
-                "status" : 1,
-                "content" : "email-pwd-error"
+                "status" : 0,
+                "message" : "email-pwd-error"
             }
-    return jsonify(json)
-
-
-@userBlue.route('/user/<username>', methods=['GET'])
-def find(username="user"):
-    with getConn() as cursor:
-        cursor.execute('SELECT * FROM USER WHERE NAME = "%s"' % (username,))
-        for i in range(cursor.rowcount):
-            print (cursor.fetchone())
-    json = {
-        "username" : username
-    }
     return jsonify(json)

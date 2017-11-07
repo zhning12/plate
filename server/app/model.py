@@ -1,6 +1,6 @@
 Model = {
-     """
     # 邮件验证
+    """
     CREATE TABLE IF NOT EXISTS VALIDATION (
         ID INT NOT NULL AUTO_INCREMENT,
         EMAIL VARCHAR(255),
@@ -11,8 +11,8 @@ Model = {
         PRIMARY KEY (ID)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     """,
-    """
     # 团队
+    """
     CREATE TABLE IF NOT EXISTS TEAM (
         ID INT NOT NULL AUTO_INCREMENT,
         NAME VARCHAR(50) UNIQUE,
@@ -22,12 +22,12 @@ Model = {
         PRIMARY KEY (ID) 
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     """,
-    """
     # 用户信息
+    """
     CREATE TABLE IF NOT EXISTS USER (
         ID INT NOT NULL AUTO_INCREMENT,
         USERNAME VARCHAR(50),
-        EMAIL VARCHAR(255),
+        EMAIL VARCHAR(255) UNIQUE,
         PASSWORD VARCHAR(50),
         TEAM_ID INT,
         CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -35,14 +35,15 @@ Model = {
         PRIMARY KEY (ID)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     """,
+    # 任务
     """
-    # 项目
     CREATE TABLE IF NOT EXISTS TASK (
         ID INT NOT NULL AUTO_INCREMENT,
         NAME VARCHAR(50) NOT NULL,
         DESCIPTION LONGTEXT,
         ADDED_URL LONGTEXT,
-        DEADLINE DATETIME,
+        DEADLINE DATE,
+        FINISHED TINYINT(1),
         LEADER_ID INT NOT NULL,
         TEAM_ID INT NOT NULL,
         CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -50,8 +51,8 @@ Model = {
         PRIMARY KEY (ID)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     """,
+    # 用户和任务多对多中间表
     """
-    # 用户和项目多对多中间表
     CREATE TABLE IF NOT EXISTS USER_TASK (
         ID INT NOT NULL AUTO_INCREMENT,
         USER_ID INT NOT NULL,
