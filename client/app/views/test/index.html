@@ -40,6 +40,7 @@
                     <span class="mdl-layout__title">Plate User Page</span>
                 </span>
             </div>
+            <!--大屏时全部-->
             <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
                 <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
                     <a class="mdl-navigation__link is-active" href="index.html">项目</a>
@@ -48,13 +49,21 @@
                     <a class="mdl-navigation__link" href="contact.html">更多</a>
                 </nav>
             </div>
+            <!--小屏时“更多”被分开 移动端-->
+            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--small-screen-only">
+                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                    <a class="mdl-navigation__link is-active" href="index.html">项目</a>
+                    <a class="mdl-navigation__link" href="blog.html">我的</a>
+                    <a class="mdl-navigation__link" href="about.html">日历</a>
+                </nav>
+            </div>
         </header>
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <a class="mdl-navigation__link is-active" href="index.html">项目</a>
-                <a class="mdl-navigation__link" href="blog.html">我的</a>
-                <a class="mdl-navigation__link" href="about.html">日历</a>
-                <a class="mdl-navigation__link" href="contact.html">更多</a>
+                <a class="mdl-navigation__link is-active" href="index.html">关于我们</a>
+                <a class="mdl-navigation__link" href="blog.html">团队搜索</a>
+                <a class="mdl-navigation__link" href="about.html">切换团队</a>
+                <a class="mdl-navigation__link" href="contact.html">退出登录</a>
             </nav>
         </div>
         <main class="mdl-layout__content">

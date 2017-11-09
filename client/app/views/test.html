@@ -26,3 +26,43 @@
 	<i class="material-icons">face</i>
 </div>
 {% endblock %}
+
+
+<div class="mdl-layout mdl-js-layout box">
+        <header class="mdl-layout__header bottom" id="bottomHeader">
+            <!--生成菜单标签-->
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+                <!--在标题行div中，添加一个包含布局标题的span-->
+                <span class="mdl-layout__title">Simple Layout</span>
+                <!--在跨度之后，添加一个<div>将标题的导航链接对齐到右侧-->
+                <div class="mdl-layout-spacer"></div>
+                <!--在spacer div之后，添加一个<nav>元素来包含标题的导航链接，并按照指示包含MDL类。在nav中，
+     <a>为每个标题链接添加一个锚点元素，并按照指示包含MDL类。这完成了布局的标题。-->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#">Nav link 1</a>
+                    <a class="mdl-navigation__link" href="#">Nav link 2</a>
+                    <a class="mdl-navigation__link" href="#">Nav link 3</a>
+                </nav>
+            </div>
+        </header>
+
+        
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-footer  mdl-layout--fixed-tabs  box">
+            <header class="mdl-layout__header ">
+                <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-layout--large-screen-only ">
+                    <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+                    <a href="#fixed-tab-2" class="mdl-layout__tab">Tab 2</a>
+                    <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
+                    <a href="#fixed-tab-4" class="mdl-layout__tab">Tab 4</a>
+                </div>
+                </header>
+                <header  class="mdl-layout__header bottom">
+                <div class="mdl-layout__tab-bar mdl-js-ripple-effect  ">
+                    <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+                    <a href="#fixed-tab-2" class="mdl-layout__tab">Tab 2</a>
+                    <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
+                    <a href="#fixed-tab-4" class="mdl-layout__tab">Tab 4</a>
+                </div>
+            </header>
