@@ -28,5 +28,10 @@ module.exports = function (app) {
 	app.get('/mine', function (req, res) {
 		res.render("users/mine")
 	});
+
+	app.get('/mine-test', function (req, res) {
+		res.render("users/mine-test")
+	});
+
 };
 

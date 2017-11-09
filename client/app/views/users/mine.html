@@ -1,51 +1,62 @@
-{% extends './layout/users.html' %}
-{% block head %}
+{% extends '../layout/layout.html' %} {% block head %}
 <title>我的</title>
-{% endblock %} 
-{% block styles %}
-<link rel="stylesheet" href="/static/styles/mine.css" /> 
-{% endblock %} 
-{% block body %}
-    <div class="box">
-        <div class="row">
-        <header class="top">
-                <div class="component blink">
-                    <p>项目</p>
-                </div>
-                <div class="border"></div>
-                <div class="component blink">
-                    <p>日历</p>
-                </div>
-                <div class="border"></div>
-                <div class="component blink">
-                    <p>个人</p>
-                </div>
-                <div class="border"></div>
-                <div class="component blink">
-                    <p>更多</p>
-                </div>
-        </header>
+{% endblock %} {% block styles %}
+<link rel="stylesheet" href="/static/styles/mine.css" /> {% endblock %} {% block body %}
+<div class="box">
+
+    <div class="top header large-screen-only">
+        <a href="">
+            <div class=" component active">
+                <p class="active">项目</p>
+            </div>
+        </a>
+        <div class="border"></div>
+        <a>
+            <div class="component ">
+                <p>日历</p>
+            </div>
+        </a>
+        <div class="border"></div>
+        <a>
+            <div class="component ">
+                <p>个人</p>
+            </div>
+        </a>
+        <div class="border"></div>
+        <a>
+            <div class="component ">
+                <p>更多</p>
+            </div>
+        </a>
     </div>
 
-        <header class="bottom row">
-                <div class="component blink">
-                    <p>项目</p>
-                </div>
-                <div class="border"></div>
-                <div class="component blink">
-                    <p>日历</p>
-                </div>
-                <div class="border"></div>
-                <div class="component blink">
-                    <p>个人</p>
-                </div>
-                <div class="border"></div>
-                <div class="component blink">
-                    <p>更多</p>
-                </div>
-        </header>
+
+    <div class="small-screen-only bottom header ">
+        <a href="">
+            <div class="component active">
+                <p class="active">项目</p>
+            </div>
+        </a>
+        <div class="border"></div>
+        <a>
+            <div class="component ">
+                <p>日历</p>
+            </div>
+        </a>
+        <div class="border"></div>
+        <a>
+            <div class="component ">
+                <p>个人</p>
+            </div>
+        </a>
+        <div class="border"></div>
+        <a>
+            <div class="component ">
+                <p>更多</p>
+            </div>
+        </a>
     </div>
+</div>
 
 
 {% endblock %}
-
