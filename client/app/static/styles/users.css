@@ -6,3 +6,22 @@
     text-align: center;
     align-self: flex-end ;
 }
+
+/*大屏属性*/
+@media (max-width: 1028px) {
+    .large-screen-only{
+        display: none;
+    }
+  }
+/*小屏属性*/
+@media (min-width: 1028px) {
+    .small-screen-only{        
+      display: none;
+    }
+  }
+  
+  body{
+	background-color: #f4f7ed;
+	width:100%;
+    height:100%;
+}  

@@ -17,6 +17,14 @@ module.exports = function (app) {
 		res.render("users/signIn")
 	});
 
+	app.get('/project', function (req, res) {
+		res.render("users/project")
+	});
+
+	app.get('/choose', function (req, res) {
+		res.render("users/choose_team")
+	});
+
 	app.get('/mine', function (req, res) {
 		res.render("users/mine")
 	});
