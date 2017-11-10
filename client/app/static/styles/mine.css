@@ -8,12 +8,15 @@ body{
     position: fixed;
     width:100%;
     top:0px;
+    float: top;
+    background-color: #f4f7ed;
   }
   .bottom{
     display: block;
     position: fixed;
     width:100%;
     bottom: 0px;
+    background-color: #f4f7ed;
 }
 /*大屏属性*/
 @media (max-width: 768px) {
@@ -45,6 +48,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+
 }
 .border{
     height: 80%;
@@ -92,8 +96,8 @@ body{
     -webkit-box-align: center;
     justify-content: center;
     align-items: center;
+    z-index:-1;
 
-    overflow-y: scroll;
 }
 
 /*日历卡片*/
