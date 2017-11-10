@@ -4,23 +4,27 @@ body{
     background-color: #f4f7ed;
 }
 .top{
-    position: absolute;
+    display: block;
+    position: fixed;
     top: 20px;
+    width:100%;
   }
   .bottom{
+    display: block;
     position: fixed;
+    width:100%;
     bottom: 20px;
 }
 /*大屏属性*/
 @media (max-width: 768px) {
-    .large-screen-only div{
+    .large-screen-only{
         display: none;
         
     }
   }
 /*小屏属性*/
 @media (min-width: 769px) {
-    .small-screen-only div{        
+    .small-screen-only{        
       display: none;
     }
   }
@@ -35,6 +39,7 @@ body{
   }
 
 .header{
+    margin: 0 auto;
     width:50%;
     height:40px;
     display: flex;
@@ -69,4 +74,51 @@ body{
 }
 .active{
     color:#555;
+}
+
+.main{
+    width:100%;
+    max-width: 1127px;
+    margin:50px auto; 
+    padding: 0 20px;
+    background-color: green;
+    display: flex;
+    /*水平排列div元素的子元素*/
+    -webkit-box-orient: vertical;
+    /*以反方向显示 div 框的子元素：*/
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    /*通过使用 box-align and box-pack 属性，居中 div 框的子元素：*/
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+/*日历卡片*/
+
+.demo-card-event.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: #68A593;
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.demo-card-event > .mdl-card__title {
+  align-items: flex-start;
+}
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__actions > .material-icons {
+  padding-right: 10px;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
 }
