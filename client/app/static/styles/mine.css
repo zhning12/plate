@@ -48,7 +48,6 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 .border{
     height: 80%;
@@ -87,17 +86,25 @@ body{
     padding: 0 20px 50px 20px;
    
     display: flex;
-    /*水平排列div元素的子元素*/
-    -webkit-box-orient: vertical;
-    /*以反方向显示 div 框的子元素：*/
-    -webkit-box-direction: normal;
+   
     flex-wrap: wrap;
-    /*通过使用 box-align and box-pack 属性，居中 div 框的子元素：*/
-    -webkit-box-align: center;
+
     justify-content: center;
     align-items: center;
     z-index:-1;
 
+}
+.bottom-none{
+    width:100%;
+    height:80px;   
+    background-color: green;
+    align-self: flex-end;
+}
+.top-none{
+    width:100%;
+    height:40px;   
+    
+    align-self: flex-start;
 }
 
 /*日历卡片*/
