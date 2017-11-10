@@ -80,8 +80,8 @@ body{
     width:100%;
     max-width: 1127px;
     margin:50px auto; 
-    padding: 0 20px;
-    background-color: green;
+    padding: 0 20px 50px 20px;
+   
     display: flex;
     /*水平排列div元素的子元素*/
     -webkit-box-orient: vertical;
@@ -90,7 +90,7 @@ body{
     flex-wrap: wrap;
     /*通过使用 box-align and box-pack 属性，居中 div 框的子元素：*/
     -webkit-box-align: center;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
@@ -98,8 +98,10 @@ body{
 .demo-card-event.mdl-card {
   width: 256px;
   height: 256px;
-  background: #68A593;
-  margin: 20px 50px;
+  background-color: transparent;
+  border-color: transparent;
+  margin: 20px 40px;
+  border-radius: 15px 15px 0 0;
 }
 .demo-card-event > .mdl-card__actions {
   border-color: rgba(255, 255, 255, 0.2);
@@ -121,5 +123,5 @@ body{
 .demo-card-event > .mdl-card__title,
 .demo-card-event > .mdl-card__actions,
 .demo-card-event > .mdl-card__actions > .mdl-button {
-  color: #fff;
+  color: rgb(105, 148, 137);
 }
