@@ -1,0 +1,138 @@
+body{
+    height: 100%;
+    width: 100%;
+    background-color: #f4f7ed;
+}
+
+.top{
+    display: block;
+    position: fixed;
+    width:100%;
+    top:0px;
+    float: top;
+    background-color: #f4f7ed;
+}
+.bottom{
+    display: block;
+    position: fixed;
+    width:100%;
+    bottom: 0px;
+    background-color: #f4f7ed;
+}
+.bottom-none{
+    width:100%;
+    height:80px;   
+    align-self: flex-end;
+}
+.top-none{
+    width:100%;
+    height:40px;   
+    align-self: flex-start;
+}
+/*大屏属性*/
+@media (max-width: 768px) {
+    .large-screen-only{
+        display: none;
+        
+    }
+}
+/*小屏属性*/
+@media (min-width: 769px) {
+    .small-screen-only{        
+      display: none;
+    }
+}
+
+.box{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/*header css*/
+.header{
+    width: 60%;
+    height: 30px;
+    max-width: 990px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:30px auto;
+}
+.header-left{
+    height: 100%;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:0,0,40%;
+}
+.header-right{
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 0,0,20%;
+}
+.header-left a{
+    display: flex;
+    align-items: center;
+}
+.border{
+    width: 1px;
+    height: 20px;
+    margin-top: 5px;
+    background-color: rgba(85,85,85,0.15);
+}
+.teamName{
+   color:#84a099;
+    padding: 0px 30px;
+    white-space: nowrap;
+    height: 100%;
+
+}
+.teamName p{
+    font-size:20px;
+    line-height:30px;
+    font-weight: normal;
+     
+}
+.component{   
+    color: rgba(85,85,85,0.5);
+    padding: 0px 20px;
+    white-space: nowrap;
+    height: 100%;
+
+}
+.component p{
+    text-align: center;
+    font-size:16px;
+    line-height: 30px;
+}
+
+.header a{
+    text-decoration: none;
+    height: 100%;
+    cursor: pointer;
+}
+.component:hover{
+    color:#555;
+}
+.active{
+    color:#555;
+}
+
+/*主要内容*/
+.container{
+    /*整体属性*/
+    width: 100%;
+    max-width: 1127px;  
+    margin: 10px auto;
+    /*内部元素排列*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
