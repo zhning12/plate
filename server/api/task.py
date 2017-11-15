@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify , session
 from app import getConn
 
 taskBlue = Blueprint('taskBlue', __name__)
@@ -37,6 +37,14 @@ def getStartTask(email=""):
 
 @taskBlue.route('/getReceiveTask/<email>', methods=['GET'])
 def getReceiveTask(email=""):
+    json = {
+        "status": 1
+    }
+    return jsonify(json)
+
+@taskBlue.route('/addTask', methods=['POST'])
+def addTask():
+    print (session)
     json = {
         "status": 1
     }

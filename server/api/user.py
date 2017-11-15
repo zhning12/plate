@@ -1,4 +1,4 @@
-from flask import Blueprint , request , jsonify
+from flask import Blueprint , request , jsonify , session
 from app import getConn
 
 userBlue = Blueprint('userBlue', __name__)
@@ -32,17 +32,27 @@ def signUp():
 
 @userBlue.route('/signIn', methods=['POST'])
 def signIn():
+    head = ('id','username', 'email', 'teamId', 'created', 'updated')
     json = {
         "status" : 1,
         "message" : "success"
     }
     email = request.form.get('email', '')
+    print (email)
     password = request.form.get('password', '')
+    print (password)
     with getConn() as cursor:
         cursor.execute('select * from USER where EMAIL = "%s" and PASSWORD = "%s"' % (email,password,))
-        if not cursor.fetchone():
+        user = cursor.fetchone()
+        if not user:
             json = {
                 "status" : 0,
                 "message" : "email-pwd-error"
             }
+        else:
+            userDict = dict(zip(head, user))
+            print (userDict)
+            # 存储用户信息到session中
+            for item in head:
+                session[item] = userDict[item]
     return jsonify(json)

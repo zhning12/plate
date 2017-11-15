@@ -15,6 +15,7 @@ def create():
 
     app = Flask(__name__)
     CORS(app)
+    app.secret_key = SERVER['secretKey'] 
     app.register_blueprint(api.userBlue)
     app.register_blueprint(api.infoBlue)
     app.register_blueprint(api.taskBlue)

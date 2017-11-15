@@ -2,7 +2,7 @@ SERVER = {
     'host' : '127.0.0.1',
     'port' : 7000,
     'debug' : True,
-    'SECRET_KEY' : 'Sm9obiBTY2hyb20ga2lja3MgYXNz'
+    'secretKey' : 'Sm9obiBTY2hyb20ga2lja3MgYXNz'
 }
 
 DB = {

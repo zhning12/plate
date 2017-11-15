@@ -5,6 +5,10 @@
 {% block styles %}
 <link rel="stylesheet" href="/static/styles/sign.css" /> 
 {% endblock %} 
+{% block scripts %}
+<script src="/static/scripts/jquery.js"></script>
+<script src="/static/scripts/signIn.js"></script>
+{% endblock %} 
 {% block body %}
 <div class="box">
     <div class="sign-page">
@@ -26,11 +30,9 @@
         </form>
     </div>
     <div>
-        <a href="">
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn" data-disable-with="正在登陆..." data-goto=`/users/${user_name}`>
-                登录
-            </button>
-        </a>
+        <button id="abc" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn">
+            登录
+        </button>
     </div>
     <div class="other-choice">
             <p>没有账号？<a href="/sign-up" class="link-sign">立即注册 → </a></p>
