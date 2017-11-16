@@ -19,4 +19,5 @@ def create():
     app.register_blueprint(api.userBlue)
     app.register_blueprint(api.infoBlue)
     app.register_blueprint(api.taskBlue)
+    app.register_blueprint(api.teamBlue)
     app.run(host=SERVER['host'], port=SERVER['port'], debug=SERVER['debug'])

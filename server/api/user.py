@@ -5,7 +5,7 @@ userBlue = Blueprint('userBlue', __name__)
 
 @userBlue.route('/signUp', methods=['POST'])
 def signUp():
-    json = {
+    res = {
         "status" : 1,
         "message" : "success"
     }
@@ -18,34 +18,38 @@ def signUp():
     with getConn() as cursor:
         cursor.execute('select * from USER where EMAIL = "%s"' % (email,))
         if cursor.fetchone():
-            json = {
+            res = {
                 "status" : 0,
                 "message" : "email-existed-error"
             }
-            return jsonify(json)
+            return jsonify(res)
         cursor.execute('insert ignore into TEAM (NAME) values ("%s")' % (team,))
+        # 更新团队人数
         cursor.execute('select ID from TEAM where NAME = "%s"' % (team,))
         teamId = cursor.fetchone()[0]
         cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , TEAM_ID) values ("%s" ,"%s" ,"%s" , "%d")' % (username,email,password,teamId,))
-    return jsonify(json)
+    return jsonify(res)
 
 
 @userBlue.route('/signIn', methods=['POST'])
 def signIn():
-    head = ('id','username', 'email', 'teamId', 'created', 'updated')
-    json = {
+    head = ('id','username', 'email', 'teamId', 'created', 'updated','teamName')
+    res = {
         "status" : 1,
         "message" : "success"
     }
     email = request.form.get('email', '')
-    print (email)
     password = request.form.get('password', '')
-    print (password)
     with getConn() as cursor:
-        cursor.execute('select * from USER where EMAIL = "%s" and PASSWORD = "%s"' % (email,password,))
+        cursor.execute(
+            '''
+            select USER.ID,USERNAME,EMAIL,TEAM_ID,USER.CREATED,USER.UPDATED,TEAM.NAME
+            from USER join TEAM on USER.TEAM_ID = TEAM.ID 
+            where EMAIL = "%s" and PASSWORD = "%s"
+            ''' % (email,password,))
         user = cursor.fetchone()
         if not user:
-            json = {
+            res = {
                 "status" : 0,
                 "message" : "email-pwd-error"
             }
@@ -55,4 +59,17 @@ def signIn():
             # 存储用户信息到session中
             for item in head:
                 session[item] = userDict[item]
-    return jsonify(json)
+    return jsonify(res)
+
+@userBlue.route('/signOut', methods=['POST'])
+def signOut():
+    print (session)
+    params = ['id','username', 'email', 'teamId', 'created', 'updated','teamName']
+    for param in params:
+        session.pop(param, None)
+    print (session)
+    res = {
+        "status" : 1,
+        "message" : "success"
+    }
+    return jsonify(res)
