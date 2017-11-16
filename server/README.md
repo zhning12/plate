@@ -59,8 +59,6 @@ character-set-server=utf8
 collation-server=utf8_general_ci
 ```
 
-## 注册登录
-
 ## 参考资料
 
 - [Flask](http://docs.jinkan.org/docs/flask/)
