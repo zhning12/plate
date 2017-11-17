@@ -42,6 +42,21 @@ python run.py
 pipreqs --encoding=utf8 --force .
 ```
 
+如果安装了anaconda建议使用环境进行管理
+
+```
+cd your_dir
+
+conda create -n plate python=3
+
+pip install -r requirements.txt
+
+python run.py
+
+//导出requirements.txt
+pip freeze > requirements.txt
+```
+
 ## MySQL 配置
 
 ```
