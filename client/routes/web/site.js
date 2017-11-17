@@ -29,8 +29,8 @@ module.exports = function (app) {
 		res.render("users/mine")
 	});
 
-	app.get('/mine-test', function (req, res) {
-		res.render("users/mine-test")
+	app.get('/person', function (req, res) {
+		res.render("users/person")
 	});
 
 };

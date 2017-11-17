@@ -1,0 +1,140 @@
+body{   
+    height: 100%;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+/*小屏属性*/
+@media (max-width: 767px) {
+    .large-screen-only{
+        display: none;
+    }
+    body{
+       background-color:  #fafafa;
+    }
+    .box{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        margin-top:10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .all_pro{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 92px;
+        height: 32px;
+        margin: 0 7px 8px;
+        border-radius: 17px;
+        background-color: #efefef;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .all_pro p{
+        font-size: 14px;
+        height: 14px;
+        display: block;
+        color: #4ea5ad;
+    }
+    .card .material-icons{
+        width: 32px;
+        height: 32px;
+        font-size: 32px;
+        color: #5bc4c7;
+        margin: 10px;
+    }
+    .card{
+        width: 100%;
+        display: flex;
+        text-align: center;
+        height: 50px;
+        padding: 0 15px 0 60px;
+        color: #222;
+        border-bottom: 1px solid #e8e8e8;
+        border-top: 1px solid #e8e8e8;
+        background-color: #fff;
+        margin-top: -1px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .card p{
+        line-height: 50px;
+        font-size: 16px;
+        vertical-align: baseline;
+    }
+    .bottom-none{
+        width:100%;
+        height:80px;   
+        align-self: flex-end;
+    }
+    .header{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 60px;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #e8e8e8;
+        z-index: 9;
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .component{
+        height:50px;
+    }
+    .component p{
+        color: #ccc;
+    }
+    .component .material-icons{
+        display: block;
+        font-size: 28px;
+        color: #ccc;
+    }
+    .active .material-icons,.active p{
+        color:#5bc4c7;
+    }
+    .create_pro{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 92px;
+        height: 32px;
+        margin: 0 7px 8px;
+        border-radius: 17px;
+        background-color: #4ea5ad;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: fixed;
+        bottom:80px;
+    }
+    .create_pro p{
+        font-size: 14px;
+        height: 14px;
+        display: block;
+        color: #efefef;
+    }
+}
+/*大屏属性*/
+@media (min-width: 768px) {
+    .small-screen-only{        
+      display: none;
+    }
+
+}
