@@ -17,8 +17,8 @@ module.exports = function (app) {
 		res.render("users/signIn")
 	});
 
-	app.get('/project', function (req, res) {
-		res.render("users/project")
+	app.get('/task', function (req, res) {
+		res.render("users/task")
 	});
 
 	app.get('/choose', function (req, res) {
