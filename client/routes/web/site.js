@@ -34,8 +34,15 @@ module.exports = function (app) {
 	});
 
 	app.get('/person', function (req, res) {
-		res.render("users/person")
+		res.render("users/person-given")
 	});
 
+	app.get('/person-get',function(req,res){
+		res.render("users/person-get")
+	});
+
+	app.get('/test2',function(req,res){
+		res.render("users/test2")
+	});
 };
 
