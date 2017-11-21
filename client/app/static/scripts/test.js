@@ -20,15 +20,15 @@ $(document).ready(function () {
 	});
 
 	$("#abc").click( function(){
-		jsonData2 = {
+		jsonData = {
 			email : "example@qq.com",
 			password: "123456"
 		}
 		$.ajax({
 			type: "post",
-			url: "http://127.0.0.1:7000/signIn",
+			url: "http://result.eolinker.com/n7d6z5u6691b12046479482492142f3acfa7b501e22b581?uri=http://127.0.0.1:7000/signIn&resultType=failure",
 			dataType: 'json',
-			data: jsonData2,
+			data: jsonData,
 			success: function (data) {
 				console.log(data);
 			},
