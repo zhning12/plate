@@ -1,50 +1,14 @@
 {% extends '../layout/layout.html' %} {% block head %}
 <title>任务</title>
 {% endblock %} {% block styles %}
-<link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block body %}
-
+<link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} 
+{% block scripts %}
+<script src="/static/scripts/jquery.js"></script>
+<script src="/static/scripts/person.js"></script> 
+{% endblock %}
+{% block body %}
+{% include '../layout/header_top.html' %}
 <div class="box">
-    <div class="top large-screen-only">
-        <div class="header">
-            <div class="header-left">
-                <a href="">
-                    <div class="teamName">
-                        <p class="">团队名称</p>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="component active">
-                        <p class="active">任务</p>
-                    </div>
-                </a>
-                <div class="border"></div>
-                <a>
-                    <div class="component ">
-                        <p>日历</p>
-                    </div>
-                </a>
-                <div class="border"></div>
-                <a>
-                    <div class="component ">
-                        <p>团队</p>
-                    </div>
-                </a>
-                <div class="border"></div>
-                <a>
-                    <div class="component ">
-                        <p>自己</p>
-                    </div>
-                </a>
-            </div>
-            <div class="header-right">
-                <a>
-                    <div class="component ">
-                        <p>更多</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="top-none large-screen-only"></div>
         <div class="nav">
@@ -140,45 +104,9 @@
     <div class="bottom-none small-screen-only"></div>
 </div>
 
+{% include '../layout/header_bot.html' %}
 
-<div class=" small-screen-only">
-    <div class="header ">
-        <a href="" class="">
-            <div class="component active">
-                <i class="material-icons ">note</i>
-                <p class="active">任务</p>
-            </div>
-        </a>
 
-        <a>
-            <div class="component">
-                <i class="material-icons">event</i>
-                <p>日历</p>
-            </div>
-        </a>
 
-        <a>
-            <div class="component">
-                <i class="material-icons">group</i>
-                <p>团队</p>
-            </div>
-        </a>
-        <a>
-            <div class="component">
-                <i class="material-icons">person</i>
-                <p>自己</p>
-            </div>
-        </a>
-
-        <a>
-            <div class="component">
-                <i class="material-icons">menu</i>
-                <p>更多</p>
-            </div>
-        </a>
-
-    </div>
-</div>
-</div>
 
 {% endblock %}

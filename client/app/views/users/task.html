@@ -1,7 +1,12 @@
 {% extends '../layout/layout.html' %} {% block head %}
 <title>任务</title>
 {% endblock %} {% block styles %}
-<link rel="stylesheet" href="/static/styles/task.css" /> {% endblock %} 
+<link rel="stylesheet" href="/static/styles/task.css" /> {% endblock %}
+
+{% block scripts %}
+<script src="/static/scripts/jquery.js"></script>
+<script src="/static/scripts/task.js"></script> 
+{% endblock %}
 {% block body %}
 
 {% include '../layout/header_top.html' %}
@@ -70,7 +75,6 @@
 
 
 {% include '../layout/header_bot.html' %}
-</div>
-</div>
+
 
 {% endblock %}
