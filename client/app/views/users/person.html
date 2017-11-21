@@ -1,7 +1,7 @@
 {% extends '../layout/layout.html' %} {% block head %}
 <title>任务</title>
 {% endblock %} {% block styles %}
-<link rel="stylesheet" href="/static/styles/project.css" /> {% endblock %} {% block body %}
+<link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block body %}
 
 <div class="box">
     <div class="top large-screen-only">
@@ -47,60 +47,24 @@
     </div>
     <div class="container">
         <div class="top-none large-screen-only"></div>
-
-        <div class="all_pro small-screen-only">
-            <p>所有项目</p>
-        </div>
-
-        <a class="card">
-            <i class="material-icons ">alarm</i>
-            <p>项目推广</p>
-        </a>
-
-        <a class="card">
-            <i class="material-icons ">alarm</i>
-            <p>项目推广</p>
-        </a>
-
-        <a class="card">
-            <i class="material-icons ">alarm</i>
-            <p>项目推广</p>
-        </a>
-
-        <a class="card">
-            <i class="material-icons ">alarm</i>
-            <p>项目推广</p>
-        </a>
-
-        <a class="card">
-            <i class="material-icons ">alarm</i>
-            <p>项目推广</p>
-        </a>
-        <a class="card">
-                <i class="material-icons ">alarm</i>
-                <p>项目推广</p>
-            </a>
-            <a class="card">
-                    <i class="material-icons ">alarm</i>
-                    <p>项目推广</p>
+        <div class="nav">
+            <div class="todo-tabs small-screen-only">
+                <a href="" class="tab active">
+                    我发起的
                 </a>
-                <a class="card">
-                        <i class="material-icons ">alarm</i>
-                        <p>项目推广</p>
-                    </a>
-                    <a class="card">
-                            <i class="material-icons ">alarm</i>
-                            <p>项目推广</p>
-                        </a>
-
-        <div class="create_pro small-screen-only">
-                <p>新建项目</p>
+                <a href="" class="tab">
+                    我负责的
+                </a>
             </div>
-
-
-        <div class="card-none"></div>
-        <div class="card-none"></div>
-        <div class="card-none"></div>
+        </div>
+        <div class="todo-box">
+            <a href="" class="todo break-word">
+                <div class="name">
+                    <span class="tode-text">后端前台页面</span>
+                </div>
+                <div class="info truncate-text"></div>
+            </a>
+        </div>
     </div>
     <div class="bottom-none small-screen-only"></div>
 </div>
@@ -114,14 +78,14 @@
                 <p class="active">任务</p>
             </div>
         </a>
-      
+
         <a>
             <div class="component">
                 <i class="material-icons">event</i>
                 <p>日历</p>
             </div>
         </a>
-       
+
         <a>
             <div class="component">
                 <i class="material-icons">group</i>
@@ -134,7 +98,7 @@
                 <p>自己</p>
             </div>
         </a>
-        
+
         <a>
             <div class="component">
                 <i class="material-icons">menu</i>
