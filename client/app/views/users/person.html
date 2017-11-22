@@ -1,0 +1,110 @@
+{% extends '../layout/layout.html' %} {% block head %}
+<title>任务</title>
+{% endblock %} {% block styles %}
+<link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block scripts %}
+<script src="/static/scripts/jquery.js"></script>
+<script src="/static/scripts/person.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+<div class="top-none large-screen-only"></div>
+<div class="container">
+    <div class="large-screen-only user_info">
+        <img class="avator" alt="username" src="../../static/images/avator.png">
+
+        <div class="member-card">
+            <p class="username">关鹏</p>
+            <p class="email">875499765@qq.com</p>
+        </div>
+    </div>
+
+    <div class="mdl-tabs mdl-js-tabs">
+        <div class="mdl-tabs__tab-bar mdl-js-ripple-effect">
+            <a href="#tab1" class="mdl-tabs__tab is-active">我发起的</a>
+            <a href="#tab2" class="mdl-tabs__tab">我负责的</a>
+        </div>
+        <div class=" mdl-tabs__panel is-active todo-box" id="tab1">
+            <a href="">
+                <div class="todo break-word">
+                    <div class="name ">
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+                            <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input">
+                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
+                        </label>
+                    </div>
+                    <div class="info truncate-text">
+                        <span class="asignee">
+                            <img src="" class="avater"> 用户名
+                        </span>
+                        <span class="due-at">
+                            <i class="material-icons">schedule</i>
+                            11月21日
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="todo break-word">
+                    <div class="name ">
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
+                        </label>
+                    </div>
+                    <div class="info truncate-text">
+                        <span class="asignee">
+                            <img src="" class="avater"> 用户名
+                        </span>
+                        <span class="due-at">
+                            <i class="material-icons">schedule</i>
+                            11月21日
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mdl-tabs__panel todo-box" id="tab2">
+            <a href="">
+                <div class="todo break-word">
+                    <div class="name ">
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3">
+                            <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input">
+                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
+                        </label>
+                    </div>
+                    <div class="info truncate-text">
+                        <span class="asignee">
+                            <img src="" class="avater"> 用户名
+                        </span>
+                        <span class="due-at">
+                            <i class="material-icons">schedule</i>
+                            11月21日
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="todo break-word">
+                    <div class="name ">
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4">
+                            <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input">
+                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
+                        </label>
+                    </div>
+                    <div class="info truncate-text">
+                        <span class="asignee">
+                            <img src="" class="avater"> 用户名
+                        </span>
+                        <span class="due-at">
+                            <i class="material-icons">schedule</i>
+                            11月21日
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-none small-screen-only"></div>
+</div>
+
+{% include '../layout/header_bot.html' %} {% endblock %}

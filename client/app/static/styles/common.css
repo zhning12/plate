@@ -13,8 +13,6 @@ a{
     body{
        background-color:  #fafafa;
     }
-    
-    
     .bottom-none{
         width:100%;
         height:80px;   
@@ -59,7 +57,7 @@ a{
     }
     .top-none{
         width:100%;
-        height:40px;   
+        height:70px;   
         align-self: flex-start;
     }
     body{
