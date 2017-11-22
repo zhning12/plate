@@ -54,6 +54,7 @@ a{
         font-size: 32px;
         color: #5bc4c7;
         margin: 10px;
+        
     }
     .card{
         width: 100%;
@@ -105,15 +106,18 @@ a{
         display: block;
         font-size: 28px;
         color: #ccc;
+
     }
     .active .material-icons,.active p{
         color:#5bc4c7;
+        
     }
     .create_pro{
         position: fixed;
         bottom:80px;
+        right:40px;
     }
-    
+
 }
 /*大屏属性*/
 @media (min-width: 768px) {
@@ -140,6 +144,7 @@ a{
         height: 60px;
         font-size: 60px;
         color: #c8bfa5;
+        
     }
     .card-none{
         width: 222px;
