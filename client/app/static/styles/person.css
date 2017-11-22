@@ -94,23 +94,23 @@ a{
         /*整体属性*/
         background-color: white;
         max-width: 964px;  
+        width: 100%;
         min-height: 600px;
         margin: auto;
         /*内部元素排列*/
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        
-        
-        width: 100%;
         border: 1px solid #dbdfd6;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         opacity: 1;
     }
     .user_info{
         width: 100%;
+        max-width: 964px;
         min-height:80px;
-        padding: 20px 40px;
+        padding: 20px  40px;
+
         border-bottom:1px solid #e6e6e6; 
         display: flex;
         
@@ -145,7 +145,7 @@ a{
     /*任务栏*/
     .todo-box{
         padding: 20px 40px;
-        width: 100%;
+       
         display: flex;
         align-content: center;
         flex-direction: column;
@@ -155,6 +155,7 @@ a{
         width: 100%;
         min-height:60px;
         padding-left:30px;
+        border-bottom: 1px solid #e6e6e6;
     }
     .todo-text{
         color:black;
@@ -164,6 +165,7 @@ a{
     .info{
         /*和上面项目名对齐*/
         margin: 5px 20px ;
+
     }
     .asignee{
         
