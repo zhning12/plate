@@ -1,0 +1,14 @@
+{% extends '../layout/layout.html' %} {% block head %}
+<title>日历</title>
+{% endblock %} {% block styles %}
+<link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block scripts %}
+<script src="/static/scripts/jquery.js"></script>
+<script src="/static/scripts/calendar.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+<div class="top-none large-screen-only"></div>
+<div class="container">
+
+
+    <div class="bottom-none small-screen-only"></div>
+</div>
+
+{% include '../layout/header_bot.html' %} {% endblock %}
