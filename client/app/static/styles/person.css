@@ -33,37 +33,11 @@ a{
         width: 90%;
         margin: 0 15px;
     }
-    .todo-tabs{
-        margin-bottom: 10px;
-        height: 28px;
-        border: 1px solid #5bc4c7;
-        border-radius: 4px;
-        font-size: 14px;
-        background-color: #fff;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-
-    }
-    .todo-tabs .tab.active{
-        background-color: #5bc4c7;
-        color: #fff;
-        pointer-events: none;
-    }
-    .todo-tabs .tab {
-        display: block;
-        -webkit-box-flex: 1;
-        -webkit-flex: 1;
-        flex: 1;
-        line-height: 28px;
-        text-align: center;
-        color: #5bc4c7;
-    }
-    
+       
     .todo-box{
         width: 100%;
         background-color: white;
-        margin-bottom: 10px;
+        margin: 20px 0;
     }
     .break-word{
         word-break: break-all;
@@ -110,41 +84,111 @@ a{
         height:80px;   
         align-self: flex-end;
     }
-    .header{
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 60px;
-        width: 100%;
-        background-color: #fff;
-        border-top: 1px solid #e8e8e8;
-        z-index: 9;
-        display: -webkit-flex;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .component{
-        height:50px;
-    }
-    .component p{
-        color: #ccc;
-    }
-    .component .material-icons{
-        display: block;
-        font-size: 28px;
-        color: #ccc;
-    }
-    .active .material-icons,.active p{
-        color:#5bc4c7;
-    }
+    
     
 }
 /*大屏属性*/
 @media (min-width: 768px) {
-    .small-screen-only{        
-      display: none;
+    
+    .container{
+        /*整体属性*/
+        background-color: white;
+        max-width: 964px;  
+        min-height: 600px;
+        margin: auto;
+        /*内部元素排列*/
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+        
+        width: 100%;
+        border: 1px solid #dbdfd6;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        opacity: 1;
+    }
+    .user_info{
+        width: 100%;
+        min-height:80px;
+        padding: 20px 40px;
+        border-bottom:1px solid #e6e6e6; 
+        display: flex;
+        
+    }
+    .avator{
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        padding-left:35px;
+    }
+    .member-card{
+        padding-left: 30px;
+        height: 80px;
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+    }
+    .member-card{
+        margin: 0px;
+    }
+ 
+    .member-card .username{
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 36px;
+        color: rgb(51, 51, 51);
+    }
+    .member-card .email{
+        font-size: 14px;
+        color: #999;
+    }
+    /*任务栏*/
+    .todo-box{
+        padding: 20px 40px;
+        width: 100%;
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+    }
+    .todo{
+        margin-bottom:20px;
+        width: 100%;
+        min-height:60px;
+        padding-left:30px;
+    }
+    .todo-text{
+        color:black;
+        font-size: 15px;
+        line-height: 24px;
+    }
+    .info{
+        /*和上面项目名对齐*/
+        margin: 5px 20px ;
+    }
+    .asignee{
+        
+        
+    }
+    .asignee .avater{
+        
+    }
+    .asignee, .due-at{
+        margin: 0 0 0 5px;
+        padding: 3px 7px 3px;
+        line-height: 1;
+        background-color: #efefef;
+        font-size: 12px;
+        color: #999;
+        font-style: normal;
+        vertical-align: middle;
+        white-space: nowrap;
+        word-break: keep-all;
+        word-wrap: normal;
+        border-radius: 10px;
+        
+    }
+    .due-at .material-icons{
+        font-size:12px;
     }
 
 }

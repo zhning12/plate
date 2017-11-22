@@ -34,7 +34,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/person', function (req, res) {
-		res.render("users/person-given")
+		res.render("users/person")
 	});
 
 	app.get('/person-get',function(req,res){

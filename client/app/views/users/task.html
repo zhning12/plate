@@ -1,18 +1,13 @@
 {% extends '../layout/layout.html' %} {% block head %}
 <title>任务</title>
 {% endblock %} {% block styles %}
-<link rel="stylesheet" href="/static/styles/task.css" /> {% endblock %}
-
-{% block scripts %}
+<link rel="stylesheet" href="/static/styles/task.css" /> {% endblock %} {% block scripts %}
 <script src="/static/scripts/jquery.js"></script>
-<script src="/static/scripts/task.js"></script> 
-{% endblock %}
-{% block body %}
+<script src="/static/scripts/task.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 
-{% include '../layout/header_top.html' %}
 <div class="box">
+    <div class="top-none large-screen-only"></div>
     <div class="container">
-        <div class="top-none large-screen-only"></div>
 
         <div class="all_pro small-screen-only">
             <p>所有项目</p>
@@ -74,7 +69,4 @@
 </div>
 
 
-{% include '../layout/header_bot.html' %}
-
-
-{% endblock %}
+    {% include '../layout/header_bot.html' %} {% endblock %}
