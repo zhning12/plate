@@ -37,12 +37,12 @@ module.exports = function (app) {
 		res.render("users/person")
 	});
 
-	app.get('/mine', function (req, res) {
-		res.render("users/mine")
+	app.get('/more', function (req, res) {
+		res.render("users/more")
 	});
 
-	app.get('/choose', function (req, res) {
-		res.render("users/choose_team")
+	app.get('/switch', function (req, res) {
+		res.render("users/switch_team")
 	});
 
 };
