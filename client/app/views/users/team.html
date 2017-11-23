@@ -1,12 +1,28 @@
 {% extends '../layout/layout.html' %} {% block head %}
 <title>团队</title>
 {% endblock %} {% block styles %}
-<link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block scripts %}
+<link rel="stylesheet" href="/static/styles/team.css" /> {% endblock %} {% block scripts %}
 <script src="/static/scripts/jquery.js"></script>
 <script src="/static/scripts/team.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 <div class="top-none large-screen-only"></div>
 <div class="container">
+    <a src="" class="title">
+        <h1>蚂蜂社</h1>
+    </a>
 
+    <div class="member-list">
+        <div class="member">
+            <img class="avator" src="/static/images/avator.png" alt="user avator">
+            <div class="member_info">
+                <div class="member_name">
+                    关鹏
+                </div>
+                <div class="member_email">
+                    875499765@qq.com
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="bottom-none small-screen-only"></div>
 </div>
