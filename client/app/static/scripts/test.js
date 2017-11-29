@@ -6,7 +6,7 @@ $(document).ready(function () {
 	}
 	$.ajax({
 		type: "post",
-		url: "http://result.eolinker.com/n7d6z5u6691b12046479482492142f3acfa7b501e22b581?uri=http://127.0.0.1:7000/signIn&resultType=failure",
+		url: globalurl+"signIn"+fail,
 		dataType: 'json',
 		data: jsonData,
 		success: function (data) {

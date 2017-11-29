@@ -3,7 +3,7 @@ $(document).ready(function () {
 	$(".task").addClass("active");
 	$.ajax({
 		type: "get",
-		url: "http://result.eolinker.com/n7d6z5u6691b12046479482492142f3acfa7b501e22b581?uri=http://localhost:7000/getTeamTask",
+		url: globalurl+"getTeamTask"+fail,
 		dataType: 'json',
 		success: function (data) {
 			if(data['status']==1){
