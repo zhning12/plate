@@ -7,7 +7,7 @@ $(document).ready(function () {
 		}
 		$.ajax({
 			type: "post",
-			url: "http://127.0.0.1:7000/signIn",
+			url: globalurl+"signIn"+fail,
 			dataType: 'json',
 			data: jsonData,
 			success: function (data) {
