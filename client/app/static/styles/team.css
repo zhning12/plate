@@ -73,5 +73,19 @@ a{
 }
 /*大屏属性*/
 @media (min-width: 768px) {
-
+    .container{
+        /*整体属性*/
+        background-color: white;
+        max-width: 964px;  
+        width: 100%;
+        min-height: 600px;
+        margin: auto;
+        /*内部元素排列*/
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid #dbdfd6;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        opacity: 1;
+    }
 }
