@@ -107,9 +107,9 @@ a{
     }
     .user_info{
         width: 100%;
-        max-width: 964px;
+
         min-height:80px;
-        padding: 20px  40px;
+        padding: 20px 40px;
 
         border-bottom:1px solid #e6e6e6; 
         display: flex;
