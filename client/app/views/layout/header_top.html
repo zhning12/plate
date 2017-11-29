@@ -1,8 +1,6 @@
 <html>
-
 <head>
     <link rel="stylesheet" href="/static/styles/common.css" />
-    
 </head>
 
 <body>
@@ -20,15 +18,16 @@
                     </div>
                 </a>
                 <div class="border"></div>
-                <a>
+                <a href="/calendar">
                     <div class="component ">
-                        <p class="calender">日历</p>
+                        <p class="calendar">日历</p>
                     </div>
                 </a>
                 <div class="border"></div>
-                <a>
+                <a href="/team">
                     <div class="component ">
-                        <p class="team">团队</>
+                        <p class="team">团队
+                            </>
                     </div>
                 </a>
                 <div class="border"></div>
@@ -39,11 +38,18 @@
                 </a>
             </div>
             <div class="header-right">
-                <a>
-                    <div class="component ">
-                        <p class="more">更多</p>
-                    </div>
-                </a>
+                <!-- Right aligned menu below button -->
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">menu</i>
+                </button>
+
+                <ul class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <li class="mdl-menu__item">Some Action</li>
+                    <li class="mdl-menu__item">Another Action</li>
+                    <li disabled class="mdl-menu__item">Disabled Action</li>
+                    <li class="mdl-menu__item">Yet Another Action</li>
+                </ul>
+               
             </div>
         </div>
     </div>

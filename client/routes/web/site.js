@@ -21,20 +21,24 @@ module.exports = function (app) {
 		res.render("users/task")
 	});
 
-	app.get('/choose', function (req, res) {
-		res.render("users/choose_team")
+	app.get('/calendar',function(req,res){
+		res.render("users/calendar")
 	});
-
-	app.get('/mine', function (req, res) {
-		res.render("users/mine")
+	
+	app.get('/team',function(req,res){
+		res.render("users/team")
 	});
 
 	app.get('/person', function (req, res) {
 		res.render("users/person")
 	});
 
-	app.get('/person-get',function(req,res){
-		res.render("users/person-get")
+	app.get('/more', function (req, res) {
+		res.render("users/more")
+	});
+
+	app.get('/switch', function (req, res) {
+		res.render("users/switch_team")
 	});
 
 };

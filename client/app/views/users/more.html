@@ -1,0 +1,30 @@
+{% extends '../layout/layout.html' %} {% block head %}
+<title>更多</title>
+{% endblock %} {% block styles %}
+<link rel="stylesheet" href="/static/styles/more.css" /> {% endblock %} {% block scripts %}
+<script src="/static/scripts/jquery.js"></script>
+<script src="/static/scripts/more.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+<div class="top-none large-screen-only"></div>
+<div class="container">
+    <a src="" class="title">
+        <h1>蚂蜂社</h1>
+    </a>
+
+    <div class="button-list">
+        <a href="/switch">
+        <button class="btn" id="switch_team" >
+            切换团队
+        </button>
+    </a>
+
+    <a href="/">
+        <button class="btn" id="log_out" >
+            退出登录
+        </button>
+    </a>
+    </div>
+
+    <div class="bottom-none small-screen-only"></div>
+</div>
+
+{% include '../layout/header_bot.html' %} {% endblock %}
