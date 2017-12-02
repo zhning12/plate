@@ -25,6 +25,10 @@ module.exports = function (app) {
 		res.render("users/task")
 	});
 
+	app.get('/add_items', function (req, res) {
+		res.render("users/add_items")
+	});
+
 	app.get('/calendar',function(req,res){
 		res.render("users/calendar")
 	});

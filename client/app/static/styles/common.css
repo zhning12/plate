@@ -83,15 +83,13 @@ a{
     /*header css*/
     .header{
         height: 30px;
-        max-width: 990px;
+        max-width: 900px;
         margin: 20px auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding:30px auto;
-    }
-    .large-screen-only .header{
-        width: 60%;
+        width: 78%;
     }
     
     .header-left{

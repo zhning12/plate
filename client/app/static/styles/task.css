@@ -10,6 +10,10 @@ a{
     .large-screen-only{
         display: none;
     }
+    .card .large-screen-only{
+        display: none;
+    }
+    
     body{
        background-color:  #fafafa;
     }
@@ -118,6 +122,7 @@ a{
         font-size: 60px;
         color: #c8bfa5;
     }
+    
     .card .small-screen-only{
         display: none;
     }
