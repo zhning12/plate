@@ -76,8 +76,9 @@ a{
     .container{
         /*整体属性*/
         background-color: white;
-        max-width: 964px;  
+        max-width: 904px;  
         width: 100%;
+        padding: 0 30px 40px;
         min-height: 600px;
         margin: auto;
         /*内部元素排列*/
@@ -87,5 +88,64 @@ a{
         border: 1px solid #dbdfd6;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         opacity: 1;
+    }
+    
+    .title{
+        height: 80px;
+        width:100%;
+        display: flex;
+        align-items: center;
+        
+    }
+    h1{
+        margin-left:5px;
+        font-weight: 500;
+        font-size: 32px;
+        color: rgb(51, 51, 51);
+    }
+    .member-list{
+        display: flex;
+        flex-direction: column;
+        width:100%;
+
+    }
+    .member{
+        border-top: 1px solid #e8e8e8;
+        height: 78px;
+        display: flex;
+        align-items: center;
+    }
+    .member img{
+        width: 54px;
+        height: 54px;
+        padding: 0 15px;
+        flex: 0 0 54px;
+        border-radius: 50%;
+    }
+    
+    .member div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 54px;
+        width: 500px;
+    }
+    .member_name{
+        padding-left: 15px;
+        max-width: 250px;
+        color: #333;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .member_email{
+        max-width: 200px;
+        min-width: 100px;
+        font-size: 14px;
+        color:#555;
+    }
+    .member_phone{
+        min-width:100px;
+        display: flex;
+        justify-content: center;
     }
 }

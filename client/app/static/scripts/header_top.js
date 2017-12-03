@@ -1,7 +1,6 @@
 $(document).ready(function () {
-	console.log(1);
-	$(".more").addClass("active");
-	$.ajax({
+    console.log(1);
+    $.ajax({
         type: "get",
         url: globalurl+"getUser"+fail,
         dataType: 'json',
@@ -9,7 +8,7 @@ $(document).ready(function () {
             if(data['status']==1){
                 console.log(data);
                 var teamName = data['data']['teamName'];  
-                $("#teamName").append(teamName);
+                $("#teamName_head").append(teamName); 
             }
             else{
                 alert('error!');
@@ -21,5 +20,6 @@ $(document).ready(function () {
             console.log(errorThrown);
         }
     });
+	
 	
 });

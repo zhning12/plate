@@ -1,0 +1,60 @@
+body{   
+    height: 100%;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+/*小屏属性*/
+@media (max-width: 767px) {
+    .large-screen-only{
+        display: none;
+    }
+    body{
+       background-color:  #fafafa;
+    }
+    .container{
+        margin-top:10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+/*大屏属性*/
+@media (min-width: 768px) {
+    
+    .container{
+        /*整体属性*/
+        background-color: white;
+        max-width: 964px;  
+        width: 100%;
+        min-height: 600px;
+        margin: auto;
+        /*内部元素排列*/
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid #dbdfd6;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        opacity: 1;
+        padding-left: 20px;
+    }
+    .title{
+        font-size: 20px;
+        color: #333;
+        margin:20px 10px ;
+
+    }
+    .task_all{
+        width:580px;
+      
+    }
+    .task_name, .task_description{
+        margin: 10px;
+    }
+    button{
+        display: inline;
+    }
+}

@@ -1,6 +1,9 @@
 <html>
 <head>
     <link rel="stylesheet" href="/static/styles/common.css" />
+    <script src="/static/scripts/jquery.js"></script>
+    <script src="/static/scripts/global.js"></script>
+    <script src="/static/scripts/header_top.js"></script>
 </head>
 
 <body>
@@ -9,7 +12,7 @@
             <div class="header-left">
                 <a href="">
                     <div class="teamName">
-                        <p class="">团队名称</p>
+                        <p id="teamName_head"></p>
                     </div>
                 </a>
                 <a href="/task">
@@ -45,7 +48,7 @@
 
                 <ul class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                     <a href="/switch"><li class="mdl-menu__item">切换团队</li></a>
-                    <li class="mdl-menu__item" id="logOut">退出登录</li>
+                    <li class="mdl-menu__item" id="signOut">退出登录</li>
 
                 </ul>
                
