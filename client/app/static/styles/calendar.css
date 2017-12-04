@@ -15,4 +15,53 @@
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         opacity: 1;
     }
+    
+    #calendar{
+        width:100%;
+        padding:0px !important;
+    }
+    
 }
+
+@media (max-width: 767px) {
+    #calendar{
+        width:100%;
+        margin:20px 0px !important;
+        padding:0px !important;
+    }
+}
+
+.fc-corner-left , .fc-corner-right{
+    background-image:none;
+    background-color:white;
+    outline:none;
+}
+
+.fc-button-group :hover{
+    background-color:#eeeeee;
+}
+
+.fc-center h2{
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.fc-day-number, .fc-list-heading-main, .fc-list-heading-alt{
+    color:#111111;
+}
+
+.fc-more{
+    color: #3a87ad;
+}
+
+.fc-scroller{
+    height:100% !important;
+}
+/* table{
+    border-top: none !important;
+    border-bottom: none !important;
+}
+thead{
+    border-top: none !important;
+    border-bottom: none !important;
+} */

@@ -1,13 +1,37 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            {% extends '../layout/layout.html' %} {% block head %}
 <title>日历</title>
 {% endblock %} {% block styles %}
-<link rel="stylesheet" href="/static/styles/calendar.css" /> {% endblock %} {% block scripts %}
+<link href='/static/styles/fullcalendar/fullcalendar.min.css' rel='stylesheet' />
+<link rel="stylesheet" href="/static/styles/calendar.css" />
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    #calendar.fc-unthemed {
+        font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+    }
+
+    #calendar {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 10px;
+    }
+</style>
+ {% endblock %} {% block scripts %}
 <script src="/static/scripts/jquery.js"></script>
-<script src="/static/scripts/calendar.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+<script src='/static/scripts/fullcalendar/moment.min.js'></script>
+<script src='/static/scripts/fullcalendar/fullcalendar.min.js'></script>
+<script src='/static/scripts/fullcalendar/zh-cn.js'></script>
+<script src="/static/scripts/calendar.js"></script>
+
+ {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 <div class="top-none large-screen-only"></div>
 <div class="container">
 
-
+    <div id='calendar'></div>
     <div class="bottom-none small-screen-only"></div>
 </div>
 
