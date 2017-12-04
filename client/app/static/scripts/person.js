@@ -2,6 +2,10 @@
 
 $(document).ready(function () {
 	console.log(1);
+	$(function(){
+		textToImg('Joy', 30);
+	});
+	
 	$(".container").css("display","none");
 	$(".person").addClass("active");
 	$.ajax({
