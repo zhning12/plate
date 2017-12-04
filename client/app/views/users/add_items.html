@@ -2,9 +2,7 @@
 <title>添加任务</title>
 {% endblock %} {% block styles %}
 <link rel="stylesheet" href="/static/styles/add_items.css" />
-<link rel="stylesheet" href="/static/styles/bootstrap/bootstrap.min.css" />
-<link rel="stylesheet" href="/static/styles/bootstrap/bootstrap-grid.min.css" />
-<link rel="stylesheet" href="/static/styles/bootstrap/bootstrap-rebot.min.css" /> {% endblock %} {% block scripts %}
+<link rel="stylesheet" href="/static/styles/bootstrap/bootstrap.min.css" /> {% endblock %} {% block scripts %}
 <script src="/static/scripts/jquery.js"></script>
 <script src="/static/scripts/add_items.js"></script>
 <script src="/static/scripts/bootstrap.min.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
@@ -13,7 +11,7 @@
 <div class="box">
     <div class="top-none large-screen-only"></div>
 
-    <div class="container">
+    <div class="contain">
         <h3 class="title">创建新项目</h3>
         <div class="task_all">
             <input class="form-control form-control-lg task_name" type="text" placeholder="项目名称">
@@ -24,14 +22,23 @@
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
         </form>
-        <button type="button" class="btn btn-outline-success">创建项目</button>
-        <button type="button" class="btn btn-outline-secondary">取消</button>
+        <div class="choose_member">
+            <h4>选择项目成员</h4>
+            <div class="member">
+                <div class="mem">
+                    <span class="mem_name">李贝贝</span>
+                </div>
+            </div>
+        </div>
+        <div class="btn_box">
+            <button type="button" class="btn btn-outline-success">创建项目</button>
+            <button type="button" class="btn btn-outline-secondary">取消</button>
+        </div>
+
     </div>
 
-
-
     <div class="bottom-none small-screen-only"></div>
-</div>
 
+</div>
 
 {% include '../layout/header_bot.html' %} {% endblock %}
