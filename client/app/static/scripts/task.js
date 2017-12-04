@@ -1,39 +1,41 @@
 $(document).ready(function () {
 	console.log(1);
+	var objects = [];
 	$(".task").addClass("active");
 	$.ajax({
 		type: "get",
-		url: globalurl+"getTeamTask"+fail,
+		url: globalurl + "getTeamTask" + fail,
 		dataType: 'json',
+		async: false,
 		success: function (data) {
-			if(data['status']==1){
+			if (data['status'] == 1) {
 				console.log(data);
-				for(var i = 0; i<data['data'].length;i++){
+				
+				for (var i = 0; i < data['data'].length; i++) {
 					var object = data['data'][i];
 					var icon;
-					icon = object['finished']==1?'check_circle':'help_outline';
-					var card_new =
-					'<a class="card">'+
-						'<i class="material-icons">'+icon+'</i>'+						
-						'<p>'+object['name'] +'</p>'+
-					'</a>';
-					$(".container").append(card_new);
-				}				
-				var card_none = '<div class="card-none"></div>';
-				for(var i =0;i<3;i++){
-					$(".container").append(card_none);
+					icon = object.finished == 1 ? 'check_circle' : 'help_outline';
+					object['icon'] = icon;
+					objects[i] = object;
 				}
 			}
-			else{
+			else {
 				alert('error!');
 			}
-			
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(jqXHR);
 			console.log(textStatus);
 			console.log(errorThrown);
-        }
+		}
 	});
-	
+	var card_new = new Vue({
+		el: '#card_list',
+		data: {
+
+				objects: objects
+
+		}
+	})
+
 });
