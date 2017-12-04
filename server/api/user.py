@@ -1,5 +1,6 @@
 from flask import Blueprint , request , jsonify , session
 from app import getConn
+import json,datetime
 
 userBlue = Blueprint('userBlue', __name__)
 
@@ -73,3 +74,20 @@ def signOut():
         "message" : "success"
     }
     return jsonify(res)
+
+@userBlue.route('/getUser', methods=['GET'])
+def getUser():
+    data = json.loads(json.dumps(dict(session), default=datetime_handler))
+    print (data)
+    res = {
+        "status" : 1,
+        "message" : "success",
+        "data" : data
+    }
+    return jsonify(res)
+
+def datetime_handler(x):
+    if isinstance(x, datetime.datetime) or isinstance(x, datetime.date):
+        return x.isoformat()
+    
+    raise TypeError("Unknown type")

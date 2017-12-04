@@ -4,6 +4,7 @@ $(document).ready(function () {
         type: "get",
         url: globalurl+"getUser"+fail,
         dataType: 'json',
+        async:false,
         success: function (data) {
             if(data['status']==1){
                 console.log(data);
@@ -20,6 +21,4 @@ $(document).ready(function () {
             console.log(errorThrown);
         }
     });
-	
-	
 });

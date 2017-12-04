@@ -1,60 +1,50 @@
-<html>
-<head>
-    <link rel="stylesheet" href="/static/styles/common.css" />
-    <script src="/static/scripts/jquery.js"></script>
-    <script src="/static/scripts/global.js"></script>
-    <script src="/static/scripts/header_top.js"></script>
-</head>
+<div class="top large-screen-only">
+    <div class="header">
+        <div class="header-left">
+            <a href="">
+                <div class="teamName">
+                    <p id="teamName_head"></p>
+                </div>
+            </a>
+            <a href="/task">
+                <div class="component">
+                    <p class="task">任务</p>
+                </div>
+            </a>
+            <div class="border"></div>
+            <a href="/calendar">
+                <div class="component ">
+                    <p class="calendar">日历</p>
+                </div>
+            </a>
+            <div class="border"></div>
+            <a href="/team">
+                <div class="component ">
+                    <p class="team">团队
+                        </>
+                </div>
+            </a>
+            <div class="border"></div>
+            <a href="/person">
+                <div class="component ">
+                    <p class="person">自己</p>
+                </div>
+            </a>
+        </div>
+        <div class="header-right">
+            <!-- Right aligned menu below button -->
+            <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">menu</i>
+            </button>
 
-<body>
-    <div class="top large-screen-only">
-        <div class="header">
-            <div class="header-left">
-                <a href="">
-                    <div class="teamName">
-                        <p id="teamName_head"></p>
-                    </div>
+            <ul class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                <a href="/switch">
+                    <li class="mdl-menu__item">切换团队</li>
                 </a>
-                <a href="/task">
-                    <div class="component">
-                        <p class="task">任务</p>
-                    </div>
-                </a>
-                <div class="border"></div>
-                <a href="/calendar">
-                    <div class="component ">
-                        <p class="calendar">日历</p>
-                    </div>
-                </a>
-                <div class="border"></div>
-                <a href="/team">
-                    <div class="component ">
-                        <p class="team">团队
-                            </>
-                    </div>
-                </a>
-                <div class="border"></div>
-                <a href="/person">
-                    <div class="component ">
-                        <p class="person">自己</p>
-                    </div>
-                </a>
-            </div>
-            <div class="header-right">
-                <!-- Right aligned menu below button -->
-                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
-                    <i class="material-icons">menu</i>
-                </button>
+                <li class="mdl-menu__item" id="signOut">退出登录</li>
 
-                <ul class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                    <a href="/switch"><li class="mdl-menu__item">切换团队</li></a>
-                    <li class="mdl-menu__item" id="signOut">退出登录</li>
+            </ul>
 
-                </ul>
-               
-            </div>
         </div>
     </div>
-</body>
-
-</html>
+</div>
