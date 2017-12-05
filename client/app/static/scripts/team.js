@@ -10,7 +10,7 @@ $(document).ready(function () {
 				console.log(data);
 				var teamName = data['data']['teamName'];
 				$("#teamName").append(teamName);
-				}
+			}
 			else {
 				alert('error!');
 			}
@@ -21,29 +21,15 @@ $(document).ready(function () {
 			console.log(errorThrown);
 		}
 	});
+	objects = [];
 	$.ajax({
 		type: "get",
-		url: globalurl+'getMember',
+		url: globalurl + 'getMember',
 		dataType: 'json',
+		async: false,
 		success: function (data) {
 			if (data['status'] == 1) {
-				for (var i = 0; i < data['data'].length; i++) {
-					console.log(data);
-					var object = data['data'][i];
-					var list_new =
-					'<div class="member">'+
-						'<img class="avator" src="'+object['head']+'" alt="user avator">'+
-						'<div class="member_info">'+
-							'<div class="member_name">'+
-								object['username']+
-							'</div>'+
-							'<div class="member_email">'+
-								object['email']+
-							'</div>'+
-						'</div>'+
-					'</div>';
-					$(".member-list").append(list_new);
-				}
+				objects = data['data'];
 			}
 			else {
 				alert('error!');
@@ -55,4 +41,11 @@ $(document).ready(function () {
 			console.log(errorThrown);
 		}
 	});
+	var card_new = new Vue({
+		el: '#member_list',
+		data: {
+			objects: objects
+		},
+		delimiters: ['${', '}']
+	})
 });

@@ -10,7 +10,7 @@ a{
     .large-screen-only{
         display: none;
     }
-    .card .large-screen-only{
+    .container .large-screen-only{
         display: none;
     }
     
@@ -48,7 +48,8 @@ a{
     }
     .all_pro p{
         font-size: 14px;
-        height: 14px;
+        height: 25px;
+        margin: 0px;
         display: block;
         color: #4ea5ad;
     }

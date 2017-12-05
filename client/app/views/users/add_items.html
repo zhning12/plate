@@ -3,12 +3,12 @@
 {% endblock %} {% block styles %}
 <link rel="stylesheet" href="/static/styles/add_items.css" />
 <link rel="stylesheet" href="/static/styles/bootstrap/bootstrap.min.css" /> {% endblock %} {% block scripts %}
-<script src="/static/scripts/jquery.js"></script>
 <script src="/static/scripts/add_items.js"></script>
-<script src="/static/scripts/bootstrap.min.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
+<script src="/static/scripts/bootstrap.min.js"></script>
+ {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 
-<div class="box">
     <div class="top-none large-screen-only"></div>
 
     <div class="contain">
@@ -17,17 +17,22 @@
             <input class="form-control form-control-lg task_name" type="text" placeholder="项目名称">
             <textarea class="form-control task_description" rows="3" placeholder="简单描述项目，便于其他人理解（选填）"></textarea>
         </div>
-        <form>
+        <form >
             <div class="form-group">
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
         </form>
         <div class="choose_member">
             <h4>选择项目成员</h4>
-            <div class="member">
-                <div class="mem">
-                    <span class="mem_name">李贝贝</span>
+            <div class="member" id="member_list">
+                <div class="mem" v-for="member in members">
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="member.checkbox_id">
+                        <input type="checkbox" v-bind:id="member.checkbox_id" class="mdl-checkbox__input">
+                        <span class="mem_name mdl-checkbox__label">${member.username}</span>
+                    </label>
+                    
                 </div>
+                
             </div>
         </div>
         <div class="btn_box">
@@ -37,8 +42,5 @@
 
     </div>
 
-    <div class="bottom-none small-screen-only"></div>
 
-</div>
-
-{% include '../layout/header_bot.html' %} {% endblock %}
+{% endblock %}

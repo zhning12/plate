@@ -2,7 +2,6 @@
 <title>团队</title>
 {% endblock %} {% block styles %}
 <link rel="stylesheet" href="/static/styles/team.css" /> {% endblock %} {% block scripts %}
-<script src="/static/scripts/jquery.js"></script>
 <script src="/static/scripts/team.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 <div class="top-none large-screen-only"></div>
 <div class="container">
@@ -10,20 +9,21 @@
         <h1 id="teamName"></h1>
     </a>
 
-    <div class="member-list">
-        <div class="member">
-            <img class="avator" src="/static/images/avator.png" alt="user avator">
+    <div class="member-list" id="member_list">
+
+        <div class="member" v-for="object in objects">
+            <img class="avator" v-bind:src="object.head" alt="user avator">
             <div class="member_info">
                 <div class="member_name">
-                    关鹏
+                    ${object.username}
                 </div>
-            
                 <div class="member_email">
-                    875499765@qq.com
+                    ${object.email}
                 </div>
                
             </div>
         </div>
+
     </div>
 
     <div class="bottom-none small-screen-only"></div>
