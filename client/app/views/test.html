@@ -9,14 +9,15 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="/static/scripts/jquery.js"></script>
+<script src="/static/scripts/jquery-3.2.1.min.js"></script>
 <script src="/static/scripts/test.js"></script>
+<script src="/static/scripts/global.js"></script>
+<script src="/static/scripts/vue.js"></script>
 {% endblock %}
 
 {% block body %}
 <div class="box">
 	<h1 class="solgan">test3</h1>
-	<div class="baidu"></div>
 	<button id="abc" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
 		Button
 	</button>
@@ -24,19 +25,13 @@
 	<h1>关鹏</h1>
 	<a>sdfs</a>
     <i class="material-icons">face</i>
-    
+	
+	<div class="container" id="card_list">
+		<a class="card" v-for="item in objects">
+			<i class="material-icons">${item.icon}</i>
+			<p>123${ item.name } </p>
+		</a>
+	</div>
     
 </div>
 {% endblock %}
-<!--  循环语句
-    <div class="span12" style="margin-top:20px">
-                            <div>
-                                <volist name="questionnaire" id="vo">
-                                    <p class="questionnaire-title">
-                                        <{$vo.question}>
-                                    </p>
-                                    <p class="questionnaire-answer">
-                                        <{$vo.answer}>
-                                    </p>
-                                </volist>
-                            </div> -->

@@ -24,6 +24,13 @@ def signUp():
                 "message" : "email-existed-error"
             }
             return jsonify(res)
+        cursor.execute('select * from USER where USERNAME = "%s"' % (username,))
+        if cursor.fetchone():
+            res = {
+                "status" : 0,
+                "message" : "username-existed-error"
+            }
+            return jsonify(res)
         cursor.execute('insert ignore into TEAM (NAME) values ("%s")' % (team,))
         # 更新团队人数
         cursor.execute('select ID from TEAM where NAME = "%s"' % (team,))

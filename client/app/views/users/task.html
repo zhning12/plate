@@ -13,11 +13,11 @@
             <i class="material-icons add">add_circle</i>
             <p>新建项目</p>
         </a>
-        <a class="card"  v-for="object in objects">
-                <i class="material-icons">{{ object.icon }}</i>				
-                <p>{{ object.name }} </p>
-            </a>
-        
+        <a class="card" v-for="item in objects">
+            <i class="material-icons">${item.icon}</i>
+            <p>${ item.name } </p>
+        </a>
+
         <div class="card-none"></div>
         <div class="card-none"></div>
         <div class="card-none"></div>
