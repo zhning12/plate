@@ -9,8 +9,6 @@ $(document).ready(function () {
 		async: false,
 		success: function (data) {
 			if (data['status'] == 1) {
-				console.log(data);
-				
 				for (var i = 0; i < data['data'].length; i++) {
 					var object = data['data'][i];
 					var icon;
@@ -32,10 +30,9 @@ $(document).ready(function () {
 	var card_new = new Vue({
 		el: '#card_list',
 		data: {
-
 				objects: objects
-
-		}
+		},
+		delimiters:['${','}']
 	})
 
 });

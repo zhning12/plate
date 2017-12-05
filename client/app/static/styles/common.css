@@ -69,7 +69,7 @@ a{
         align-self: flex-start;
     }
     body{
-        background-color: #f4f7ed;
+        background-color: #f4f7ed!important;
     }
     .top{
         display: block;

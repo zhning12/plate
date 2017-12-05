@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="/static/styles/sign.css" /> 
 {% endblock %} 
 {% block scripts %}
-<script src="/static/scripts/jquery.js"></script>
 <script src="/static/scripts/signUp.js"></script>
 
 {% endblock %} 
@@ -22,15 +21,15 @@
        
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
                 <input class="mdl-textfield__input" type="text" id="name" value="Phoebe">
-                <label class="mdl-textfield__label">你的名字</label>
+                <label class="mdl-textfield__label" for="name">你的名字</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
                 <input class="mdl-textfield__input" type="text" id="email" value="zhning12@163.com">
-                <label class="mdl-textfield__label">邮箱，例如：1001@qq.com</label>
+                <label class="mdl-textfield__label" for="email">邮箱，例如：1001@qq.com</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
                 <input class="mdl-textfield__input" type="password" id="password" value="12345">
-                <label class="mdl-textfield__label">密码</label>
+                <label class="mdl-textfield__label" for="password">密码</label>
             </div>
         
     </div>

@@ -2,7 +2,6 @@
 <title>自己</title>
 {% endblock %} {% block styles %}
 <link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block scripts %}
-<script src="/static/scripts/jquery.js"></script>
 <script src="/static/scripts/person.js"></script> 
 {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 <div class="top-none large-screen-only"></div>
@@ -22,21 +21,22 @@
             <a href="#tab2" class="mdl-tabs__tab">我负责的</a>
         </div>
         <div class=" mdl-tabs__panel is-active todo-box" id="tab1">
-            <a href="/task/1">
+           
+            <a href="/task_detail" v-for="task in tasks">
                 <div class="todo break-word">
                     <div class="name ">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-m1">
-                            <input type="checkbox" id="checkbox-m1" class="mdl-checkbox__input">
-                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="task.checkbox_id">
+                            <input type="checkbox" v-bind:id="task.checkbox_id" class="mdl-checkbox__input">
+                            <span class="mdl-checkbox__label todo-text">${task.name}</span>
                         </label>
                     </div>
                     <div class="info truncate-text">
                         <span class="asignee">
-                            <img src="" class="avater">用户名
+                            <img src="" class="avater">${task.leader}
                         </span>
                         <span class="due-at">
                             <i class="material-icons">schedule</i>
-                            11月21日
+                            ${task.deadline}
                         </span>
                     </div>
                 </div>
