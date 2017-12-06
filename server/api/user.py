@@ -15,6 +15,7 @@ def signUp():
     username = request.form.get('username', '')
     email = request.form.get('email', '')
     password = request.form.get('password', '')
+    avatar = request.form.get('avatar', '')
     team = request.form.get('team', '')
     with getConn() as cursor:
         cursor.execute('select * from USER where EMAIL = "%s"' % (email,))
@@ -35,13 +36,13 @@ def signUp():
         # 更新团队人数
         cursor.execute('select ID from TEAM where NAME = "%s"' % (team,))
         teamId = cursor.fetchone()[0]
-        cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , TEAM_ID) values ("%s" ,"%s" ,"%s" , "%d")' % (username,email,password,teamId,))
+        cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , AVATAR , TEAM_ID) values ("%s" ,"%s" ,"%s" ,"%s" ,"%d")' % (username,email,password,avatar,teamId,))
     return jsonify(res)
 
 
 @userBlue.route('/signIn', methods=['POST'])
 def signIn():
-    head = ('id','username', 'email', 'teamId', 'created', 'updated','teamName')
+    head = ('id','username', 'email','avatar', 'teamId', 'created', 'updated','teamName')
     res = {
         "status" : 1,
         "message" : "success"
@@ -51,7 +52,7 @@ def signIn():
     with getConn() as cursor:
         cursor.execute(
             '''
-            select USER.ID,USERNAME,EMAIL,TEAM_ID,USER.CREATED,USER.UPDATED,TEAM.NAME
+            select USER.ID,USERNAME,EMAIL,AVATAR,TEAM_ID,USER.CREATED,USER.UPDATED,TEAM.NAME
             from USER join TEAM on USER.TEAM_ID = TEAM.ID 
             where EMAIL = "%s" and PASSWORD = "%s"
             ''' % (email,password,))
@@ -72,7 +73,7 @@ def signIn():
 @userBlue.route('/signOut', methods=['POST'])
 def signOut():
     print (session)
-    params = ['id','username', 'email', 'teamId', 'created', 'updated','teamName']
+    params = ['id','username', 'email','avatar', 'teamId', 'created', 'updated','teamName']
     for param in params:
         session.pop(param, None)
     print (session)
