@@ -12,8 +12,8 @@
         <canvas id="headImg" style="display:none"></canvas>
 
         <div class="member-card">
-            <p class="username">关鹏</p>
-            <p class="email">875499765@qq.com</p>
+            <p class="username" id="user_name"></p>
+            <p class="email" id="e-mail"></p>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
             <a href="#tab2" class="mdl-tabs__tab">我负责的</a>
         </div>
         <div class=" mdl-tabs__panel is-active todo-box" id="tab1">
-           
+
             <a href="/task_detail" v-for="task in tasks">
                 <div class="todo break-word">
                     <div class="name ">
@@ -44,66 +44,30 @@
                 </div>
             </a>
 
-            <a href="">
-                <div class="todo break-word">
-                    <div class="name ">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-m2">
-                            <input type="checkbox" id="checkbox-m2" class="mdl-checkbox__input">
-                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
-                        </label>
-                    </div>
-                    <div class="info truncate-text">
-                        <span class="asignee">
-                            <img src="" class="avater">用户名
-                        </span>
-                        <span class="due-at">
-                            <i class="material-icons">schedule</i>
-                            11月30日
-                        </span>
-                    </div>
-                </div>
-            </a>
+
         </div>
         <div class="mdl-tabs__panel todo-box" id="tab2">
-            <a href="">
+
+            <a href="/task_detail" v-for="task in tasks_2">
                 <div class="todo break-word">
                     <div class="name ">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3">
-                            <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input">
-                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="task.checkbox_id">
+                            <input type="checkbox" v-bind:id="task.checkbox_id" class="mdl-checkbox__input">
+                            <span class="mdl-checkbox__label todo-text">${task.name}</span>
                         </label>
                     </div>
                     <div class="info truncate-text">
                         <span class="asignee">
-                            <img src="" class="avater">用户名
+                            <img src="" class="avater">${task.leader}
                         </span>
                         <span class="due-at">
                             <i class="material-icons">schedule</i>
-                            11月21日
+                            ${task.deadline}
                         </span>
                     </div>
                 </div>
             </a>
 
-            <a href="">
-                <div class="todo break-word">
-                    <div class="name ">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4">
-                            <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input">
-                            <span class="mdl-checkbox__label todo-text">后端前台页面</span>
-                        </label>
-                    </div>
-                    <div class="info truncate-text">
-                        <span class="asignee">
-                            <img src="" class="avater">用户名
-                        </span>
-                        <span class="due-at">
-                            <i class="material-icons">schedule</i>
-                            11月21日
-                        </span>
-                    </div>
-                </div>
-            </a>
         </div>
     </div>
 

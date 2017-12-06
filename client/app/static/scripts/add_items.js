@@ -9,9 +9,9 @@ $(document).ready(function () {
 		success: function (data) {
 			if (data['status'] == 1) {
 				for (var i = 0; i < data['data'].length; i++) {
-                    var object = data['data'][i];
-                    checkbox = "checkbox-"+object['id'];
-					object['checkbox_id']= checkbox;
+					var object = data['data'][i];
+					checkbox = "checkbox-" + object['id'];
+					object['checkbox_id'] = checkbox;
 					objects[i] = object;
 				}
 			}
@@ -28,8 +28,16 @@ $(document).ready(function () {
 	var card_new = new Vue({
 		el: '#member_list',
 		data: {
-				members: objects
+			members: objects
 		},
-		delimiters:['${','}']
+		delimiters: ['${', '}']
 	});
+	
 });
+//全选和全不选（第一个参数为复选框名称，第二个参数为是全选还是全不选）  
+function allCheck() {
+
+		$('.mdl-checkbox').toggleClass('is-checked');
+
+}  
+

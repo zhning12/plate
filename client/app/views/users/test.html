@@ -1,29 +1,46 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="/static/styles/bootstrap/bootstrap.min.css"/> 
-        <script src="/static/scripts/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputFile">File input</label>
-              <input type="file" id="exampleInputFile">
-              <p class="help-block">Example block-level help text here.</p>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Check me out
-              </label>
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-    </body>
-</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>无标题文档</title>  
+</head>  
+<script language="javascript">  
+//全选和全不选（第一个参数为复选框名称，第二个参数为是全选还是全不选）  
+function allCheck(name,boolValue) {  
+    var allvalue = document.getElementsByName(name);   
+    for (var i = 0; i < allvalue.length; i++) {        
+        if (allvalue[i].type == "checkbox")             
+            allvalue[i].checked = boolValue;             
+    }  
+}  
+//反选 参数为复选框名称  
+function reserveCheck(name){  
+    var revalue = document.getElementsByName(name);   
+    for(i=0;i<revalue.length;i++){  
+        if(revalue[i].checked == true)   
+            revalue[i].checked = false;  
+        else   
+            revalue[i].checked = true;  
+    }  
+}  
+</script>  
+<body >  
+<div >  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择1  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择2  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择3  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择4  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择5  
+    <p></p>  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择6  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择7  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择8  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择9  
+    <label><input type="checkbox" name="choice" id="choice" width="30px;"/></label>选择10  
+    <p></p>  
+    <a href="javascript:allCheck('choice',true)">全选</a>   
+    <a href="javascript:allCheck('choice',false)">全不选</a>   
+    <a href="javascript:reserveCheck('choice')">反选</a>   
+</div>  
+</body>  
+</html>  
