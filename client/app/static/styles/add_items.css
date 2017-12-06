@@ -24,12 +24,12 @@ a{
     .btn_box{
         height: 40px;
         width: 100%;
+        margin-top: 10px;
         display: flex;
         align-items: center;
         justify-content: space-around;
-    }
-    .title{
-
+        position: absolute;
+        bottom:10px;
     }
     .task_all{
         width:100%;
@@ -45,12 +45,17 @@ a{
         align-items: center;
         justify-content: center;
     }
-    h3{
+    .title{
         font-size: 20px;
+    }
+    .select{
+        display: flex;
+        align-items: center;
     }
     .choose_member h4{
         color: #5bc4c7;
-        font-size:16px;
+        font-size:18px;
+        margin-right: 10px;
     }
     .member{
         display: flex;
@@ -59,10 +64,10 @@ a{
         align-items: flex-start;
         min-height: 100px;
         width: 100%;
-        border-bottom: 1px solid #eee;
+        
     }
     .mem{
-        min-width: 100px;
+        min-width: 120px;
     }
 }
 /*大屏属性*/
@@ -106,7 +111,17 @@ a{
         width: 100%;
         min-height: 130px;
     }
-    .choose_member h4{
+    .select{
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+    .select h4{
+        font-size: 16px;
+        margin-bottom:4px;
+        margin-right:10px;
+    }
+    .btn_select{
         font-size: 16px;
     }
     .member{
