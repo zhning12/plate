@@ -25,6 +25,10 @@ module.exports = function (app) {
 		res.render("users/add_items")
 	});
 
+	app.get('/detail/*', function (req, res) {
+		res.render("users/detail")
+	});
+
 	app.get('/calendar',function(req,res){
 		res.render("users/calendar")
 	});
