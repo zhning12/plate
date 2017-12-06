@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	console.log(1);
 	$(function(){
-		textToImg('Joy', 30);
+		textToImg('张', 100);
 	});
 	
 	$(".container").css("display","none");
@@ -16,7 +16,7 @@ $(document).ready(function () {
 		success: function (data) {
 			if (data['status'] == 1) {
 				console.log(data);
-				var objects1=data['data'];
+				objects1=data['data'];
 				for(var i=0;i<data['data'].length;i++){
 					object = data['data'][i];
 					checkbox= "checkbox_"+object['id'];
