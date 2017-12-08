@@ -1,8 +1,5 @@
 $(document).ready(function () {
-	console.log(1);
-	$(".calendar").addClass("active");
-
-
+	display();
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next',
@@ -83,6 +80,4 @@ $(document).ready(function () {
 			}
 		]
 	});
-
-	//$(".fc-center").css('display', 'none');
 });

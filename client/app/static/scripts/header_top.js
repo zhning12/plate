@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log(1);
     $.ajax({
         type: "get",
         url: globalurl+"getUser"+fail,
@@ -21,4 +20,5 @@ $(document).ready(function () {
             console.log(errorThrown);
         }
     });
+
 });

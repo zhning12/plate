@@ -28,10 +28,14 @@
   <script src="/static/scripts/header_top.js"></script> {% block scripts %} {% endblock %}
 </head>
 
-<body>
-
-  {% block body %} {% endblock %}
-
+<body >
+    <!-- <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="width:100%"></div> -->
+    <div id ="progress" style="display:flex; align-items:center; justify-content:center;height:100%;width:100%;">
+        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+    </div>
+    <div id="main" style="display:none">
+      {% block body %} {% endblock %}
+    </div>
 </body>
 
 </html>

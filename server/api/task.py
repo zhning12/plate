@@ -5,9 +5,8 @@ import json
 taskBlue = Blueprint('taskBlue', __name__)
 
 # 获取用户所在团队的全部任务
-@taskBlue.route('/getTeamTask', methods=['GET'])
-def getTeamTask():
-    print (session)
+@taskBlue.route('/getTeamTask/<int:teamId>', methods=['GET'])
+def getTeamTask(teamId):
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -15,7 +14,7 @@ def getTeamTask():
             '''
             select ID,NAME,DEADLINE,FINISHED,LEADER 
             from TASK where TEAM_ID = "%d"
-            ''' % (session['teamId'],))
+            ''' % (teamId,))
         for item in cursor.fetchall():
             data.append(dict(zip(head, item)))
     res = {
@@ -26,9 +25,8 @@ def getTeamTask():
     return jsonify(res)
 
 # 获取我发起的任务
-@taskBlue.route('/getSendTask', methods=['GET'])
-def getSendTask():
-    print (session)
+@taskBlue.route('/getSendTask/username', methods=['GET'])
+def getSendTask(username):
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -36,7 +34,7 @@ def getSendTask():
             '''
             select ID,NAME,DEADLINE,FINISHED,LEADER 
             from TASK where LEADER = "%s"
-            ''' % (session['username'],))
+            ''' % (username,))
         for item in cursor.fetchall():
             data.append(dict(zip(head, item)))
     res = {
@@ -47,9 +45,8 @@ def getSendTask():
     return jsonify(res)
 
 # 获取我负责的任务
-@taskBlue.route('/getReceiveTask', methods=['GET'])
+@taskBlue.route('/getReceiveTask/username', methods=['GET'])
 def getReceiveTask():
-    print (session)
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -58,7 +55,7 @@ def getReceiveTask():
             select TASK.ID,NAME,DEADLINE,FINISHED,LEADER from
             (select TASK_ID from USER_TASK where USERNAME = "%s") as 
             TEM join TASK on TEM.TASK_ID = TASK.ID
-            ''' % (session['username'],))
+            ''' % (username,))
         for item in cursor.fetchall():
             data.append(dict(zip(head, item)))
     res = {
@@ -71,8 +68,9 @@ def getReceiveTask():
 # 添加任务
 @taskBlue.route('/addTask', methods=['POST'])
 def addTask():
-    print (session)
     print (request.form)
+    teamId = request.form.get('teamId', '')
+    username = request.form.get('username', '')
     name = request.form.get('name', '')
     description = request.form.get('description', '')
     addedUrl = request.form.get('addedUrl', '')
@@ -84,7 +82,7 @@ def addTask():
             insert into TASK 
             (NAME, DESCRIPTION,ADDED_URL,DEADLINE,LEADER,TEAM_ID ) 
             values ("%s", "%s","%s","%s","%s","%d")
-            ''' % (name,description,addedUrl,deadline,session['username'],session['teamId'],))
+            ''' % (name,description,addedUrl,deadline,username,int(teamId),))
         cursor.execute(
             '''
             select LAST_INSERT_ID();
@@ -98,7 +96,7 @@ def addTask():
                 insert into USER_TASK 
                 ( USERNAME , TASK_ID ) 
                 values ("%s", "%d")
-                '''% (member,taskId,)
+                '''% (member,int(taskId),)
             )
     res = {
         "status": 1,
@@ -107,9 +105,8 @@ def addTask():
     return jsonify(res)
 
 # 获取单个任务详情
-@taskBlue.route('/getTask/<taskId>', methods=['GET'])
+@taskBlue.route('/getTask/<int:taskId>', methods=['GET'])
 def getTask(taskId=0):
-    print (session)
     head = ('id', 'name','description', 'deadline', 'finished', 'leader','created','updated')
     data = {}
     with getConn() as cursor:
