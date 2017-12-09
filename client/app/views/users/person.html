@@ -2,11 +2,14 @@
 <title>自己</title>
 {% endblock %} {% block styles %}
 <link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block scripts %}
-<script src="/static/scripts/person.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+<script src="/static/scripts/person.js"></script> 
+<script src="/static/scripts/avatar.js"></script>
+{% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 <div class="top-none large-screen-only"></div>
 <div class="container">
     <div class="large-screen-only user_info">
-        <img class="avatar" id="avatar" alt="username" >
+        <img class="avatar" alt="username" src="../../static/images/avator.png">
+        <canvas id="headImg" style="display:none"></canvas>
 
         <div class="member-card">
             <p class="username" id="user_name"></p>

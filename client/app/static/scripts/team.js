@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	console.log(1);
+	var count = 0;
+	var ajax_num = 2;
 	$(".team").addClass("active");
 	$.ajax({
 		type: "get",
@@ -14,6 +15,7 @@ $(document).ready(function () {
 			else {
 				alert('error!');
 			}
+			display(++count,ajax_num);
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(jqXHR);
@@ -34,6 +36,7 @@ $(document).ready(function () {
 			else {
 				alert('error!');
 			}
+			display(++count,ajax_num);
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(jqXHR);

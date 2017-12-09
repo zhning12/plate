@@ -5,6 +5,10 @@ var globalurl = "http://result.eolinker.com/n7d6z5u6691b12046479482492142f3acfa7
 var fail = "";
 // var fail = "&resultType=failure";
 
-
-
+function display(num=0,count=0) {
+    if (count == num) {
+        $("#main").css('display','block');
+        $("#progress").remove();
+    }
+}
 

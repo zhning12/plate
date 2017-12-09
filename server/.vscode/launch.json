@@ -10,7 +10,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": true,
-            "pythonPath": "${config:python.pythonPath}",
+            "pythonPath": "D:/Anaconda2/envs/plate/python",
             "program": "${file}",
             "cwd": "${workspaceRoot}",
             "env": {},

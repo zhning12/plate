@@ -1,5 +1,4 @@
 $(document).ready(function () {
-	console.log(1);
 	$("#abc").click(function () {
 		var email = $("#email").val();
 		var password = $("#password").val();
@@ -28,5 +27,5 @@ $(document).ready(function () {
 			}
 		});
 	})
-
+	display();
 });

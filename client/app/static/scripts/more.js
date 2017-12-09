@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var count=0;
+    var ajax_num=1;
 	console.log(1);
 	$(".more").addClass("active");
 	$.ajax({
@@ -14,6 +16,7 @@ $(document).ready(function () {
             else{
                 alert('error!');
             } 
+            display(++count,ajax_num);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log(1);
     $("#signUp").click(function () {
         var name = $("#name").val();
         var email = $("#email").val();
@@ -39,5 +38,5 @@ $(document).ready(function () {
             }
         });
     })
-
+    display();
 });
