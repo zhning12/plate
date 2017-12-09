@@ -14,7 +14,7 @@ def create():
         print("create table finished!")
 
     app = Flask(__name__)
-    CORS(app)
+    CORS(app, supports_credentials=True)
     app.secret_key = SERVER['secretKey'] 
     app.register_blueprint(api.userBlue)
     app.register_blueprint(api.taskBlue)

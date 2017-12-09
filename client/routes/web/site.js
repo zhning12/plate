@@ -52,8 +52,12 @@ module.exports = function (app) {
 	});
 
 	app.get('/test2', function (req, res) {
-		if (req.session.user)
-			res.render("test", req.session.user)
+		if (req.session.user){
+			for(var key in req.session.user){
+				res.cookie(key, req.session.user[key]);
+			}
+			res.render("test")
+		}
 		else
 			res.redirect("/")
 	});
@@ -80,6 +84,9 @@ module.exports = function (app) {
 				});
 				resflask.on('end', function () {
 					req.session.user = JSON.parse(body).data;
+					for(var key in req.session.user){
+						res.cookie(key, req.session.user[key]);
+					}
 					console.log(req.session.user);
 					res.send(body); /*发送收到的响应*/
 				});
@@ -113,6 +120,9 @@ module.exports = function (app) {
 				});
 				apacheRes.on('end', function () {
 					req.session.user = JSON.parse(body).data;
+					for(var key in req.session.user){
+						res.cookie(key, req.session.user[key]);
+					}
 					console.log(req.session.user);
 					res.send(body); /*发送收到的响应*/
 				});
@@ -130,24 +140,6 @@ module.exports = function (app) {
 			message: 'success'
 		};
 		req.session.user = '';
-		res.send(resData);
-	});
-
-	app.get('/session/getUser', function (req, res) {
-		var resData;
-		if (req.session.user) {
-			resData = {
-				status: 1,
-				message: 'success',
-				data: req.session.user
-			}
-		}
-		else {
-			resData = {
-				status: 0,
-				message: 'not existed'
-			}
-		}
 		res.send(resData);
 	});
 };
