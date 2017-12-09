@@ -1,4 +1,7 @@
 $(document).ready(function () {
+	$("#main").css('display','flex');
+	$("#main").css('height','100%');
+	$("#progress").remove();
 	$("#abc").click(function () {
 		var email = $("#email").val();
 		var password = $("#password").val();
@@ -27,5 +30,4 @@ $(document).ready(function () {
 			}
 		});
 	})
-	display();
 });

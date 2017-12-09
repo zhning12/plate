@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $("#main").css('display','flex');
+	$("#main").css('height','100%');
+	$("#progress").remove();
     $("#signUp").click(function () {
         var name = $("#name").val();
         var email = $("#email").val();
