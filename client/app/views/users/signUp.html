@@ -1,15 +1,9 @@
-{% extends '../layout/layout.html' %}
-{% block head %}
+{% extends '../layout/layout.html' %} {% block head %}
 <title>注册</title>
-{% endblock %} 
-{% block styles %}
-<link rel="stylesheet" href="/static/styles/sign.css" /> 
-{% endblock %} 
-{% block scripts %}
+{% endblock %} {% block styles %}
+<link rel="stylesheet" href="/static/styles/sign.css" /> {% endblock %} {% block scripts %}
 <script src="/static/scripts/signUp.js"></script>
-
-{% endblock %} 
-{% block body %}
+<script src="/static/scripts/avatar.js"></script> {% endblock %} {% block body %}
 <div class="box">
     <div class="sign-page">
         <h1 class="hidden">Plate Sign Up</h1>
@@ -17,32 +11,33 @@
     </div>
     <div>
         <!-- Textfield with Floating Label -->
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
+            <input class="mdl-textfield__input" type="text" id="name" value="Phoebe">
+            <label class="mdl-textfield__label" for="name">你的名字</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
+            <input class="mdl-textfield__input" type="text" id="email" value="zhning12@163.com">
+            <label class="mdl-textfield__label" for="email">邮箱，例如：1001@qq.com</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
+            <input class="mdl-textfield__input" type="password" id="password" value="12345">
+            <label class="mdl-textfield__label" for="password">密码</label>
+        </div>
 
-       
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
-                <input class="mdl-textfield__input" type="text" id="name" value="Phoebe">
-                <label class="mdl-textfield__label" for="name">你的名字</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
-                <input class="mdl-textfield__input" type="text" id="email" value="zhning12@163.com">
-                <label class="mdl-textfield__label" for="email">邮箱，例如：1001@qq.com</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label filed-type">
-                <input class="mdl-textfield__input" type="password" id="password" value="12345">
-                <label class="mdl-textfield__label" for="password">密码</label>
-            </div>
-        
     </div>
     <div>
-        
-            <button id="signUp" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn">
-                注册
-            </button>
+
+        <button id="signUp" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn">
+            注册
+        </button>
 
     </div>
     <div class="other-choice">
-        <p>已有 Plate 账户？<a href="/sign-in" class="link-sign">直接登录 → </a></p>
+        <p>已有 Plate 账户？
+            <a href="/sign-in" class="link-sign">直接登录 → </a>
+        </p>
     </div>
+    <canvas id="headImg" style="display:none"></canvas>
 </div>
 </div>
-{% endblock %} 
+{% endblock %}

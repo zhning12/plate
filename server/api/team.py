@@ -4,14 +4,15 @@ from app import getConn
 teamBlue = Blueprint('teamBlue', __name__)
 
 # 获取用户所在当前团队的全部成员信息
-@teamBlue.route('/getMember/<teamId>', methods=['GET'])
-def getMember(teamId):
-    head = ('id', 'username', 'email', 'head')
+@teamBlue.route('/getMember', methods=['GET'])
+def getMember():
+    teamId = int(request.cookies['teamId'])
+    head = ('id', 'username', 'email', 'avatar')
     data = []
     with getConn() as cursor:
         cursor.execute(
             '''
-            select ID,USERNAME,EMAIL,HEAD
+            select ID,USERNAME,EMAIL,AVATAR
             from USER where TEAM_ID = "%d"
             ''' % (teamId,))
         for item in cursor.fetchall():
@@ -42,8 +43,8 @@ def getTeam():
 # 更新用户团队信息
 @teamBlue.route('/updateTeam', methods=['POST'])
 def updateTeam():
-    username = request.form.get('username', '')
-    teamId = request.form.get('teamId', '')
+    username = request.cookies['username']
+    teamId = int(request.cookies['teamId'])
     with getConn() as cursor:
         # 更新用户团队信息
         cursor.execute(
@@ -61,7 +62,7 @@ def updateTeam():
 # 添加团队并加入
 @teamBlue.route('/addTeam', methods=['POST'])
 def addTeam():
-    username = request.form.get('username', '')
+    username = request.cookies['username']
     name = request.form.get('name', '')
     with getConn() as cursor:
         # 更新用户团队信息

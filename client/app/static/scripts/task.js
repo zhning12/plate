@@ -12,6 +12,8 @@
 			$.ajax({
 				type: "get",
 				url: globalurl + "getTeamTask" + fail,
+				xhrFields: {withCredentials: true},
+				crossDomain: true,
 				dataType: 'json',
 				success: function (data) {
 					if (data['status'] == 1) {
@@ -30,11 +32,7 @@
 					}
 					display(++count,ajax_num);
 				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					console.log(jqXHR);
-					console.log(textStatus);
-					console.log(errorThrown);
-				}
+				error: ajaxError
 			});
 		},
         delimiters:['${', '}']  

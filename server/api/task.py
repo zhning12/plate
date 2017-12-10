@@ -5,8 +5,9 @@ import json
 taskBlue = Blueprint('taskBlue', __name__)
 
 # 获取用户所在团队的全部任务
-@taskBlue.route('/getTeamTask/<int:teamId>', methods=['GET'])
-def getTeamTask(teamId):
+@taskBlue.route('/getTeamTask', methods=['GET'])
+def getTeamTask():
+    teamId = int(request.cookies['teamId'])
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -25,8 +26,9 @@ def getTeamTask(teamId):
     return jsonify(res)
 
 # 获取我发起的任务
-@taskBlue.route('/getSendTask/username', methods=['GET'])
-def getSendTask(username):
+@taskBlue.route('/getSendTask', methods=['GET'])
+def getSendTask():
+    username = request.cookies['username']
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -45,8 +47,9 @@ def getSendTask(username):
     return jsonify(res)
 
 # 获取我负责的任务
-@taskBlue.route('/getReceiveTask/username', methods=['GET'])
+@taskBlue.route('/getReceiveTask', methods=['GET'])
 def getReceiveTask():
+    username = request.cookies['username']
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -69,8 +72,8 @@ def getReceiveTask():
 @taskBlue.route('/addTask', methods=['POST'])
 def addTask():
     print (request.form)
-    teamId = request.form.get('teamId', '')
-    username = request.form.get('username', '')
+    teamId = int(request.cookies['teamId'])
+    username = request.cookies['username']
     name = request.form.get('name', '')
     description = request.form.get('description', '')
     addedUrl = request.form.get('addedUrl', '')
@@ -82,7 +85,7 @@ def addTask():
             insert into TASK 
             (NAME, DESCRIPTION,ADDED_URL,DEADLINE,LEADER,TEAM_ID ) 
             values ("%s", "%s","%s","%s","%s","%d")
-            ''' % (name,description,addedUrl,deadline,username,int(teamId),))
+            ''' % (name,description,addedUrl,deadline,username,teamId,))
         cursor.execute(
             '''
             select LAST_INSERT_ID();
@@ -114,7 +117,7 @@ def getTask(taskId=0):
             '''
             select ID,NAME,DESCRIPTION,DEADLINE,FINISHED,LEADER,CREATED,UPDATED
             from TASK where ID = "%d"
-            ''' % (int(taskId),))
+            ''' % (taskId,))
         data = dict(zip(head, cursor.fetchone()))
 
         # 处理负责人员
@@ -122,7 +125,7 @@ def getTask(taskId=0):
         cursor.execute(
             '''
             select USERNAME from USER_TASK where TASK_ID = "%d"
-            ''' % (int(taskId),))
+            ''' % (taskId,))
         for item in cursor.fetchall():
             members.append(item[0])
         data['member'] = members
@@ -131,7 +134,7 @@ def getTask(taskId=0):
         cursor.execute(
             '''
             select ADDED_URL from TASK where ID = "%d"
-            ''' % (int(taskId),))
+            ''' % (taskId,))
         addedUrls = cursor.fetchone()[0].split(',')
         for item in cursor.fetchall():
             members.append(item[0])

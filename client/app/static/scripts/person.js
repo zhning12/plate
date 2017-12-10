@@ -1,36 +1,14 @@
 $(document).ready(function () {
 	var count = 0;
-	var ajax_num = 3;
-	$(function(){
-		textToImg('关鹏', 100);
-	});
-	
+	var ajax_num = 2;
 	$(".person").addClass("active");
-	$.ajax({
-		type: "get",
-		url: globalurl + "getUser" + fail,
-		dataType: 'json',
-		success: function (data) {
-			if (data['status'] == 1) {
-				console.log(data);
-				var username = data['data']['username'];
-				$("#user_name").append(username);
-				var email=data['data']['email']
-				$("#e-mail").append(email);
-				var avatar=data['data']['avatar']
-				//document.getElementById("avatar").src=avatar;
-			}
-			else {
-				alert('error!');
-			}
-			display(++count,ajax_num);
-		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			console.log(jqXHR);
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
-	});
+
+	var username = $.cookie("username");
+	$("#user_name").append(username);
+	var email=$.cookie("email");
+	$("#e-mail").append(email);
+	var avatar=$.cookie("avatar");
+	$("#avatar").attr("src",avatar);
 
 	var tab1_add = new Vue({
 		el: '#tab1',
@@ -41,6 +19,8 @@ $(document).ready(function () {
 			$.ajax({
 				type: "get",
 				url: globalurl + "getSendTask" + fail,
+				xhrFields: {withCredentials: true},
+				crossDomain: true,
 				dataType: 'json',
 				success: function (data) {
 					if (data['status'] == 1) {
@@ -76,6 +56,8 @@ $(document).ready(function () {
 			$.ajax({
 				type: "get",
 				url: globalurl + "getReceiveTask" + fail,
+				xhrFields: {withCredentials: true},
+				crossDomain: true,
 				dataType: 'json',
 				success: function (data) {
 					if (data['status'] == 1) {

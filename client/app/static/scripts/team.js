@@ -1,32 +1,15 @@
 $(document).ready(function () {
 	var count = 0;
-	var ajax_num = 2;
+	var ajax_num = 1;
+	var teamName = $.cookie("teamName");
 	$(".team").addClass("active");
-	$.ajax({
-		type: "get",
-		url: globalurl + "getUser" + fail,
-		dataType: 'json',
-		success: function (data) {
-			if (data['status'] == 1) {
-				console.log(data);
-				var teamName = data['data']['teamName'];
-				$("#teamName").append(teamName);
-			}
-			else {
-				alert('error!');
-			}
-			display(++count,ajax_num);
-		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			console.log(jqXHR);
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
-	});
+	$("#teamName").append(teamName);
 	objects = [];
 	$.ajax({
 		type: "get",
 		url: globalurl + 'getMember',
+		xhrFields: {withCredentials: true},
+		crossDomain: true,
 		dataType: 'json',
 		async: false,
 		success: function (data) {

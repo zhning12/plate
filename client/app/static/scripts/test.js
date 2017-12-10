@@ -1,44 +1,7 @@
 $(document).ready(function () {
-	// console.log(12);
-	// jsonData = {
-	// 	email : "example@qq.com",
-	// 	password: "123456"
-	// }
-	// $.ajax({
-	// 	type: "post",
-	// 	url: globalurl+"signIn"+fail,
-	// 	dataType: 'json',
-	// 	data: jsonData,
-	// 	success: function (data) {
-	// 		console.log(data);
-	// 	},
-	// 	error: function (jqXHR, textStatus, errorThrown) {
-	// 		console.log(jqXHR);
-	// 		console.log(textStatus);
-	// 		console.log(errorThrown);
-    //     }
-	// });
-
-	// $("#abc").click( function(){
-	// 	jsonData = {
-	// 		email : "example@qq.com",
-	// 		password: "123456"
-	// 	}
-	// 	$.ajax({
-	// 		type: "post",
-	// 		url: "http://result.eolinker.com/n7d6z5u6691b12046479482492142f3acfa7b501e22b581?uri=http://127.0.0.1:7000/signIn&resultType=failure",
-	// 		dataType: 'json',
-	// 		data: jsonData,
-	// 		success: function (data) {
-	// 			console.log(data);
-	// 		},
-	// 		error: function (jqXHR, textStatus, errorThrown) {
-	// 			console.log(jqXHR);
-	// 			console.log(textStatus);
-	// 			console.log(errorThrown);
-	// 		}
-	// 	});
-	// })
+	display();
+	//$("#test").html($.cookie("testName"));
+	//alert($.cookie("username"));
 	$("#signUp").click( function(){
 		jsonData = {
 			username : "挂呢品尼高",
@@ -104,6 +67,24 @@ $(document).ready(function () {
 		$.ajax({
 			type: "get",
 			url: "/session/getUser",
+			dataType: 'json',
+			success: function (data) {
+				console.log(data);
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				console.log(jqXHR);
+				console.log(textStatus);
+				console.log(errorThrown);
+			}
+		});
+	});
+
+	$("#withCookie").click( function(){
+		$.ajax({
+			type: "get",
+			url: "http://localhost:7000/getTeamTask",
+			xhrFields: {withCredentials: true},
+			crossDomain: true,
 			dataType: 'json',
 			success: function (data) {
 				console.log(data);

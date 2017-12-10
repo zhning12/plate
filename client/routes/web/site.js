@@ -1,6 +1,15 @@
 var http = require('http');
 module.exports = function (app) {
 
+	app.use(function (req, res, next) {
+		if (req.session.user){
+			for(var key in req.session.user){
+				res.cookie(key, req.session.user[key]);
+			}
+		}
+		next();
+	});
+
 	//默认根目录：/app/views
 	app.get('/', function (req, res) {
 		res.render("index")
@@ -52,8 +61,12 @@ module.exports = function (app) {
 	});
 
 	app.get('/test2', function (req, res) {
-		if (req.session.user)
-			res.render("test", req.session.user)
+		if (req.session.user){
+			for(var key in req.session.user){
+				res.cookie(key, req.session.user[key]);
+			}
+			res.render("test")
+		}
 		else
 			res.redirect("/")
 	});
@@ -129,25 +142,7 @@ module.exports = function (app) {
 			status: 1,
 			message: 'success'
 		};
-		req.session.user = '';
-		res.send(resData);
-	});
-
-	app.get('/session/getUser', function (req, res) {
-		var resData;
-		if (req.session.user) {
-			resData = {
-				status: 1,
-				message: 'success',
-				data: req.session.user
-			}
-		}
-		else {
-			resData = {
-				status: 0,
-				message: 'not existed'
-			}
-		}
+		delete req.session.user;
 		res.send(resData);
 	});
 };

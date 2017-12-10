@@ -1,4 +1,7 @@
 $(document).ready(function () {
+	$("#main").css('display','flex');
+	$("#main").css('height','100%');
+	$("#progress").remove();
 	$("#abc").click(function () {
 		var email = $("#email").val();
 		var password = $("#password").val();
@@ -8,24 +11,21 @@ $(document).ready(function () {
 		}
 		$.ajax({
 			type: "post",
-			url: globalurl + "signIn" + fail,
+			url: "/session/signIn",
 			dataType: 'json',
 			data: jsonData,
-			success: function (data) {
-				console.log(data);
-				if (data["status"] == 1) {
-					window.location.href = '/task';
-				}
-				else {
-
-				}
-			},
-			error: function (XMLHttpRequest, textStatus, errorThrown) {
-				console.log(XMLHttpRequest.status);
-				console.log(XMLHttpRequest.readyState);
-				console.log(textStatus);
-			}
+			success: ajaxSuccess,
+			error: ajaxError
 		});
 	})
-	display();
+
+	function ajaxSuccess(data){
+        console.log(data);
+		if (data["status"] == 1) {
+			window.location.href = '/task';
+		}
+		else {
+
+		}
+    }
 });
