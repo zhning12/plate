@@ -7,6 +7,8 @@ taskBlue = Blueprint('taskBlue', __name__)
 # 获取用户所在团队的全部任务
 @taskBlue.route('/getTeamTask', methods=['GET'])
 def getTeamTask():
+    print (request.headers.items['Name'])
+    return jsonify(request.cookies)
     teamId = int(request.cookies['teamId'])
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
