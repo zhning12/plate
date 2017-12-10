@@ -1,6 +1,15 @@
 var http = require('http');
 module.exports = function (app) {
 
+	app.use(function (req, res, next) {
+		if (req.session.user){
+			for(var key in req.session.user){
+				res.cookie(key, req.session.user[key]);
+			}
+		}
+		next();
+	});
+
 	//默认根目录：/app/views
 	app.get('/', function (req, res) {
 		res.render("index")
@@ -84,9 +93,6 @@ module.exports = function (app) {
 				});
 				resflask.on('end', function () {
 					req.session.user = JSON.parse(body).data;
-					for(var key in req.session.user){
-						res.cookie(key, req.session.user[key]);
-					}
 					console.log(req.session.user);
 					res.send(body); /*发送收到的响应*/
 				});
@@ -120,9 +126,6 @@ module.exports = function (app) {
 				});
 				apacheRes.on('end', function () {
 					req.session.user = JSON.parse(body).data;
-					for(var key in req.session.user){
-						res.cookie(key, req.session.user[key]);
-					}
 					console.log(req.session.user);
 					res.send(body); /*发送收到的响应*/
 				});
@@ -139,7 +142,7 @@ module.exports = function (app) {
 			status: 1,
 			message: 'success'
 		};
-		req.session.user = '';
+		delete req.session.user;
 		res.send(resData);
 	});
 };

@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	display();
+	$(".calendar").addClass("active");
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next',

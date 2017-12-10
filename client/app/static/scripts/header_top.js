@@ -1,24 +1,21 @@
 $(document).ready(function () {
-    $.ajax({
-        type: "get",
-        url: globalurl+"getUser"+fail,
-        dataType: 'json',
-        async:false,
-        success: function (data) {
-            if(data['status']==1){
-                console.log(data);
-                var teamName = data['data']['teamName'];  
-                $("#teamName_head").append(teamName); 
-            }
-            else{
-                alert('error!');
-            } 
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-            console.log(textStatus);
-            console.log(errorThrown);
-        }
+    var teamName = $.cookie("teamName"); 
+    $("#teamName_head").append(teamName); 
+    $("#signOut").click(function(){
+        $.ajax({
+			type: "get",
+			url: "/session/signOut",
+			success: ajaxSuccess,
+			error: ajaxError
+		});
     });
 
+    function ajaxSuccess(data){
+		if (data["status"] == 1) {
+			window.location.href = '/sign-in';
+		}
+		else {
+
+		}
+    }
 });

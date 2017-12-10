@@ -1,45 +1,40 @@
 $(document).ready(function () {
-    $("#main").css('display','flex');
-	$("#main").css('height','100%');
-	$("#progress").remove();
+    $("#main").css('display', 'flex');
+    $("#main").css('height', '100%');
+    $("#progress").remove();
     $("#signUp").click(function () {
         var name = $("#name").val();
         var email = $("#email").val();
         var password = $("#password").val();
-        jsonData = {
+        var avatar = textToImg(name, 100);
+        var jsonData = {
             "username": name,
             "email": email,
-            "password": password
-        }
-        console.log(jsonData["name"]);
-        console.log(jsonData["email"]);
-        console.log(jsonData["password"]);
-
+            "password": password,
+            "avatar": avatar
+        };
+        console.log(jsonData);
         $.ajax({
             type: "post",
-            url: globalurl + "signUp" + fail,
+            url: "/session/signUp",
             dataType: 'json',
             data: jsonData,
-            success: function (data) {
-                console.log(data);
-                if (data["status"] == 1) {
-                    window.location.href = '/sign-in';
-                }
-                else{
-                    if(data['message'] == 'username-existed-error'){
-
-                    }
-                    if(data['message'] == 'email-existed-error'){
-
-                    }
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                console.log(XMLHttpRequest.status);
-                console.log(XMLHttpRequest.readyState);
-                console.log(textStatus);
-            }
+            success: ajaxSuccess,
+            error: ajaxError
         });
     })
-    display();
+    function ajaxSuccess(data){
+        console.log(data);
+        if (data["status"] == 1) {
+            window.location.href = '/sign-in';
+        }
+        else {
+            if (data['message'] == 'username-existed-error') {
+
+            }
+            if (data['message'] == 'email-existed-error') {
+
+            }
+        }
+    }
 });

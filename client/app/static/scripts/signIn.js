@@ -11,23 +11,21 @@ $(document).ready(function () {
 		}
 		$.ajax({
 			type: "post",
-			url: globalurl + "signIn" + fail,
+			url: "/session/signIn",
 			dataType: 'json',
 			data: jsonData,
-			success: function (data) {
-				console.log(data);
-				if (data["status"] == 1) {
-					window.location.href = '/task';
-				}
-				else {
-
-				}
-			},
-			error: function (XMLHttpRequest, textStatus, errorThrown) {
-				console.log(XMLHttpRequest.status);
-				console.log(XMLHttpRequest.readyState);
-				console.log(textStatus);
-			}
+			success: ajaxSuccess,
+			error: ajaxError
 		});
 	})
+
+	function ajaxSuccess(data){
+        console.log(data);
+		if (data["status"] == 1) {
+			window.location.href = '/task';
+		}
+		else {
+
+		}
+    }
 });

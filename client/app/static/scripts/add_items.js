@@ -6,6 +6,8 @@ $(document).ready(function () {
 	$.ajax({
 		type: "get",
 		url: globalurl + "getMember" + fail,
+		xhrFields: {withCredentials: true},
+		crossDomain: true,
 		dataType: 'json',
 		async: false,
 		success: function (data) {
@@ -20,7 +22,7 @@ $(document).ready(function () {
 			else {
 				alert('error!');
 			}
-			display(++count,ajax_num);
+			display(++count, ajax_num);
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(jqXHR);
@@ -35,12 +37,10 @@ $(document).ready(function () {
 		},
 		delimiters: ['${', '}']
 	});
-	
+
 });
 //全选和全不选（第一个参数为复选框名称，第二个参数为是全选还是全不选）  
 function allCheck() {
-
-		$('.mdl-checkbox').toggleClass('is-checked');
-
-}  
+	$('.mdl-checkbox').toggleClass('is-checked');
+}
 

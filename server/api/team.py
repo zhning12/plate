@@ -7,12 +7,12 @@ teamBlue = Blueprint('teamBlue', __name__)
 @teamBlue.route('/getMember', methods=['GET'])
 def getMember():
     teamId = int(request.cookies['teamId'])
-    head = ('id', 'username', 'email', 'head')
+    head = ('id', 'username', 'email', 'avatar')
     data = []
     with getConn() as cursor:
         cursor.execute(
             '''
-            select ID,USERNAME,EMAIL,HEAD
+            select ID,USERNAME,EMAIL,AVATAR
             from USER where TEAM_ID = "%d"
             ''' % (teamId,))
         for item in cursor.fetchall():

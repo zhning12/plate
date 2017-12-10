@@ -83,9 +83,7 @@ $(document).ready(function () {
 		$.ajax({
 			type: "get",
 			url: "http://localhost:7000/getTeamTask",
-			xhrFields: {
-				withCredentials: true
-			},
+			xhrFields: {withCredentials: true},
 			crossDomain: true,
 			dataType: 'json',
 			success: function (data) {
