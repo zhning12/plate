@@ -11,7 +11,8 @@ $(document).ready(function () {
             "username": name,
             "email": email,
             "password": password,
-            "avatar": avatar
+            "avatar": avatar,
+            "teamId": 1//////////////之后要处理
         };
         console.log(jsonData);
         $.ajax({

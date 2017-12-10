@@ -11,7 +11,7 @@
 		created:function(){
 			$.ajax({
 				type: "get",
-				url: globalurl + "getTeamTask" + fail,
+				url: globalurl + "getTeamTask/" +$.cookie("teamId") + fail,
 				xhrFields: {withCredentials: true},
 				crossDomain: true,
 				dataType: 'json',
@@ -28,7 +28,8 @@
 						}
 					}
 					else {
-						alert('error!');
+						console.log(data);
+						//alert('error!');
 					}
 					display(++count,ajax_num);
 				},

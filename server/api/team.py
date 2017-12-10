@@ -4,9 +4,8 @@ from app import getConn
 teamBlue = Blueprint('teamBlue', __name__)
 
 # 获取用户所在当前团队的全部成员信息
-@teamBlue.route('/getMember', methods=['GET'])
-def getMember():
-    teamId = int(request.cookies['teamId'])
+@teamBlue.route('/getMember/<int:teamId>', methods=['GET'])
+def getMember(teamId):
     head = ('id', 'username', 'email', 'avatar')
     data = []
     with getConn() as cursor:
@@ -43,14 +42,14 @@ def getTeam():
 # 更新用户团队信息
 @teamBlue.route('/updateTeam', methods=['POST'])
 def updateTeam():
-    username = request.cookies['username']
-    teamId = int(request.cookies['teamId'])
+    username = request.form.get('username')
+    teamId = int(request.form.get('teamId'))
     with getConn() as cursor:
         # 更新用户团队信息
         cursor.execute(
             '''
             update USER set TEAM_ID = "%d" where USERNAME = "%s"
-            ''' % (int(teamId),username,))
+            ''' % (teamId,username,))
         
         # 更新团队人数
     res = {
@@ -62,7 +61,7 @@ def updateTeam():
 # 添加团队并加入
 @teamBlue.route('/addTeam', methods=['POST'])
 def addTeam():
-    username = request.cookies['username']
+    username = request.form.get('username')
     name = request.form.get('name', '')
     with getConn() as cursor:
         # 更新用户团队信息

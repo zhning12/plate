@@ -72,11 +72,14 @@ module.exports = function (app) {
 	});
 
 	app.post('/session/signUp', function (req, res) {
+		var resData = {
+			status:1,
+			code:"success"
+		};
 		var data = require('querystring').stringify(req.body); //数据以url param格式发送
-		console.log(data);
 		var opt = {
 			method: "POST",
-			host: "localhost",
+			host: "39.106.147.86",
 			port: 7000,
 			path: "/signUp",
 			headers: {
@@ -106,10 +109,9 @@ module.exports = function (app) {
 
 	app.post('/session/signIn', function (req, res) {
 		var data = require('querystring').stringify(req.body); //数据以url param格式发送
-		console.log(data);
 		var opt = {
 			method: "POST",
-			host: "localhost",
+			host: "39.106.147.86",
 			port: 7000,
 			path: "/signIn",
 			headers: {

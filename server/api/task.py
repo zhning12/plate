@@ -5,11 +5,8 @@ import json
 taskBlue = Blueprint('taskBlue', __name__)
 
 # 获取用户所在团队的全部任务
-@taskBlue.route('/getTeamTask', methods=['GET'])
-def getTeamTask():
-    print (request.headers.items['Name'])
-    return jsonify(request.cookies)
-    teamId = int(request.cookies['teamId'])
+@taskBlue.route('/getTeamTask/<int:teamId>', methods=['GET'])
+def getTeamTask(teamId):
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -28,9 +25,8 @@ def getTeamTask():
     return jsonify(res)
 
 # 获取我发起的任务
-@taskBlue.route('/getSendTask', methods=['GET'])
-def getSendTask():
-    username = request.cookies['username']
+@taskBlue.route('/getSendTask/<username>', methods=['GET'])
+def getSendTask(username):
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -49,9 +45,8 @@ def getSendTask():
     return jsonify(res)
 
 # 获取我负责的任务
-@taskBlue.route('/getReceiveTask', methods=['GET'])
-def getReceiveTask():
-    username = request.cookies['username']
+@taskBlue.route('/getReceiveTask/<username>', methods=['GET'])
+def getReceiveTask(username):
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -74,8 +69,8 @@ def getReceiveTask():
 @taskBlue.route('/addTask', methods=['POST'])
 def addTask():
     print (request.form)
-    teamId = int(request.cookies['teamId'])
-    username = request.cookies['username']
+    teamId = int(request.form.get('teamId', ''))
+    username = request.form.get('username', '')
     name = request.form.get('name', '')
     description = request.form.get('description', '')
     addedUrl = request.form.get('addedUrl', '')

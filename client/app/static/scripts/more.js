@@ -18,11 +18,7 @@ $(document).ready(function () {
             } 
             display(++count,ajax_num);
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-            console.log(textStatus);
-            console.log(errorThrown);
-        }
+        error: ajaxError
     });
 	
 });
