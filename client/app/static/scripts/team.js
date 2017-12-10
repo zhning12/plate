@@ -7,7 +7,7 @@ $(document).ready(function () {
 	objects = [];
 	$.ajax({
 		type: "get",
-		url: globalurl + 'getMember',
+		url: globalurl + 'getMember/' + $.cookie("teamId"),
 		xhrFields: {withCredentials: true},
 		crossDomain: true,
 		dataType: 'json',
@@ -21,11 +21,7 @@ $(document).ready(function () {
 			}
 			display(++count,ajax_num);
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			console.log(jqXHR);
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+		error: ajaxError
 	});
 	var card_new = new Vue({
 		el: '#member_list',

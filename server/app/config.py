@@ -9,7 +9,7 @@ DB = {
     'user': 'root',
     'passwd': '123456',
     'db': 'plate',
-    'host': 'localhost',
+    'host': '39.106.147.86',
     'port': 3306,
     'charset':'utf8'
 }
