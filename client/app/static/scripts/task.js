@@ -9,7 +9,6 @@
 			objects: []
 		},
 		created:function(){
-			var tem=this.objects;
 			$.ajax({
 				type: "get",
 				url: globalurl + "getTeamTask/" +$.cookie("teamId") + fail,

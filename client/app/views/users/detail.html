@@ -1,0 +1,30 @@
+{% extends '../layout/layout.html' %} {% block head %}
+<title>任务详情</title>
+{% endblock %} {% block styles %}
+<link rel="stylesheet" href="/static/styles/detail.css" /> {% endblock %} {% block scripts %}
+<script src="/static/scripts/detail.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+
+
+<div class="top-none large-screen-only"></div>
+
+<div class="contain">
+    <div id="task_name">
+        <h3>蚂蜂社推广</h3>
+        <div class="border_4"></div>
+    </div>
+    <div class="task_detail">
+        <h4>任务</h4>
+        <div class="detail_info">
+            <p id="detail_info">校内宣传蚂蜂社，及时收集用户反馈</p>
+        </div>
+    </div>
+    <div class="task_file">
+        <h4>文件</h4>
+        <div class="file_info"></div>
+    </div>
+</div>
+
+<div class="bottom-none small-screen-only"></div>
+
+
+{% include '../layout/header_bot.html' %} {% endblock %}
