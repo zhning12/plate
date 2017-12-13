@@ -24,18 +24,36 @@ $(document).ready(function () {
             error: ajaxError
         });
     })
-    function ajaxSuccess(data){
+    function ajaxSuccess(data) {
         console.log(data);
         if (data["status"] == 1) {
-            window.location.href = '/sign-in';
+            window.location.href = '/swtich';
         }
         else {
             if (data['message'] == 'username-existed-error') {
-
+                $('#name_message').text('用户名已存在').addClass('input_error');
             }
             if (data['message'] == 'email-existed-error') {
-
+                $('#email_message').text('邮箱已存在').addClass('input_error');
             }
         }
     }
+    var email_check=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+    $('#email').bind('input propertychange', function () {
+        if (!email_check.test($('#email').val())) {
+            $('#email_message').html('邮箱名不符合标准，示例：1001@qq.com').addClass('input_error');
+        }
+        else{
+            $('#email_message').html('邮箱名符合标准，示例：1001@qq.com').removeClass('input_error');
+        }
+    });
+    $('#password').bind('input propertychange', function () {
+        var pwd=$('#password').val();
+        if (pwd.length>16||pwd.length<6) {
+            $('#password_message').html('密码长度不符合标准，应在6-16位之间').addClass('input_error');
+        }
+        else{
+            $('#password_message').html('密码长度符合标准').removeClass('input_error');
+        }
+    });
 });
