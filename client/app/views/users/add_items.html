@@ -15,12 +15,12 @@
 <div class="contain">
     <h3 class="title">创建新项目</h3>
     <div class="task_all">
-        <input class="form-control form-control-lg task_name" type="text" placeholder="项目名称">
-        <textarea class="form-control task_description" rows="3" placeholder="简单描述项目，便于其他人理解（选填）"></textarea>
+        <input id="task_name" class="form-control form-control-lg task_name" type="text" placeholder="项目名称">
+        <textarea id="task_description" class="form-control task_description" rows="3" placeholder="简单描述项目，便于其他人理解（选填）"></textarea>
     </div>
     <form>
         <div class="form-group">
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input type="file" class="form-control-file" id="added_url">
         </div>
     </form>
 
@@ -34,7 +34,6 @@
                     </button>
                 </a>
                 
-            
         </div>
 
         <div class="member" id="member_list">
@@ -49,8 +48,8 @@
         </div>
     </div>
     <div class="btn_box">
-        <button type="button" class="btn btn-outline-success">创建项目</button>
-        <button type="button" class="btn btn-outline-secondary">取消</button>
+        <button type="button" class="btn btn-outline-success" id="create_btn">创建项目</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="cancel()">取消</button>
     </div>
 
 </div>
