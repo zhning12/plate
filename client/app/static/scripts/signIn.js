@@ -2,7 +2,7 @@ $(document).ready(function () {
 	$("#main").css('display','flex');
 	$("#main").css('height','100%');
 	$("#progress").remove();
-	$("#abc").click(function () {
+	$("#sign-in").click(function () {
 		var email = $("#email").val();
 		var password = $("#password").val();
 		jsonData = {
@@ -25,7 +25,11 @@ $(document).ready(function () {
 			window.location.href = '/task';
 		}
 		else {
-
+			var snackbarContainer = document.querySelector('#demo-toast-example');
+			'use strict';
+			var data = {message: '用户名或密码错误' };
+			snackbarContainer.MaterialSnackbar.showSnackbar(data);  
 		}
-    }
+	}
+	
 });
