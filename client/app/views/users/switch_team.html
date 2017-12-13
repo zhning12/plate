@@ -5,8 +5,31 @@
 <script src="/static/scripts/switch.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 <div class="top-none large-screen-only"></div>
 <div class="container">
-    <div class="teams">
-        <li class="team">蚂蜂社</li>
+    <div class="container" id="card_list">
+
+        <a href="/add_items" class="card large-screen-only add_items">
+            <i class="material-icons">add_circle</i>
+            <p>新建团队</p>
+        </a>
+        <div class="all_pro small-screen-only">
+            <p>所有项目</p>
+        </div>
+        <a class="card" v-for="object in objects">
+            <p>${ object.name } </p>
+        </a>
+
+        <div class="card-none"></div>
+        <div class="card-none"></div>
+        <div class="card-none"></div>
+
+
+
+        <div class="create_pro small-screen-only">
+            <!-- Colored FAB button with ripple -->
+            <button onclick="window.location.href='/add_items'" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect add_items">
+                <i class="material-icons ">add</i>
+            </button>
+        </div>
     </div>
     <div class="bottom-none small-screen-only"></div>
 </div>
