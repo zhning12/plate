@@ -78,7 +78,7 @@ a{
         top:0px;
         float: top;
         background-color: #f4f7ed;
-        z-index: 9999;
+        z-index: 1000;
     }
     
     /*header css*/

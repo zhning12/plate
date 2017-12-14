@@ -64,7 +64,7 @@ a{
         display: block;
         color: #4ea5ad;
     }
-    .card .material-icons{
+    .team-card .material-icons{
         width: 32px;
         height: 32px;
         font-size: 32px;
@@ -72,7 +72,7 @@ a{
         margin: 10px 10px 10px 0;
         
     }
-    .card{
+    .team-card{
         width: 100%;
         display: flex;
         text-align: center;
@@ -87,7 +87,7 @@ a{
         white-space: nowrap;
         text-overflow: ellipsis;
     }
-    .card p{
+    .team-card p{
         line-height: 50px;
         font-size: 16px;
         vertical-align: baseline;
@@ -109,7 +109,7 @@ a{
 /*大屏属性*/
 @media (min-width: 768px) {
     
-    .card{
+    .team-card{
         margin:0;
         justify-content: center;
         align-items: center;
@@ -122,23 +122,23 @@ a{
         font-size:16px;
         cursor: pointer;
     }
-    .card i{
+    .team-card i{
         display: block;
     }
-    .card p{
+    .team-card p{
         display: block;
     }
-    .card .material-icons{
+    .team-card .material-icons{
         width: 60px;
         height: 60px;
         font-size: 60px;
         color: #c8bfa5;
     }
     
-    .card .small-screen-only{
+    .team-card .small-screen-only{
         display: none;
     }
-    .card-none{
+    .team-card-none{
         width: 222px;
     }
     .box{
@@ -165,7 +165,7 @@ a{
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         opacity: 1;
     }
-    .card p{
+    .team-card p{
         font-size: 30px;
         color: #333333;
         line-height: 80px;
@@ -175,7 +175,7 @@ a{
         white-space: nowrap;
         text-overflow: ellipsis;
     }
-    .card:hover{
+    .team-card:hover{
         background-color: #f9f9f9;
     }
 }

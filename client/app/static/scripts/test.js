@@ -2,6 +2,7 @@ $(document).ready(function () {
 	display();
 	//$("#test").html($.cookie("testName"));
 	//alert($.cookie("username"));
+	$('.modal').modal();
 	$("#signUp").click( function(){
 		jsonData = {
 			username : "挂呢品尼高",

@@ -12,7 +12,6 @@ def signUp():
     email = request.form.get('email', '')
     password = request.form.get('password', '')
     avatar = request.form.get('avatar', '')
-    team = request.form.get('team', '')
     with getConn() as cursor:
         cursor.execute('select * from USER where EMAIL = "%s"' % (email,))
         if cursor.fetchone():
@@ -28,11 +27,7 @@ def signUp():
                 "message" : "username-existed-error"
             }
             return jsonify(res)
-        cursor.execute('insert ignore into TEAM (NAME) values ("%s")' % (team,))
-        # 更新团队人数
-        cursor.execute('select ID from TEAM where NAME = "%s"' % (team,))
-        teamId = cursor.fetchone()[0]
-        cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , AVATAR , TEAM_ID) values ("%s" ,"%s" ,"%s" ,"%s" ,"%d")' % (username,email,password,avatar,teamId,))
+        cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , AVATAR ) values ("%s" ,"%s" ,"%s" ,"%s")' % (username,email,password,avatar,))
     # 获取用户信息
     res = getUser(email,password)
     return jsonify(res)
@@ -52,7 +47,7 @@ def getUser(email,password):
         cursor.execute(
             '''
             select USER.ID,USERNAME,EMAIL,AVATAR,TEAM_ID,USER.CREATED,USER.UPDATED,TEAM.NAME
-            from USER join TEAM on USER.TEAM_ID = TEAM.ID 
+            from USER left join TEAM on USER.TEAM_ID = TEAM.ID 
             where EMAIL = "%s" and PASSWORD = "%s"
             ''' % (email,password,))
         user = cursor.fetchone()
