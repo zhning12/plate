@@ -27,7 +27,7 @@ $(document).ready(function () {
     function ajaxSuccess(data) {
         console.log(data);
         if (data["status"] == 1) {
-            window.location.href = '/swtich';
+            window.location.href = '/switch';
         }
         else {
             if (data['message'] == 'username-existed-error') {
