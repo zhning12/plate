@@ -11,7 +11,7 @@ $(document).ready(function () {
 		}
 		$.ajax({
 			type: "post",
-			url: "/session/signIn",
+			url: globalurl + "signIn",
 			dataType: 'json',
 			data: jsonData,
 			success: ajaxSuccess,
@@ -20,8 +20,13 @@ $(document).ready(function () {
 	})
 
 	function ajaxSuccess(data){
+		
         console.log(data);
 		if (data["status"] == 1) {
+			var head = ['id','username', 'email','avatar', 'teamId', 'created', 'updated','teamName'];
+			for(item in head){
+				$.cookie(head[item],data['data'][head[item]], { expires: 7 });
+			}
 			window.location.href = '/task';
 		}
 		else {

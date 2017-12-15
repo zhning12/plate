@@ -2,12 +2,23 @@ var http = require('http');
 module.exports = function (app) {
 
 	app.use(function (req, res, next) {
-		if (req.session.user){
-			for(var key in req.session.user){
-				res.cookie(key, req.session.user[key]);
+		if(req.path=='/' || req.path=='/sign-up' || req.path=='/sign-in' || req.path=='/test'){
+			next();
+		}
+		else if(req.cookies.id != null){
+			if(req.cookies.teamId != "null"){
+				next();
+			}
+			else{
+				if(req.path=='/switch')
+					next();	
+				else
+					res.redirect("/switch");
 			}
 		}
-		next();
+		else{
+			res.redirect("/");
+		}
 	});
 
 	//默认根目录：/app/views
@@ -28,7 +39,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/add_items', function (req, res) {
-		res.render("users/add_items")
+		res.render("users/addItems")
 	});
 
 	app.get('/detail/*', function (req, res) {
@@ -52,7 +63,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/switch', function (req, res) {
-		res.render("users/switch_team")
+		res.render("users/switchTeam")
 	});
 
 
@@ -69,83 +80,6 @@ module.exports = function (app) {
 		}
 		else
 			res.redirect("/")
-	});
-
-	app.post('/session/signUp', function (req, res) {
-		var resData = {
-			status:1,
-			code:"success"
-		};
-		var data = require('querystring').stringify(req.body); //数据以url param格式发送
-		var opt = {
-			method: "POST",
-			host: "39.106.147.86",
-			port: 7000,
-			path: "/signUp",
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',//for url parameter
-				'Content-Length': data.length
-			}
-		};
-		var reqflask = http.request(opt, function (resflask) {//建立连接 和 响应回调
-			if (resflask.statusCode == 200) {
-				resflask.setEncoding('utf8');
-				var body = "";
-				resflask.on('data', function (recData) {
-					body += recData;
-				});
-				resflask.on('end', function () {
-					req.session.user = JSON.parse(body).data;
-					console.log(req.session.user);
-					res.send(body); /*发送收到的响应*/
-				});
-			} else {
-				res.send(500, "error");
-			}
-		});
-		reqflask.write(data); //发送请求
-		reqflask.end(); //请求发送完毕
-	});
-
-	app.post('/session/signIn', function (req, res) {
-		var data = require('querystring').stringify(req.body); //数据以url param格式发送
-		var opt = {
-			method: "POST",
-			host: "39.106.147.86",
-			port: 7000,
-			path: "/signIn",
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',//for url parameter
-				'Content-Length': data.length
-			}
-		};
-		var reqflask = http.request(opt, function (apacheRes) {//建立连接 和 响应回调
-			if (apacheRes.statusCode == 200) {
-				apacheRes.setEncoding('utf8');
-				var body = "";
-				apacheRes.on('data', function (recData) {
-					body += recData;
-				});
-				apacheRes.on('end', function () {
-					req.session.user = JSON.parse(body).data;
-					console.log(req.session.user);
-					res.send(body); /*发送收到的响应*/
-				});
-			} else {
-				res.send(500, "error");
-			}
-		});
-		reqflask.write(data); //发送请求
-		reqflask.end(); //请求发送完毕
-	});
-
-	app.get('/session/signOut', function (req, res) {
-		var resData = {
-			status: 1,
-			message: 'success'
-		};
-		delete req.session.user;
-		res.send(resData);
 	});
 };
 

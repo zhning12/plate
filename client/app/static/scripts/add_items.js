@@ -44,15 +44,17 @@ $(document).ready(function () {
 		console.log('520');
 		for (var object of objects) {
 			if ($(`#${object.checkbox_id}`).prop("checked")) {
-				members.push(object['id']);
+				members.push(object['username']);
 			}
 		}
 		var jsonData = {
+			"teamId":$.cookie("teamId"),
+			"username":$.cookie("username"),
 			"name": name,
 			"description": description,
-			"added_url": added_url,
+			"addedUrl": added_url,
 			"deadline": "2017-11-12",
-			"members": members
+			"members": members.join(",")
 		}
 		console.log(jsonData);
 		$.ajax({
@@ -60,6 +62,7 @@ $(document).ready(function () {
 			url: globalurl + "addTask" + fail,
 			xhrFields: { withCredentials: true },
 			crossDomain: true,
+			data:jsonData,
 			dataType: 'json',
 			success: function (data) {
 				if (data['status'] == 1) {

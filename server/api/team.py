@@ -43,15 +43,24 @@ def getTeam():
 @teamBlue.route('/updateTeam', methods=['POST'])
 def updateTeam():
     username = request.form.get('username')
-    teamId = int(request.form.get('teamId'))
+    oldTeamId = int(request.form.get('oldTeamId'))
+    newTeamId = int(request.form.get('newTeamId'))
     with getConn() as cursor:
         # 更新用户团队信息
         cursor.execute(
             '''
             update USER set TEAM_ID = "%d" where USERNAME = "%s"
-            ''' % (teamId,username,))
-        
+            ''' % (newTeamId,username,))
+
         # 更新团队人数
+        cursor.execute(
+            '''
+            update TEAM set SUM = SUM - 1 where ID = "%d"
+            ''' % (oldTeamId,))
+        cursor.execute(
+            '''
+            update TEAM set SUM = SUM + 1 where ID = "%d"
+            ''' % (newTeamId,))
     res = {
         'status': 1,
         'message': 'success'
@@ -76,10 +85,12 @@ def addTeam():
             '''
             update USER set TEAM_ID = "%d" where USERNAME = "%s"
             ''' % (int(teamId),username,))
-        
-        # 更新团队人数
-    res = {
-        'status': 1,
-        'message': 'success'
-    }
+        res = {
+            'status': 1,
+            'message': 'success',
+            'data':{
+                'teamId':teamId,
+                'teamName':name
+            }
+        }
     return jsonify(res)

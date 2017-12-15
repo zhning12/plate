@@ -1,7 +1,7 @@
 SERVER = {
-    'host' : '10.10.155.45',
+    'host' : 'localhost',
     'port' : 7000,
-    'debug' : False,
+    'debug' : True,
     'secretKey' : 'Sm9obiBTY2hyb20ga2lja3MgYXNz'
 }
 

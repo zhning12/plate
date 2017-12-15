@@ -21,7 +21,6 @@ function textToImg(uname,size) {
     context.fillText(name, fontSize, fontSize);
 
     var code = canvas.toDataURL("image/png")
-    console.log(code);
 
     $('.avatar').attr('src',code);
     return code;

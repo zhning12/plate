@@ -1,0 +1,70 @@
+{% extends '../layout/layout.html' %} {% block head %}
+<title>更多</title>
+{% endblock %} {% block styles %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link rel="stylesheet" href="/static/styles/switch.css" /> {% endblock %} {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="/static/scripts/switch.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
+<div class="top-none large-screen-only"></div>
+<div class="container">
+    <div class="container" id="card_list">
+
+        <a href="#modal1" class="team-card large-screen-only add_items modal-trigger">
+            <i class="material-icons">add_circle</i>
+            <p>新建团队</p>
+        </a>
+        <div class="all_pro small-screen-only">
+            <p>所有项目</p>
+        </div>
+        <a href="#choose_modal" class="team-card modal-trigger" v-for="object in objects">
+            <p v-bind:id="object.id">${ object.name } </p>
+        </a>
+
+        <div class="team-card-none"></div>
+        <div class="team-card-none"></div>
+        <div class="team-card-none"></div>
+
+        <div class="create_pro small-screen-only">
+            <!-- Colored FAB button with ripple -->
+            <a href="#modal1" class="modal-trigger">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect add_items">
+                    <i class="material-icons ">add</i>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Add Modal -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>新团队名称</h4>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="team_name" type="text" class="validate">
+                    <label for="team_name">例如：某某施工团队</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a id="create" class="waves-effect waves-light btn">创建团队</a>
+            <a id="cancel" href="#!" class="waves-effect waves-teal btn-flat">取消</a>
+        </div>
+    </div>
+    <!-- Add Modal -->
+
+    <!-- Choose Modal -->
+    <div id="choose_modal" class="modal">
+        <div class="modal-content">
+            <h5>是否确定选择该团队？</h5>
+        </div>
+        <div class="modal-footer">
+            <a id="yes" class="waves-effect waves-light btn">是</a>
+            <a id="no" href="#!" class="waves-effect waves-teal btn-flat">否</a>
+        </div>
+    </div>
+    <!-- Choose Modal -->
+
+    <div class="bottom-none small-screen-only"></div>
+</div>
+
+{% include '../layout/header_bot.html' %} {% endblock %}

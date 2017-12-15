@@ -11,13 +11,12 @@ $(document).ready(function () {
             "username": name,
             "email": email,
             "password": password,
-            "avatar": avatar,
-            "teamId": 1//////////////之后要处理
+            "avatar": avatar
         };
         console.log(jsonData);
         $.ajax({
             type: "post",
-            url: "/session/signUp",
+            url: globalurl + "signUp",
             dataType: 'json',
             data: jsonData,
             success: ajaxSuccess,
@@ -27,6 +26,10 @@ $(document).ready(function () {
     function ajaxSuccess(data) {
         console.log(data);
         if (data["status"] == 1) {
+            var head = ['id','username', 'email','avatar', 'teamId', 'created', 'updated','teamName'];
+			for(item in head){
+                $.cookie(head[item],data['data'][head[item]], { expires: 7 });
+			}
             window.location.href = '/switch';
         }
         else {
