@@ -37,18 +37,15 @@
     <div class="thumbnails"></div>
     <div class="choose_member">
         <div class="select">
-            <h4>任务负责成员</h4>
-                <button id="all_choose" class="mdl-button mdl-js-button mdl-button--primary">全选</button>
+            <h4>任务负责成员（必选）</h4>
+            <button id="all_choose" class="mdl-button mdl-js-button mdl-button--primary">全选</button>
+            <button id="all_cancel" class="mdl-button mdl-js-button mdl-button--primary">取消全选</button>
         </div>
 
         <div class="member" id="member_list">
             <div class="mem" v-for="member in members">
-                <a class="abc">
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="member.checkbox_id">
-                        <input type="checkbox" v-bind:id="member.checkbox_id" class="mdl-checkbox__input">
-                        <span class="mem_name mdl-checkbox__label">${member.username}</span>
-                    </label>
-                </a>
+                <input class="filled-in" type="checkbox" v-bind:id="member.checkbox_id" />
+                <label v-bind:for="member.checkbox_id">${member.username}</label>
             </div>
         </div>
     </div>

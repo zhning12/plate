@@ -4,15 +4,16 @@ $(document).ready(function () {
 	var objects = [];
 	var added_url = '';
 	$(".task").addClass("active");
-	$(".abc").click(function(){
-		$(".mdl-checkbox").toggleClass('is-checked');
-	});
 	$("#all_choose").click(function(){
 		for (var index in objects) {
-			var node = $('#'+objects[index]['checkbox_id']).parent();
-			if (!node.hasClass('is-checked')) {
-				node.toggleClass('is-checked');
-			}
+			var node = $('#'+objects[index]['checkbox_id']);
+			node.prop("checked",true);
+		}
+	});
+	$("#all_cancel").click(function(){
+		for (var index in objects) {
+			var node = $('#'+objects[index]['checkbox_id']);
+			node.prop("checked",false);
 		}
 	});
 	$("#added_url").change(function(){
@@ -83,38 +84,43 @@ $(document).ready(function () {
 		else{
 			var members = [];
 			for (var index in objects) {
-				if ($('#'+objects[index]['checkbox_id']).parent().hasClass('is-checked')) {
+				if ($('#'+objects[index]['checkbox_id']).prop('checked')) {
 					members.push(objects[index]['username']);
 				}
 			}
-			var jsonData = {
-				"teamId": $.cookie("teamId"),
-				"username": $.cookie("username"),
-				"name": $("#task_name").val(),
-				"description": $("#task_description").val(),
-				"addedUrl": added_url,
-				"deadline": new Date($("#deadline").val()).Format("yyyy-MM-dd"),
-				"members": members.join(",")
+			if(members.length == 0){
+				Materialize.toast('请选择负责成员', 4000);
 			}
-			console.log(jsonData);
-			$.ajax({
-				type: "post",
-				url: globalurl + "addTask" + fail,
-				xhrFields: { withCredentials: true },
-				crossDomain: true,
-				data: jsonData,
-				dataType: 'json',
-				success: function (data) {
-					if (data['status'] == 1) {
-						Materialize.toast('添加任务成功', 4000);
-						window.location.href = '/task';
-					}
-					else {
-						Materialize.toast('添加任务失败', 4000);
-					}
-				},
-				error: ajaxError
-			});
+			else{
+				var jsonData = {
+					"teamId": $.cookie("teamId"),
+					"username": $.cookie("username"),
+					"name": $("#task_name").val(),
+					"description": $("#task_description").val(),
+					"addedUrl": added_url,
+					"deadline": new Date($("#deadline").val()).Format("yyyy-MM-dd"),
+					"members": members.join(",")
+				}
+				console.log(jsonData);
+				$.ajax({
+					type: "post",
+					url: globalurl + "addTask" + fail,
+					xhrFields: { withCredentials: true },
+					crossDomain: true,
+					data: jsonData,
+					dataType: 'json',
+					success: function (data) {
+						if (data['status'] == 1) {
+							Materialize.toast('添加任务成功', 4000);
+							window.location.href = '/task';
+						}
+						else {
+							Materialize.toast('添加任务失败', 4000);
+						}
+					},
+					error: ajaxError
+				});
+			}
 		}
 	});
 
