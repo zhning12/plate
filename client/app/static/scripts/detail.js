@@ -1,9 +1,13 @@
 $(document).ready(function () {
+	var count = 0;
+	var ajax_num = 1;
 	var task = [];
 	$(".task").addClass("active");
+	var url_id=getQueryVariable();
+	console.log(url_id);
 	$.ajax({
 		type: "get",
-		url: globalurl + "getTask/{taskId}" + fail,
+		url: globalurl + "getTask/"+url_id + fail,
 		dataType: 'json',
 		async: false,
 		success: function (data) {
@@ -14,12 +18,9 @@ $(document).ready(function () {
 			else {
 				alert('error!');
 			}
+			display(++count,ajax_num);
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			console.log(jqXHR);
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+		error: ajaxError
 	});
 	var task_name = new Vue({
 		el: '#task_name',
@@ -31,3 +32,10 @@ $(document).ready(function () {
 	
 });
 
+function getQueryVariable()
+{
+       var query = window.location['pathname'];
+	   var vars = query.split("/");
+	   
+       return vars.pop();
+}
