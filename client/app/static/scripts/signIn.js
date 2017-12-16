@@ -23,17 +23,15 @@ $(document).ready(function () {
 		
         console.log(data);
 		if (data["status"] == 1) {
-			var head = ['id','username', 'email','avatar', 'teamId', 'created', 'updated','teamName'];
+			var head = ['id','username', 'email', 'teamId', 'created', 'updated','teamName'];
 			for(item in head){
 				$.cookie(head[item],data['data'][head[item]], { expires: 7 });
 			}
+			localStorage.setItem('avatar',data['data']['avatar']);
 			window.location.href = '/task';
 		}
 		else {
-			var snackbarContainer = document.querySelector('#demo-toast-example');
-			'use strict';
-			var data = {message: '用户名或密码错误' };
-			snackbarContainer.MaterialSnackbar.showSnackbar(data);  
+			Materialize.toast('用户名或密码错误', 4000);
 		}
 	}
 	

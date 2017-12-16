@@ -2,7 +2,42 @@ $(document).ready(function () {
 	var count = 0;
 	var ajax_num = 1;
 	var objects = [];
+	var added_url = '';
 	$(".task").addClass("active");
+	$("#all_choose").click(function(){
+		if(!$('.mdl-checkbox').hasClass('is-checked'))
+			$('.mdl-checkbox').toggleClass('is-checked');
+	});
+	$("#added_url").change(function(){
+		$.ajax({
+			url: '/upload',
+			type: 'POST',
+			cache: false,
+			data: new FormData($('#uploadForm')[0]),
+			processData: false,
+			contentType: false,
+			success: function (data) {
+				console.log(data);
+				added_url = data;
+				$('.thumbnails').empty();
+				var urls = added_url.split(',');
+				for(var index in urls){
+					var ele = '<img class="materialboxed" data-caption="" src="'+urls[index]+'"></div>';
+					$('.thumbnails').append(ele);
+				}
+				$('.materialboxed').materialbox();
+			},
+			error: ajaxError
+		});
+	});
+	$('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15, // Creates a dropdown of 15 years to control year,
+		today: 'Today',
+		clear: 'Clear',
+		close: 'Ok',
+		closeOnSelect: false // Close upon selecting a date,
+	});
 	$.ajax({
 		type: "get",
 		url: globalurl + "getMember/" + $.cookie("teamId") + fail,
@@ -35,52 +70,49 @@ $(document).ready(function () {
 	});
 
 	$('#create_btn').click(function () {
-
-		var name = $("#task_name").val();
-		var description = $("#task_description").val();
-		var added_url = $("#added_url").val();
-		//var deadline = $("#deadline").val();
-		var members = [];
-		console.log('520');
-		for (var object of objects) {
-			if ($(`#${object.checkbox_id}`).prop("checked")) {
-				members.push(object['username']);
+		if($("#task_name").val() == '' || $("#deadline").val() == ''){
+			Materialize.toast('请将任务信息填写完全', 4000);
+		}
+		else{
+			var members = [];
+			for (var index in objects) {
+				if ($('#'+objects[index]['checkbox_id']).parent().hasClass('is-checked')) {
+					members.push(objects[index]['username']);
+				}
 			}
+			var jsonData = {
+				"teamId": $.cookie("teamId"),
+				"username": $.cookie("username"),
+				"name": $("#task_name").val(),
+				"description": $("#task_description").val(),
+				"addedUrl": added_url,
+				"deadline": $("#deadline").val(),
+				"members": members.join(",")
+			}
+			console.log(jsonData);
+			$.ajax({
+				type: "post",
+				url: globalurl + "addTask" + fail,
+				xhrFields: { withCredentials: true },
+				crossDomain: true,
+				data: jsonData,
+				dataType: 'json',
+				success: function (data) {
+					if (data['status'] == 1) {
+						Materialize.toast('添加任务成功', 4000);
+						window.location.href = '/task';
+					}
+					else {
+						Materialize.toast('添加任务失败', 4000);
+					}
+				},
+				error: ajaxError
+			});
 		}
-		var jsonData = {
-			"teamId":$.cookie("teamId"),
-			"username":$.cookie("username"),
-			"name": name,
-			"description": description,
-			"addedUrl": added_url,
-			"deadline": "2017-11-12",
-			"members": members.join(",")
-		}
-		console.log(jsonData);
-		$.ajax({
-			type: "post",
-			url: globalurl + "addTask" + fail,
-			xhrFields: { withCredentials: true },
-			crossDomain: true,
-			data:jsonData,
-			dataType: 'json',
-			success: function (data) {
-				if (data['status'] == 1) {
-					window.location.href = '/task';
-				}
-				else {
-					alert('error!');
-				}
-			},
-			error: ajaxError
-		});
 	});
 
 });
 //全选和全不选（第一个参数为复选框名称，第二个参数为是全选还是全不选）  
-function allCheck() {
-	$('.mdl-checkbox').toggleClass('is-checked');
-}
 function cancel() {
 	window.location.href = '/task';
 }

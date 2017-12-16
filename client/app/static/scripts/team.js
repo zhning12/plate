@@ -1,8 +1,8 @@
 $(document).ready(function () {
 	var count = 0;
 	var ajax_num = 1;
-	var teamName = $.cookie("teamName");
 	$(".team").addClass("active");
+	var teamName = $.cookie("teamName");
 	$("#teamName").append(teamName);
 	objects = [];
 	$.ajax({

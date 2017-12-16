@@ -5,6 +5,16 @@ body{
 a{
     text-decoration: none!important;
 }
+.thumbnails{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width:100%;
+    padding:0 15px;
+}
+.upload{
+    display: flex;
+}
 /*小屏属性*/
 @media (max-width: 767px) {
     .large-screen-only{
@@ -20,6 +30,7 @@ a{
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        margin-bottom:70px;
     }
     .btn_box{
         height: 40px;
@@ -28,13 +39,11 @@ a{
         display: flex;
         align-items: center;
         justify-content: space-around;
-        position: absolute;
         bottom:10px;
     }
-    .task_all{
+    .task_top{
         width:100%;
-        
-        padding:10px;
+        padding:0 15px;
     }
     .task_name,.task_description{
         margin-top: 10px;
@@ -42,8 +51,9 @@ a{
     .choose_member{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
+        width:100%;
     }
     .title{
         font-size: 20px;
@@ -51,23 +61,39 @@ a{
     .select{
         display: flex;
         align-items: center;
+        padding:15px;
     }
     .choose_member h4{
-        color: #5bc4c7;
+        color: black;
         font-size:18px;
         margin-right: 10px;
     }
     .member{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: flex-start;
-        min-height: 100px;
+        min-height: 80px;
         width: 100%;
-        
+        padding:0px 15px;
     }
     .mem{
-        min-width: 120px;
+        min-width: 33%;
+    }
+    .title{
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    h1{
+        font-size: 20px;
+        font-weight: 500px;
+        color: black;
+    }
+    .thumbnails img{
+        height:100px;
+        margin:5px;
     }
 }
 /*大屏属性*/
@@ -79,6 +105,7 @@ a{
         /*整体属性*/
         background-color: white;
         width: 100%;
+        padding: 0 30px 40px;
         max-width: 964px;  
         min-height: 600px;
         margin: 0 auto;
@@ -89,14 +116,24 @@ a{
         border: 1px solid #dbdfd6;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         opacity: 1;
+        margin-bottom:70px;
     }
+    
     .title{
-        font-size: 20px;
-        color: #333;
-        padding:20px 30px ;
-
+        height: 80px;
+        width:100%;
+        display: flex;
+        align-items: center;
+        
     }
-    .task_all{
+    h1{
+        margin-left:5px;
+        font-weight: 500;
+        font-size: 32px;
+        color: rgb(51, 51, 51);
+    }
+
+    .task_top{
         width: 580px;
         padding: 0 30px;
     }
@@ -118,8 +155,8 @@ a{
     }
     .select h4{
         font-size: 16px;
-        margin-bottom:4px;
-        margin-right:10px;
+        margin:0 10px 0 0;
+        line-height: 20px;
     }
     .btn_select{
         font-size: 16px;
@@ -140,5 +177,9 @@ a{
     }
     .btn{
         margin-left:30px;
+    }
+    .thumbnails img{
+        height:150px;
+        margin:10px;
     }
 }

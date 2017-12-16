@@ -2,9 +2,7 @@
 <title>自己</title>
 {% endblock %} {% block styles %}
 <link rel="stylesheet" href="/static/styles/person.css" /> {% endblock %} {% block scripts %}
-<script src="/static/scripts/person.js"></script> 
-{% endblock %} {% block body %} {% include '../layout/header_top.html' %}
-<div class="top-none large-screen-only"></div>
+<script src="/static/scripts/person.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 <div class="container">
     <div class="large-screen-only user_info">
         <img id="avatar" class="avatar" alt="username" src="../../static/images/avator.png">
@@ -22,22 +20,25 @@
         </div>
         <div class=" mdl-tabs__panel is-active todo-box" id="tab1">
 
-            <a href="/task_detail" v-for="task in tasks">
+            <a v-for="task in tasks">
                 <div class="todo break-word">
-                    <div class="name ">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="task.checkbox_id">
-                            <input type="checkbox" v-bind:id="task.checkbox_id" class="mdl-checkbox__input">
-                            <span class="mdl-checkbox__label todo-text">${task.name}</span>
-                        </label>
+                    <div class="name">
+                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" />
+                        <label v-bind:for="task.checkbox_id">${task.name}</label>
                     </div>
                     <div class="info truncate-text">
-                        <span class="asignee">
-                            <img src="" class="avater">${task.leader}
-                        </span>
-                        <span class="due-at">
-                            <i class="material-icons">schedule</i>
-                            ${task.deadline}
-                        </span>
+                        <div class="chip chip-margin">
+                            <div class="chip-box">
+                                <i class="material-icons">schedule</i>
+                                ${task.leader}
+                            </div>
+                        </div>
+                        <div class="chip chip-margin">
+                            <div class="chip-box">
+                                <i class="material-icons">schedule</i>
+                                ${task.deadline}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </a>
@@ -46,22 +47,25 @@
         </div>
         <div class="mdl-tabs__panel todo-box" id="tab2">
 
-            <a href="/task_detail" v-for="task in tasks_2">
+            <a v-for="task in tasks_2">
                 <div class="todo break-word">
-                    <div class="name ">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="task.checkbox_id">
-                            <input type="checkbox" v-bind:id="task.checkbox_id" class="mdl-checkbox__input">
-                            <span class="mdl-checkbox__label todo-text">${task.name}</span>
-                        </label>
+                    <div class="name">
+                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" />
+                        <label v-bind:for="task.checkbox_id">${task.name}</label>
                     </div>
                     <div class="info truncate-text">
-                        <span class="asignee">
-                            <img src="" class="avater">${task.leader}
-                        </span>
-                        <span class="due-at">
-                            <i class="material-icons">schedule</i>
-                            ${task.deadline}
-                        </span>
+                        <div class="chip chip-margin">
+                            <div class="chip-box">
+                                <i class="material-icons">schedule</i>
+                                ${task.leader}
+                            </div>
+                        </div>
+                        <div class="chip chip-margin">
+                            <div class="chip-box">
+                                <i class="material-icons">schedule</i>
+                                ${task.deadline}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </a>

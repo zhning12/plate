@@ -5,25 +5,24 @@
 <script src="/static/scripts/task.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 
 <div class="box">
-    <div class="top-none large-screen-only"></div>
 
     <div class="container" id="card_list">
 
-        <a href="/add_items" class="card large-screen-only add_items">
+        <a href="/add_items" class="task-card large-screen-only add_items">
             <i class="material-icons add">add_circle</i>
             <p>新建项目</p>
         </a>
         <div class="all_pro small-screen-only">
             <p>所有项目</p>
         </div>
-        <a class="card" v-for="object in objects">
+        <a class="task-card" v-for="object in objects">
             <i class="material-icons">${ object.icon }</i>
             <p>${ object.name } </p>
         </a>
 
-        <div class="card-none"></div>
-        <div class="card-none"></div>
-        <div class="card-none"></div>
+        <div class="task-card-none"></div>
+        <div class="task-card-none"></div>
+        <div class="task-card-none"></div>
 
         
 

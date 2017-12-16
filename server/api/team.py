@@ -43,7 +43,8 @@ def getTeam():
 @teamBlue.route('/updateTeam', methods=['POST'])
 def updateTeam():
     username = request.form.get('username')
-    oldTeamId = int(request.form.get('oldTeamId'))
+    if request.form.get('oldTeamId') != 'null':
+        oldTeamId = int(request.form.get('oldTeamId'))
     newTeamId = int(request.form.get('newTeamId'))
     with getConn() as cursor:
         # 更新用户团队信息
@@ -53,10 +54,11 @@ def updateTeam():
             ''' % (newTeamId,username,))
 
         # 更新团队人数
-        cursor.execute(
-            '''
-            update TEAM set SUM = SUM - 1 where ID = "%d"
-            ''' % (oldTeamId,))
+        if request.form.get('oldTeamId') != 'null':
+            cursor.execute(
+                '''
+                update TEAM set SUM = SUM - 1 where ID = "%d"
+                ''' % (oldTeamId,))
         cursor.execute(
             '''
             update TEAM set SUM = SUM + 1 where ID = "%d"

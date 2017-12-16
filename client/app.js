@@ -10,10 +10,12 @@ var compression = require('compression')
 var config = require("./config/config");
 var browserSync = require('browser-sync');
 var session = require('express-session');
+var multer = require('multer');
 
 var app = express();
 var dir = app.get('env') == "production" ? "dist" : "app";
-
+app.set('dir', dir);
+app.set('upload',multer({ dest: dir+'/upload/' }));
 app.set('view engine', 'html');
 nunjucks.configure(__dirname + "/" + dir + "/views", {
     autoescape: true,

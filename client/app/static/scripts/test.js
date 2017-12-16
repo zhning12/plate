@@ -2,6 +2,24 @@ $(document).ready(function () {
 	display();
 	//$("#test").html($.cookie("testName"));
 	//alert($.cookie("username"));
+	$("#submit").change(function(){
+		$.ajax({
+			url: '/upload',
+			type: 'POST',
+			cache: false,
+			data: new FormData($('#uploadForm')[0]),
+			processData: false,
+			contentType: false,
+			success: function (data) {
+				console.log(data);
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				console.log(jqXHR);
+				console.log(textStatus);
+				console.log(errorThrown);
+			}
+		});
+	});
 	$('.modal').modal();
 	$("#signUp").click( function(){
 		jsonData = {

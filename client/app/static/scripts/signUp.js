@@ -26,10 +26,11 @@ $(document).ready(function () {
     function ajaxSuccess(data) {
         console.log(data);
         if (data["status"] == 1) {
-            var head = ['id','username', 'email','avatar', 'teamId', 'created', 'updated','teamName'];
+            var head = ['id','username', 'email', 'teamId', 'created', 'updated','teamName'];
 			for(item in head){
                 $.cookie(head[item],data['data'][head[item]], { expires: 7 });
-			}
+            }
+            localStorage.setItem('avatar',data['data']['avatar']);
             window.location.href = '/switch';
         }
         else {
