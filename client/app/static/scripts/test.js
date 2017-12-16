@@ -7,3 +7,7 @@ $(document).ready(function () {
 	var d = new Date(dateStr).Format("yyyy-MM-dd");
 	console.log(d);
 });
+
+function allSelect(){
+
+}

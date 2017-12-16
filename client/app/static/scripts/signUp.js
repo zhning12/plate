@@ -17,6 +17,8 @@ $(document).ready(function () {
         $.ajax({
             type: "post",
             url: globalurl + "signUp",
+            xhrFields: {withCredentials: true},
+            crossDomain: true,
             dataType: 'json',
             data: jsonData,
             success: ajaxSuccess,
