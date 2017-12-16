@@ -10,6 +10,9 @@ $(document).ready(function () {
 	var avatar=localStorage.getItem("avatar");
 	$("#avatar").attr("src",avatar);
 
+	$("input").change(function(){
+		console.log(1);
+	});
 	var tab1_add = new Vue({
 		el: '#tab1',
 		data: {
@@ -18,7 +21,7 @@ $(document).ready(function () {
 		created:function(){
 			$.ajax({
 				type: "get",
-				url: globalurl + "getSendTask/" + $.cookie("username") + fail,
+				url: globalurl + "getSendTask/" + $.cookie("username") +"/" + $.cookie("teamId")+ fail,
 				xhrFields: {withCredentials: true},
 				crossDomain: true,
 				dataType: 'json',
@@ -34,7 +37,7 @@ $(document).ready(function () {
 						}
 					}
 					else {
-						alert('error!');
+						Materialize.toast('读取任务失败', 4000);
 					}
 					display(++count,ajax_num);
 				},
@@ -51,7 +54,7 @@ $(document).ready(function () {
 		created:function(){
 			$.ajax({
 				type: "get",
-				url: globalurl + "getReceiveTask/" + $.cookie("username") + fail,
+				url: globalurl + "getReceiveTask/" + $.cookie("username") +"/" + $.cookie("teamId") + fail,
 				xhrFields: {withCredentials: true},
 				crossDomain: true,
 				dataType: 'json',
@@ -68,7 +71,7 @@ $(document).ready(function () {
 
 					}
 					else {
-						alert('error!');
+						Materialize.toast('读取任务失败', 4000);
 					}
 					display(++count,ajax_num);
 				},

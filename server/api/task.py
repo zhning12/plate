@@ -24,17 +24,42 @@ def getTeamTask(teamId):
     }
     return jsonify(res)
 
+# 获取日历需要的用户所在团队的全部任务
+@taskBlue.route('/getCalendarTask/<int:teamId>', methods=['GET'])
+def getCalendarTask(teamId):
+    head = ('id', 'title', 'end' , 'start')
+    color = ['#257e4a','#ff9f89','#3a87ad']
+    data = []
+    with getConn() as cursor:
+        cursor.execute(
+            '''
+            select ID,NAME,DEADLINE,CREATED 
+            from TASK where TEAM_ID = "%d"
+            ''' % (teamId,))
+        for item in cursor.fetchall():
+            data.append(dict(zip(head, item)))
+    for item in data:
+        item['url'] = '/detail/' + str(item['id'])
+        item['color'] = color[ item['id']%3 ]
+    data = json.loads(json.dumps(data, default=calendar_handler))
+    res = {
+        'status': 1,
+        'message': 'success',
+        'data': data
+    }
+    return jsonify(res)
+
 # 获取我发起的任务
-@taskBlue.route('/getSendTask/<username>', methods=['GET'])
-def getSendTask(username):
+@taskBlue.route('/getSendTask/<username>/<int:teamId>', methods=['GET'])
+def getSendTask(username,teamId):
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
         cursor.execute(
             '''
             select ID,NAME,DEADLINE,FINISHED,LEADER 
-            from TASK where LEADER = "%s"
-            ''' % (username,))
+            from TASK where LEADER = "%s" and TEAM_ID = "%d"
+            ''' % (username,teamId,))
         for item in cursor.fetchall():
             data.append(dict(zip(head, item)))
     data = json.loads(json.dumps(data, default=datetime_handler))
@@ -46,8 +71,8 @@ def getSendTask(username):
     return jsonify(res)
 
 # 获取我负责的任务
-@taskBlue.route('/getReceiveTask/<username>', methods=['GET'])
-def getReceiveTask(username):
+@taskBlue.route('/getReceiveTask/<username>/<int:teamId>', methods=['GET'])
+def getReceiveTask(username,teamId):
     head = ('id', 'name', 'deadline', 'finished', 'leader')
     data = []
     with getConn() as cursor:
@@ -55,8 +80,8 @@ def getReceiveTask(username):
             '''
             select TASK.ID,NAME,DEADLINE,FINISHED,LEADER from
             (select TASK_ID from USER_TASK where USERNAME = "%s") as 
-            TEM join TASK on TEM.TASK_ID = TASK.ID
-            ''' % (username,))
+            TEM join TASK on TEM.TASK_ID = TASK.ID where TEAM_ID = "%d"
+            ''' % (username,teamId,))
         for item in cursor.fetchall():
             data.append(dict(zip(head, item)))
     data = json.loads(json.dumps(data, default=datetime_handler))
@@ -146,9 +171,31 @@ def getTask(taskId=0):
     }
     return jsonify(res)
 
+# 更新用户团队信息
+@teamBlue.route('/updateState', methods=['POST'])
+def updateState():
+    taskId = int(request.form.get('taskId'))
+    finished = int(request.form.get('finished'))
+    with getConn() as cursor:
+        # 更新用户团队信息
+        cursor.execute(
+            '''
+            update TASK set FINISHED = "%d" where ID = "%d"
+            ''' % (finished,taskId,))
+    res = {
+        'status': 1,
+        'message': 'success'
+    }
+    return jsonify(res)
 
 def datetime_handler(x):
     if isinstance(x, datetime.datetime) or isinstance(x, datetime.date):
         return x.isoformat()
     
+    raise TypeError("Unknown type")
+
+def calendar_handler(x):
+    if isinstance(x, datetime.datetime) or isinstance(x, datetime.date):
+        return x.strftime("%Y-%m-%d")
+
     raise TypeError("Unknown type")
