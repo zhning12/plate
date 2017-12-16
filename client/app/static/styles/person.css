@@ -5,6 +5,7 @@ body{
 a{
     text-decoration: none;
 }
+
 /*小屏属性*/
 @media (max-width: 767px) {
     .large-screen-only{
@@ -72,8 +73,15 @@ a{
         height:80px;   
         align-self: flex-end;
     }
-    
-    
+    .chip-margin{
+        margin:0 5px 0 0;
+        padding:0 12px 0 6px;
+    }
+    .chip-box{
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+    }
 }
 /*大屏属性*/
 @media (min-width: 768px) {
@@ -92,6 +100,7 @@ a{
         border: 1px solid #dbdfd6;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         opacity: 1;
+        margin-bottom:70px;
     }
     .user_info{
         width: 100%;
@@ -133,7 +142,6 @@ a{
     }
     /*任务栏*/
     .todo-box{
-        padding: 20px 0;
         width: 100%;
         max-width: 964px;
         display: flex;
@@ -141,11 +149,14 @@ a{
         flex-direction: column;
     }
     .todo{
-        margin-bottom:20px;
-        padding-left:40px;
+        padding:20px 0;
         min-height:60px;
         padding-left:30px;
         border-bottom: 1px solid #e6e6e6;
+        display: flex;
+        align-items: center;
+    }
+    .todo .name{
         display: flex;
         align-items: center;
     }
@@ -178,5 +189,13 @@ a{
     .due-at .material-icons{
         font-size:12px;
     }
-
+    .chip-margin{
+        margin:0 5px 0 0;
+        padding:0 12px 0 6px;
+    }
+    .chip-box{
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+    }
 }

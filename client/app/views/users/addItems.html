@@ -1,39 +1,44 @@
 {% extends '../layout/layout.html' %} {% block head %}
 <title>添加任务</title>
 {% endblock %} {% block styles %}
-<link rel="stylesheet" href="/static/styles/add_items.css" />
-<link rel="stylesheet" href="/static/styles/bootstrap/bootstrap.min.css" /> {% endblock %} {% block scripts %}
-<script src="/static/scripts/add_items.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-
-<script src="/static/scripts/bootstrap.min.js"></script>
- {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
-
-<div class="top-none large-screen-only"></div>
+<link rel="stylesheet" href="/static/styles/add_items.css" /> {% endblock %} {% block scripts %}
+<script src="/static/scripts/add_items.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 
 <div class="contain">
-    <h3 class="title">创建新项目</h3>
-    <div class="task_all">
-        <input id="task_name" class="form-control form-control-lg task_name" type="text" placeholder="项目名称">
-        <textarea id="task_description" class="form-control task_description" rows="3" placeholder="简单描述项目，便于其他人理解（选填）"></textarea>
-    </div>
-    <form>
-        <div class="form-group">
-            <input type="file" class="form-control-file" id="added_url">
-        </div>
-    </form>
+    <a class="title">
+        <h1>创建新任务</h1>
+    </a>
 
+    <div class="task_top">
+        <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="task_name" type="text" class="validate task_name">
+            <label for="task_name">项目名称（必填）</label>
+        </div>
+        <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="task_description" class="materialize-textarea task_description"></textarea>
+            <label for="task_description">简单描述项目，便于其他人理解（选填）</label>
+        </div>
+        <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="deadline" type="text" class="datepicker">
+            <label for="deadline">任务截止时间（必填）</label>
+        </div>
+        <div class="file-field input-field upload">
+            <i class="material-icons prefix">account_circle</i>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" accept="image/*" class="form-control-file" id="added_url" name="pFile" multiple>
+            </form>
+            <input class="file-path validate" type="text" placeholder="选择要上传的图片（选填）">
+        </div>
+    </div>
+
+    <div class="thumbnails"></div>
     <div class="choose_member">
         <div class="select">
-            <h4>选择项目成员</h4>
-            
-                <a href="javascript:allCheck()">
-                    <button class="mdl-button mdl-js-button mdl-button--primary">
-                        全选
-                    </button>
-                </a>
-                
+            <h4>任务负责成员</h4>
+                <button id="all_choose" class="mdl-button mdl-js-button mdl-button--primary">全选</button>
         </div>
 
         <div class="member" id="member_list">
@@ -42,17 +47,14 @@
                     <input type="checkbox" v-bind:id="member.checkbox_id" class="mdl-checkbox__input">
                     <span class="mem_name mdl-checkbox__label">${member.username}</span>
                 </label>
-
             </div>
-
         </div>
     </div>
     <div class="btn_box">
-        <button type="button" class="btn btn-outline-success" id="create_btn">创建项目</button>
-        <button type="button" class="btn btn-outline-secondary" onclick="cancel()">取消</button>
+        <button type="button" class="btn" id="create_btn">创建项目</button>
+        <button type="button" class="btn orange lighten-2" onclick="cancel()">取消</button>
     </div>
 
 </div>
 
-
-{% endblock %}
+{% include '../layout/header_bot.html' %} {% endblock %}

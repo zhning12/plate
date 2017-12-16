@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify , session
 from app import getConn
-import json
+import json,datetime
 
 taskBlue = Blueprint('taskBlue', __name__)
 
@@ -37,6 +37,7 @@ def getSendTask(username):
             ''' % (username,))
         for item in cursor.fetchall():
             data.append(dict(zip(head, item)))
+    data = json.loads(json.dumps(data, default=datetime_handler))
     res = {
         'status': 1,
         'message': 'success',
@@ -58,6 +59,7 @@ def getReceiveTask(username):
             ''' % (username,))
         for item in cursor.fetchall():
             data.append(dict(zip(head, item)))
+    data = json.loads(json.dumps(data, default=datetime_handler))
     res = {
         'status': 1,
         'message': 'success',
@@ -116,7 +118,7 @@ def getTask(taskId=0):
             from TASK where ID = "%d"
             ''' % (taskId,))
         data = dict(zip(head, cursor.fetchone()))
-
+        data = json.loads(json.dumps(data, default=datetime_handler))
         # 处理负责人员
         members = []
         cursor.execute(
@@ -143,3 +145,10 @@ def getTask(taskId=0):
         'data': data
     }
     return jsonify(res)
+
+
+def datetime_handler(x):
+    if isinstance(x, datetime.datetime) or isinstance(x, datetime.date):
+        return x.isoformat()
+    
+    raise TypeError("Unknown type")

@@ -7,7 +7,7 @@ $(document).ready(function () {
 	$("#user_name").append(username);
 	var email=$.cookie("email");
 	$("#e-mail").append(email);
-	var avatar=$.cookie("avatar");
+	var avatar=localStorage.getItem("avatar");
 	$("#avatar").attr("src",avatar);
 
 	var tab1_add = new Vue({

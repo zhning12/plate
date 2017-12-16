@@ -34,9 +34,7 @@ clone 代码
 
 请先全局安装grunt,better-npm-run和browser-sync
 ```bash
-$ npm install grunt-cli -g
-$ npm install better-npm-run -g
-$ npm install browser-sync -g
+$ npm install -g grunt-cli better-npm-run browser-sync
 ```
 
 安装npm包(可能需要一段时间，请耐心等待)

@@ -1,6 +1,6 @@
 
 function textToImg(uname,size) {
-    var name = uname.charAt(0);
+    var name = uname.charAt(0).toUpperCase();
     var fontSize = size;
     var fontWeight = 'bold';
 
