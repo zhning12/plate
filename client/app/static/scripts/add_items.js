@@ -4,9 +4,16 @@ $(document).ready(function () {
 	var objects = [];
 	var added_url = '';
 	$(".task").addClass("active");
+	$(".abc").click(function(){
+		$(".mdl-checkbox").toggleClass('is-checked');
+	});
 	$("#all_choose").click(function(){
-		if(!$('.mdl-checkbox').hasClass('is-checked'))
-			$('.mdl-checkbox').toggleClass('is-checked');
+		for (var index in objects) {
+			var node = $('#'+objects[index]['checkbox_id']).parent();
+			if (!node.hasClass('is-checked')) {
+				node.toggleClass('is-checked');
+			}
+		}
 	});
 	$("#added_url").change(function(){
 		$.ajax({
@@ -22,7 +29,7 @@ $(document).ready(function () {
 				$('.thumbnails').empty();
 				var urls = added_url.split(',');
 				for(var index in urls){
-					var ele = '<img class="materialboxed" data-caption="" src="'+urls[index]+'"></div>';
+					var ele = '<img class="materialboxed" data-caption="" src="/upload/'+urls[index]+'"></div>';
 					$('.thumbnails').append(ele);
 				}
 				$('.materialboxed').materialbox();
@@ -86,7 +93,7 @@ $(document).ready(function () {
 				"name": $("#task_name").val(),
 				"description": $("#task_description").val(),
 				"addedUrl": added_url,
-				"deadline": $("#deadline").val(),
+				"deadline": new Date($("#deadline").val()).Format("yyyy-MM-dd"),
 				"members": members.join(",")
 			}
 			console.log(jsonData);

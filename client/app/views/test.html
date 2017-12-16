@@ -1,34 +1,20 @@
-{% extends './layout/layout.html' %}
-
-{% block head %}
+{% extends './layout/layout.html' %} {% block head %}
 <title>test</title>
-{% endblock %}
-
-{% block styles %}
+{% endblock %} {% block styles %}
 <link rel="stylesheet" href="/static/styles/test.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-{% endblock %}
-
-{% block scripts %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> {% endblock %} {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="/static/scripts/test.js"></script>
-<script src="/static/scripts/vue.js"></script>
-{% endblock %}
-
-{% block body %}
+<script src="/static/scripts/vue.js"></script> {% endblock %} {% block body %}
 
 <div class="box">
 	<h1 class="solgan">test3</h1>
 	<h1>sdsdffc12</h1>
 	<h1 id="test">关鹏</h1>
 	<!-- <a>{{id}}</a> -->
-    <i class="material-icons">face</i>
-	
+	<i class="material-icons">face</i>
+
 	<!-- Modal Trigger -->
 	<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-	<img src="http://localhost:3000/upload/b1a74218e3224961b582a4bd82918b35">
-	<form id="uploadForm" enctype="multipart/form-data">
-		<input id="submit" accept="image/*" type="file" name="pFile" multiple>
-	</form>
 </div>
 {% endblock %}

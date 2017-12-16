@@ -43,10 +43,12 @@
 
         <div class="member" id="member_list">
             <div class="mem" v-for="member in members">
-                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="member.checkbox_id">
-                    <input type="checkbox" v-bind:id="member.checkbox_id" class="mdl-checkbox__input">
-                    <span class="mem_name mdl-checkbox__label">${member.username}</span>
-                </label>
+                <a class="abc">
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" v-bind:for="member.checkbox_id">
+                        <input type="checkbox" v-bind:id="member.checkbox_id" class="mdl-checkbox__input">
+                        <span class="mem_name mdl-checkbox__label">${member.username}</span>
+                    </label>
+                </a>
             </div>
         </div>
     </div>

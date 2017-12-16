@@ -71,7 +71,7 @@ module.exports = function (app) {
 		var files = req.files;
 		var resData = [];
 		for(var index in files){
-			resData.push( files[index].path.replace(app.get('dir'),'') )
+			resData.push( files[index].path.replace(app.get('dir')+'\\upload\\','') )
 			console.log('文件类型：%s', files[index].mimetype);
 			console.log('原始文件名：%s', files[index].originalname);
 			console.log('文件大小：%s', files[index].size);
