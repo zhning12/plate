@@ -172,7 +172,7 @@ def getTask(taskId=0):
     return jsonify(res)
 
 # 更新用户团队信息
-@teamBlue.route('/updateState', methods=['POST'])
+@taskBlue.route('/updateState', methods=['POST'])
 def updateState():
     taskId = int(request.form.get('taskId'))
     finished = int(request.form.get('finished'))
