@@ -8,6 +8,7 @@ dist
 .vscode
 server/.vscode
 backup
+client/app/upload/*
 
 # Server
 # Byte-compiled / optimized / DLL files

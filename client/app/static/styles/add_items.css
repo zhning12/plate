@@ -170,7 +170,7 @@ a{
     }
     .mem{
         width: 160px;
-        margin: 10px 10px 10px 0;
+        padding: 10px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
