@@ -3,8 +3,8 @@ $(document).ready(function () {
 	$("#main").css('height','100%');
 	$("#progress").remove();
 	$("#sign-in").click(function () {
-		var email = $("#email").val();
-		var password = $("#password").val();
+		var email = $("#signin_email").val();
+		var password = $("#signin_password").val();
 		jsonData = {
 			email: email,
 			password: password

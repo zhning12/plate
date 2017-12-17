@@ -21,23 +21,18 @@ a{
        background-color:  #fafafa;
     }
     .container{
-        margin-top:10px;
+        margin-top:5px;
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
     }
-    .title{
-        width: 100%;
-        display: flex;
-        align-content: center;
-        justify-content: center;
-    }
     h1{
         font-size: 20px;
-        font-weight: 500px;
         color: black;
+        line-height: 50px;
+        margin:0px;
     }
     .member-list{
         background-color: white;
@@ -54,9 +49,6 @@ a{
         color:black;
         display: flex;
         align-items: center;
-    }
-    .member:hover{
-        background-color: black;
     }
     .member_info{
         display: flex;

@@ -11,7 +11,6 @@ $(document).ready(function () {
 		dataType: 'json',
 		success: function (data) {
 			if (data['status'] == 1) {
-				console.log(data);
 				initCalendar(data['data']);
 			}
 			else {

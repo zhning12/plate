@@ -10,13 +10,15 @@
             <i class="material-icons">add_circle</i>
             <p>新建团队</p>
         </a>
-        <div class="all_pro small-screen-only">
-            <p>选择团队</p>
+        <div class="small-screen-only">
+            <h1>选择团队</h1>
         </div>
-        <a href="#choose_modal" class="team-card modal-trigger" v-for="object in objects">
+
+        <a href="#choose_modal" class="team-card modal-trigger" v-for="object in objects" >
             <p v-bind:id="object.id">${ object.name } </p>
         </a>
 
+        <div class="team-card-none"></div>
         <div class="team-card-none"></div>
         <div class="team-card-none"></div>
         <div class="team-card-none"></div>
@@ -34,11 +36,11 @@
     <!-- Add Modal -->
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <h4>新团队名称</h4>
+            <h4 style="font-size:22px;">新团队名称</h4>
             <div class="row">
                 <div class="input-field col s6">
                     <input id="team_name" type="text" class="validate">
-                    <label for="team_name">例如：某某施工团队</label>
+                    <label for="team_name">例如：某某团队</label>
                 </div>
             </div>
         </div>
@@ -52,7 +54,7 @@
     <!-- Choose Modal -->
     <div id="choose_modal" class="modal">
         <div class="modal-content">
-            <h5>是否确定选择该团队？</h5>
+            <h4 style="font-size:22px;">是否确定选择该团队？</h4>
         </div>
         <div class="modal-footer">
             <a id="yes" class="waves-effect waves-light btn">是</a>

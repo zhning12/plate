@@ -88,8 +88,9 @@ a{
     }
     h1{
         font-size: 20px;
-        font-weight: 500px;
         color: black;
+        line-height: 50px;
+        margin:0px;
     }
     .thumbnails img{
         height:100px;

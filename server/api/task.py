@@ -152,7 +152,16 @@ def getTask(taskId=0):
             ''' % (taskId,))
         for item in cursor.fetchall():
             members.append(item[0])
-        data['member'] = members
+        avatarMembers = []
+        avatarhead = ('username', 'avatar')
+        for item in members:
+            cursor.execute(
+                '''
+                select AVATAR from USER where USERNAME = "%s"
+                ''' % (item,))
+            avatar = cursor.fetchone()[0]
+            avatarMembers.append( dict( zip(avatarhead, (item,avatar)) ) )
+        data['member'] = avatarMembers
 
         # 处理附件信息
         cursor.execute(

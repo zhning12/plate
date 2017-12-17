@@ -155,7 +155,7 @@ a{
     }
     .todo:hover{
         background-color:#f9f9f9;
-        box-shadow: 3px 3px 3px #a0a0a0;
+        box-shadow: 1px 1px 1px #a0a0a0;
         transition: 0.3s;
     }
     .name{

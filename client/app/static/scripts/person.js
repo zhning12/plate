@@ -48,6 +48,13 @@ $(document).ready(function () {
 			convert: function (task) {
 				task.finished = task.finished == 1?0:1;
 				updateState(task);
+				for(var index in tab2_add.tasks_2){
+					var item = tab2_add.tasks_2[index];
+					if(item.id == task.id){
+						item.finished = task.finished;
+						break;
+					}
+				}
 			}
 		},
 		delimiters: ['${', '}']
@@ -88,6 +95,13 @@ $(document).ready(function () {
 			convert: function (task) {
 				task.finished = task.finished == 1?0:1;
 				updateState(task);
+				for(var index in tab1_add.tasks){
+					var item = tab1_add.tasks[index];
+					if(item.id == task.id){
+						item.finished = task.finished;
+						break;
+					}
+				}
 			}
 		},
 		delimiters: ['${', '}']

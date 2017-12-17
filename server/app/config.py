@@ -1,5 +1,5 @@
 SERVER = {
-    'host' : 'localhost',
+    'host' : '10.10.155.102',
     'port' : 7000,
     'debug' : False,
     'threaded' : True,

@@ -11,8 +11,14 @@ $(document).ready(function () {
 		startingTop: '4%', // Starting top style attribute
 		endingTop: '10%', // Ending top style attribute
 		ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-			newTeamId = trigger['context']['id'];
-			newTeamName = trigger['context']['innerText'];
+			if(trigger['context']['href']!=undefined){
+				newTeamId = trigger['context']['children'][0]['id'];
+				newTeamName = trigger['context']['children'][0]['innerText'];
+			}
+			else{
+				newTeamId = trigger['context']['id'];
+				newTeamName = trigger['context']['innerText'];
+			}
 		},
 		complete: function () { } // Callback for Modal close
 	});
@@ -93,7 +99,6 @@ $(document).ready(function () {
 				dataType: 'json',
 				success: function (data) {
 					if (data['status'] == 1) {
-						console.log(data);
 						for (var i = 0; i < data['data'].length; i++) {
 							var object = data['data'][i];
 							Vue.set(card_new.objects, i, object);

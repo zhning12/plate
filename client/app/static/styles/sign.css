@@ -83,3 +83,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
     color: red!important;
 }
 
+.indicator{
+    background-color:green !important;
+}
+
