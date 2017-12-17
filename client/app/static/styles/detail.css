@@ -8,6 +8,7 @@ a{
 .none{
     display: none;
 }
+
 /*小屏属性*/
 @media (max-width: 767px) {
     .large-screen-only{

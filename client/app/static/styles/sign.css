@@ -4,6 +4,10 @@ body{
 	height:100%;
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset !important;
+}
+
 h1.hidden {display:none;}
 
 .box {
