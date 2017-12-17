@@ -23,13 +23,13 @@
             <a v-for="task in tasks">
                 <div class="todo break-word">
                     <div class="name">
-                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" v-model="item.state"/>
+                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" v-model="task.finished" v-on:click="convert(task)"/>
                         <label v-bind:for="task.checkbox_id">${task.name}</label>
                     </div>
                     <div class="info truncate-text">
                         <div class="chip chip-margin">
                             <div class="chip-box">
-                                <i class="material-icons">schedule</i>
+                                <i class="material-icons">face</i>
                                 ${task.leader}
                             </div>
                         </div>
@@ -50,13 +50,13 @@
             <a v-for="task in tasks_2">
                 <div class="todo break-word">
                     <div class="name">
-                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" />
+                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" v-model="task.finished" v-on:click="convert(task)"/>
                         <label v-bind:for="task.checkbox_id">${task.name}</label>
                     </div>
                     <div class="info truncate-text">
                         <div class="chip chip-margin">
                             <div class="chip-box">
-                                <i class="material-icons">schedule</i>
+                                <i class="material-icons">face</i>
                                 ${task.leader}
                             </div>
                         </div>

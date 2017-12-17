@@ -6,14 +6,14 @@
 <div class="box">
     <div class="container" id="card_list">
 
-        <a href="#modal1" class="team-card large-screen-only add_items modal-trigger card">
+        <a href="#modal1" class="team-card large-screen-only modal-trigger add-team">
             <i class="material-icons">add_circle</i>
             <p>新建团队</p>
         </a>
         <div class="all_pro small-screen-only">
             <p>选择团队</p>
         </div>
-        <a href="#choose_modal" class="team-card modal-trigger card" v-for="object in objects">
+        <a href="#choose_modal" class="team-card modal-trigger" v-for="object in objects">
             <p v-bind:id="object.id">${ object.name } </p>
         </a>
 

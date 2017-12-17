@@ -44,6 +44,12 @@ $(document).ready(function () {
 				error: ajaxError
 			});
 		},
+		methods: {
+			convert: function (task) {
+				task.finished = task.finished == 1?0:1;
+				updateState(task);
+			}
+		},
 		delimiters: ['${', '}']
 	});
 	var tab2_add = new Vue({
@@ -78,6 +84,36 @@ $(document).ready(function () {
 				error: ajaxError
 			});
 		},
+		methods: {
+			convert: function (task) {
+				task.finished = task.finished == 1?0:1;
+				updateState(task);
+			}
+		},
 		delimiters: ['${', '}']
 	});
+
+	function updateState(task){
+		var jsonData = {
+			"taskId": task.id,
+			"finished": task.finished
+		};
+		$.ajax({
+			type: "post",
+			url: globalurl + "updateState",
+			xhrFields: { withCredentials: true },
+			crossDomain: true,
+			data: jsonData,
+			dataType: 'json',
+			success: function (data) {
+				if (data['status'] == 1) {
+					Materialize.toast('修改任务状态成功', 4000);
+				}
+				else {
+					Materialize.toast('修改任务状态失败', 4000);
+				}
+			},
+			error: ajaxError
+		});
+	}
 });
