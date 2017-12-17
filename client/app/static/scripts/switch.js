@@ -76,6 +76,7 @@ $(document).ready(function () {
 					$.cookie("teamName", data['data']['teamName'], { expires: 7 });
 					$('#modal1').modal('close');
 					Materialize.toast('创建成功', 4000);
+					window.location.href = '/task';
 				}
 				else {
 					$('#modal1').modal('close');
