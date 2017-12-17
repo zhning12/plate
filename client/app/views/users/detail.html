@@ -5,46 +5,52 @@
 <script src="/static/scripts/detail.js"></script> {% endblock %} {% block body %} {% include '../layout/header_top.html' %}
 
 
-<div class="contain">
+<div class="contain" id="contain">
+    <!--任务名称-->
     <div class="task_name">
         <input type="checkbox" class="filled-in" id="task_title" />
         <label id="task_name" for="task_title"></label>
     </div>
+    <!--任务描述-->
     <div class="task_detail">
         <div class="task_deti">
             <i class="material-icons prefix">mode_edit</i>
             <h4>任务描述</h4>
         </div>
-
-        <div class="detail_info">
-            <p id="detail_info"></p>
-        </div>
+        <div id="detail_info">        </div>
     </div>
+    <!--截止时间-->
     <div class="deadline">
-        <div class="task_deti">
+        
             <i class="material-icons prefix">access_time</i>
             <h4>截止时间</h4>
-        </div>
+       
 
+        <div id="deadline"></div>
     </div>
+
+    <!--文件-->
     <div class="task_file">
         <div class="task_deti">
             <i class="material-icons prefix">photo_library</i>
             <h4>图片</h4>
         </div>
 
-        <div class="file_info"></div>
+        <div class="thumbnails"></div>
     </div>
-    <div class="deadline">
+    <!--任务成员-->
+    <div class="task_member">
         <div class="task_deti">
             <i class="material-icons prefix">account_circle</i>
             <h4>任务负责成员</h4>
         </div>
-        <div class="chip">
-            <img src="" alt="Contact Person"> Jane Doe
+        <div class="member" id="member_list">
+            <div class="chip" v-for="member in members">
+                <img id="avatar" v-bind:src="member.avatar" alt="Contact Person"> ${member.username}
+            </div>
         </div>
-
     </div>
+
 </div>
 
 <div class="bottom-none small-screen-only"></div>
