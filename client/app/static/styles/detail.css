@@ -5,6 +5,9 @@ body{
 a{
     text-decoration: none!important;
 }
+.none{
+    display: none;
+}
 /*小屏属性*/
 @media (max-width: 767px) {
     .large-screen-only{
@@ -13,13 +16,67 @@ a{
     body{
         background-color: #fafafa!important;
     }
-    .container{
-        margin-top:10px;
+    .contain{
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+    }
+   
+    .task_name{
+        padding: 10px 15px 10px;
+        background-color: #fff;
+        box-shadow: 0 3px 10px 0 rgba(0,0,0,0.05);
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+       
+    }
+    #task_name{
+        font-size: 24px;
+    }
+    .task_detail,.task_file,.deadline,.task_member{
+        width: 100%;
+        padding: 0 15px;
+        min-height: 44px;
+        color: #222;
+        border-bottom: 1px solid #e8e8e8;
+        clear: both;
+        
+        padding-bottom:10px;
+    }
+    .deadline{
+        padding-top:10px;
+    }
+    .deadline,.task_deti{
+        display: flex;
+        align-items: center;
+    }
+    #detail_info,#deadline{
+        font-size: 16px;
+    }
+    #deadline{
+        margin-left:15px;
+    }
+    h4{
+        font-size: 16px;
+        color: #555;
+        padding-left:10px;
+        
+    }
+    .deadline h4{
+        margin: 0px;
+    }
+    .thumbnails img{
+        height:100px;
+        margin:5px;
+        max-width:90%;
+    }
+    .chip{
+        margin-left:10px;
+        margin-bottom: 10px;
     }
     
 }
@@ -34,7 +91,7 @@ a{
         width: 100%;
         max-width: 890px;  
         min-height: 600px;
-        margin: 0 auto;
+        margin: 0 auto 80px;
         /*内部元素排列*/
         display: flex;
         flex-direction: column;
@@ -44,42 +101,66 @@ a{
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         opacity: 1;
     }
-    #task_name{
+    .task_name{
         border-bottom : 1px solid #b8c8cb;
         width: 100%;
         height: 100px;
-        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content:  center;
+
     }
-    h3{
+    .task_name label{
         max-width: 620px;
         color: #555;
         font-size: 28px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+       
     }
-    .border_4{
-        width: 100%;
-        height: 4px;
-        background-color: #B8C8CB;
-    }
+
     .task_detail{
         width: 100%;
-        min-height: 150px;
+        min-height: 100px;
+        margin-top: 5px;
     }
-    h4{
-        font-size: 20px;
-        color: #333;
-    }
-    .detail_info{
+    .deadline,.task_deti{
+        height:50px;
+        display: flex;
+        align-items: center;
         
     }
+    h4{
+        margin-left:10px;
+        font-size: 20px;
+        color: #555;
+        margin: 0;
+        padding-left: 10px;
+    }
+    #deadline{
+        font-size: 20px;
+        margin-left: 20px;
+        color:#333;
+    }
+    
     #detail_info {
         margin-left: 15px;
-        font-size: 16px;
+        font-size: 18px;
+        color: #333;
     }
-    .task_file{
-
+    
+    .thumbnails img{
+        height:150px;
+        margin:10px;
+    }
+    .chip{
+        margin-left:20px;
+        margin-bottom: 10px;
+    }
+    .member{
+        margin-bottom: 20px;
     }
     
 }

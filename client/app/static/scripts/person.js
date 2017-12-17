@@ -2,7 +2,6 @@ $(document).ready(function () {
 	var count = 0;
 	var ajax_num = 2;
 	$(".person").addClass("active");
-
 	var username = $.cookie("username");
 	$("#user_name").append(username);
 	var email=$.cookie("email");
