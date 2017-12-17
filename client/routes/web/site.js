@@ -77,6 +77,29 @@ module.exports = function (app) {
 		res.json(resData);
 	});
 
+	app.get('/email', function(req, res, next) {
+		var options = {
+			from        : 'guanpengch@163.com',
+			to          : '875499765@qq.com',
+			// cc         : ''  //抄送
+			// bcc      : ''    //密送
+			subject        : 'absdfsadf',
+			//text          : '我是啊啊啊',
+			html           : 'absdfsadf'
+		};
+		
+		app.get('mailTransport').sendMail(options, function(err, msg){
+			if(err){
+				console.log(err);
+				res.render('index', { title: err });
+			}
+			else {
+				console.log(msg);
+				res.render('index', { title: "已接收："+msg.accepted});
+			}
+		});
+	});
+
 	app.get('/test', function (req, res) {
 		res.render("test")
 	});

@@ -11,6 +11,7 @@ var config = require("./config/config");
 var browserSync = require('browser-sync');
 var session = require('express-session');
 var multer = require('multer');
+var nodemailer  = require('nodemailer');
 
 var app = express();
 var dir = app.get('env') == "production" ? "dist" : "app";
@@ -22,6 +23,18 @@ nunjucks.configure(__dirname + "/" + dir + "/views", {
     express: app,
     watch: true
 });
+
+var mailTransport = nodemailer.createTransport({
+    host : 'smtp.163.com',
+    secureConnection: true, // 使用SSL方式（安全方式，防止被窃取信息）
+    port: 465,
+    secure: true,
+    auth : {
+        user : 'guanpengch@163.com',
+        pass : 'g102938475610'
+    },
+});
+app.set('mailTransport',mailTransport);
 
 app.use(compression());
 app.use(bodyParser.json());
