@@ -119,7 +119,6 @@ a{
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-       
     }
 
     .task_detail{
@@ -131,7 +130,6 @@ a{
         height:50px;
         display: flex;
         align-items: center;
-        
     }
     h4{
         margin-left:10px;
@@ -151,11 +149,16 @@ a{
         font-size: 18px;
         color: #333;
     }
-    
+    .thumbnails{
+        display: flex;
+        align-items: center;
+        flex-wrap:wrap;
+    }
     .thumbnails img{
         height:150px;
         margin:10px;
     }
+
     .chip{
         margin-left:20px;
         margin-bottom: 10px;
