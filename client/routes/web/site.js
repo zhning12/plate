@@ -26,10 +26,6 @@ module.exports = function (app) {
 		res.render("index")
 	});
 
-	app.get('/sign-up', function (req, res) {
-		res.render("users/signUp")
-	});
-
 	app.get('/sign-in', function (req, res) {
 		res.render("users/signIn")
 	});
@@ -63,7 +59,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/switch', function (req, res) {
-		res.render("users/switchTeam")
+		res.render("users/switch")
 	});
 
 	// 单图上传

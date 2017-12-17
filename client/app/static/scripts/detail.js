@@ -72,12 +72,10 @@ $(document).ready(function () {
 	$('#task_title').change(function () {
 		var finished = $('#task_title').prop('checked');
 		finished = finished ? '1' : '0';
-		console.log(finished);
 		var jsonData = {
 			"taskId": task_id,
 			"finished": finished
 		};
-		console.log(jsonData);
 		$.ajax({
 			type: "post",
 			url: globalurl + "updateState",
@@ -87,10 +85,10 @@ $(document).ready(function () {
 			data: jsonData,
 			success: function (data) {
 				if (data['status'] == 1) {
-					console.log('success');
+					Materialize.toast('修改任务状态成功', 4000);
 				}
 				else {
-					console.log('failed');
+					Materialize.toast('修改任务状态失败', 4000);
 				}
 			},
 			error: ajaxError

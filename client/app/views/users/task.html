@@ -14,7 +14,7 @@
         <div class="small-screen-only">
             <h1>所有任务</h1>
         </div>
-        <a class="task-card" v-for="object in objects">
+        <a class="task-card" v-for="object in objects" v-bind:href="object.url">
             <i class="material-icons">${ object.icon }</i>
             <p>${ object.name } </p>
         </a>
