@@ -104,13 +104,10 @@ a{
     }
     .user_info{
         width: 100%;
-
         min-height:80px;
         padding: 20px 0;
-
         border-bottom:1px solid #e6e6e6; 
         display: flex;
-        
     }
     .avatar{
         border-radius: 50%;
@@ -156,9 +153,17 @@ a{
         display: flex;
         align-items: center;
     }
-    .todo .name{
+    .todo:hover{
+        background-color:#f9f9f9;
+        box-shadow: 3px 3px 3px #a0a0a0;
+        transition: 0.3s;
+    }
+    .name{
         display: flex;
         align-items: center;
+    }
+    .name label{
+        color:black;
     }
     .todo-text{
         color:black;
