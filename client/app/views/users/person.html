@@ -23,7 +23,7 @@
             <a v-for="task in tasks">
                 <div class="todo break-word">
                     <div class="name">
-                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" />
+                        <input type="checkbox" class="filled-in" v-bind:id="task.checkbox_id" v-model="item.state"/>
                         <label v-bind:for="task.checkbox_id">${task.name}</label>
                     </div>
                     <div class="info truncate-text">

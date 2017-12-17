@@ -2,6 +2,7 @@ SERVER = {
     'host' : 'localhost',
     'port' : 7000,
     'debug' : False,
+    'threaded' : True,
     'secretKey' : 'Sm9obiBTY2hyb20ga2lja3MgYXNz'
 }
 
