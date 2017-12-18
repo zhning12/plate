@@ -1,6 +1,7 @@
 from flask import Blueprint , request , jsonify , session
 from app import getConn
 import json,datetime
+from passlib.hash import sha256_crypt
 
 userBlue = Blueprint('userBlue', __name__)
 
@@ -11,6 +12,7 @@ def signUp():
     username = request.form.get('username', '')
     email = request.form.get('email', '')
     password = request.form.get('password', '')
+    hashPassword = sha256_crypt.encrypt(password)
     avatar = request.form.get('avatar', '')
     with getConn() as cursor:
         cursor.execute('select * from USER where EMAIL = "%s"' % (email,))
@@ -27,7 +29,7 @@ def signUp():
                 "message" : "username-existed-error"
             }
             return jsonify(res)
-        cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , AVATAR ) values ("%s" ,"%s" ,"%s" ,"%s")' % (username,email,password,avatar,))
+        cursor.execute('insert into USER (USERNAME , EMAIL , PASSWORD , AVATAR ) values ("%s" ,"%s" ,"%s" ,"%s")' % (username,email,hashPassword,avatar,))
     # 获取用户信息
     res = getUser(email,password)
     return jsonify(res)
@@ -46,23 +48,28 @@ def getUser(email,password):
     with getConn() as cursor:
         cursor.execute(
             '''
-            select USER.ID,USERNAME,EMAIL,AVATAR,TEAM_ID,USER.CREATED,USER.UPDATED,TEAM.NAME
-            from USER left join TEAM on USER.TEAM_ID = TEAM.ID 
-            where EMAIL = "%s" and PASSWORD = "%s"
-            ''' % (email,password,))
-        user = cursor.fetchone()
-        if not user:
-            res = {
-                "status" : 0,
-                "message" : "email-pwd-error"
-            }
-        else:
+            select PASSWORD from USER where EMAIL = "%s"
+            ''' % (email,))
+        hashed = cursor.fetchone()[0]
+        if sha256_crypt.verify(password, hashed):
+            cursor.execute(
+                '''
+                select USER.ID,USERNAME,EMAIL,AVATAR,TEAM_ID,USER.CREATED,USER.UPDATED,TEAM.NAME
+                from USER left join TEAM on USER.TEAM_ID = TEAM.ID 
+                where EMAIL = "%s"
+                ''' % (email,))
+            user = cursor.fetchone()
             userDict = dict(zip(head, user))
             data = json.loads(json.dumps(dict(userDict), default=datetime_handler))
             res = {
                 "status" : 1,
                 "message" : "success",
                 "data" : data
+            }
+        else:
+            res = {
+                "status" : 0,
+                "message" : "email-pwd-error"
             }
     return res
 
